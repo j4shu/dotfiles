@@ -45,11 +45,11 @@ later(function()
   -- cmp
   add('windwp/nvim-autopairs')
   add({ source = 'saghen/blink.cmp', checkout = 'v1.7.0' })
-  add('zbirenbaum/copilot.lua')
-  add({
-    source = 'CopilotC-Nvim/CopilotChat.nvim',
-    depends = { 'nvim-lua/plenary.nvim' },
-  })
+  -- add('zbirenbaum/copilot.lua')
+  -- add({
+  -- source = 'CopilotC-Nvim/CopilotChat.nvim',
+  -- depends = { 'nvim-lua/plenary.nvim' },
+  -- })
   vim.cmd('runtime! lua/plugins/cmp/*')
 
   -- snacks

@@ -84,8 +84,8 @@ require('catppuccin').setup({
       TreesitterContextLineNumber = { link = 'CursorLineNr' },
 
       -- copilot
-      CopilotSuggestion = { fg = c.overlay0 },
-      CopilotAnnotation = { link = 'Search' },
+      -- CopilotSuggestion = { fg = c.overlay0 },
+      -- CopilotAnnotation = { link = 'Search' },
     }
   end,
   default_integrations = false,
