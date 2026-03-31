@@ -34,7 +34,7 @@ vim.pack.add({
   { src = 'https://github.com/saghen/blink.indent' },
   -- editing
   { src = 'https://github.com/folke/snacks.nvim' },
-  { src = 'https://github.com/nvim-treesitter/nvim-treesitter' },
+  { src = 'https://github.com/nvim-treesitter/nvim-treesitter', version = 'master' },
   { src = 'https://github.com/nvim-treesitter/nvim-treesitter-context' },
   { src = 'https://github.com/numToStr/Comment.nvim' },
   { src = 'https://github.com/nmac427/guess-indent.nvim' },
