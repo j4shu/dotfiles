@@ -8,7 +8,7 @@ end, { desc = 'Update (To Lockfile)' })
 vim.keymap.set('n', '<leader>mx', function()
   local name = vim.fn.input('Plugin name: ')
   if name ~= '' then
-    vim.pack.del(name)
+    vim.pack.del({ name })
   end
 end, { desc = 'Delete' })
 
