@@ -1,18 +1,7 @@
--- local path_package = vim.fn.stdpath('data') .. '/site/'
--- local mini_path = path_package .. 'pack/deps/start/mini.nvim'
--- ---@diagnostic disable-next-line: undefined-field
--- if not vim.loop.fs_stat(mini_path) then
---   vim.fn.system({ 'git', 'clone', '--filter=blob:none', 'https://github.com/echasnovski/mini.nvim', mini_path })
--- end
-
--- local deps = require('mini.deps')
--- local add, now, later = deps.add, deps.now, deps.later
--- deps.setup({ path = { package = path_package } })
-
 vim.keymap.set('n', '<leader>mu', vim.pack.update, { desc = 'Update' })
--- vim.keymap.set('n', '<leader>mU', function()
---   vim.pack.update(nil, { offline = true })
--- end, { desc = 'Update (Offline)' })
+vim.keymap.set('n', '<leader>mU', function()
+  vim.pack.update(nil, { offline = true })
+end, { desc = 'Update (Offline)' })
 vim.keymap.set('n', '<leader>ml', function()
   vim.pack.update(nil, { target = 'lockfile' })
 end, { desc = 'Update (To Lockfile)' })
