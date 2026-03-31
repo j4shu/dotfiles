@@ -19,7 +19,6 @@ end, { desc = 'Lockfile' })
 vim.pack.add({
   { src = 'https://github.com/catppuccin/nvim', name = 'catppuccin' },
   { src = 'https://github.com/nvim-mini/mini.nvim' },
-  { src = 'https://github.com/neovim/nvim-lspconfig' },
   -- lsp
   { src = 'https://github.com/folke/lazydev.nvim' },
   { src = 'https://github.com/stevearc/conform.nvim' },
