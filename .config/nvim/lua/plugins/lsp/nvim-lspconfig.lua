@@ -43,8 +43,11 @@ end
 
 -- lspconfig
 local capabilities = vim.lsp.protocol.make_client_capabilities()
+-- local lspconfig = require('lspconfig')
 for server, config in pairs(servers) do
+  -- config.capabilities = vim.tbl_deep_extend('force', {}, capabilities, config.capabilities or {})
   config.capabilities = capabilities
+  -- lspconfig[server].setup(config)
   vim.lsp.config(server, config)
   vim.lsp.enable(server)
 end
