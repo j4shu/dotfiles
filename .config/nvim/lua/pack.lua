@@ -32,6 +32,7 @@ vim.pack.add({
   { src = 'https://github.com/utilyre/sentiment.nvim' },
   { src = 'https://github.com/BranimirE/fix-auto-scroll.nvim' },
   { src = 'https://github.com/saghen/blink.indent' },
+  { src = 'https://github.com/rachartier/tiny-cmdline.nvim' },
   -- editing
   { src = 'https://github.com/folke/snacks.nvim' },
   { src = 'https://github.com/nvim-treesitter/nvim-treesitter', version = 'master' },
