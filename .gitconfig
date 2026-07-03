@@ -1,20 +1,10 @@
 [user]
-	name = jshu
-	email = jasonshu@terpmail.umd.edu
+    name = jshu
+    email = jasonshu@terpmail.umd.edu
 [core]
-	editor = nvim
-	pager = delta
+    editor = vim
 [pull]
-	rebase = true
-	autoStash = true
+    rebase = true
+    autoStash = true
 [rebase]
-	autoStash = true
-[delta]
-	; side-by-side = true
-	; line-numbers-left-format = ""
-	; line-numbers-right-format = "│"
-
-	; line-numbers = false
-	navigate = true
-	zero-style = dim syntax
-	tabs = 4
+    autoStash = true
