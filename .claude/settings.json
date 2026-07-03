@@ -1,0 +1,20 @@
+{
+  "env": {
+    "ENABLE_TOOL_SEARCH": "true"
+  },
+  "permissions": {
+    "allow": [
+      "Bash",
+      "Read",
+      "Write",
+      "Glob",
+      "WebSearch",
+      "WebFetch",
+      "mcp__icuvisor"
+    ]
+  },
+  "effortLevel": "xhigh",
+  "autoCompactEnabled": true,
+  "autoCompactWindow": 200000,
+  "model": "claude-fable-5[1m]"
+}
