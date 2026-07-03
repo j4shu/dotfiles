@@ -26,11 +26,6 @@ symbol = ""
 always_show_remote = true
 format = '[$symbol $branch ](green)'
 
-[rust]
-disabled = false
-symbol = ""
-format = '[$symbol ($version )](blue)'
-
 [python]
 disabled = false
 symbol = ""
