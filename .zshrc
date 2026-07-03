@@ -24,138 +24,102 @@ bindkey "^[[1;3D" backward-word     # alt-left
 bindkey "^[[1;9D" beginning-of-line # cmd-left
 bindkey "^[[1;9C" end-of-line       # cmd-right
 
-# edit command line
-autoload -z edit-command-line
-zle -N edit-command-line
-bindkey '^X^E' edit-command-line
+CONFIG="$HOME/.config"
+PLUGINS="$CONFIG/plugins"
+
+# paths
+path+="$HOME/.local/bin"
+path+="$HOME/.cargo/bin"
+path+=$CONFIG/scripts
 
 # brew
 if [[ -f "/opt/homebrew/bin/brew" ]]; then
-	eval "$(/opt/homebrew/bin/brew shellenv)"
+    eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
-# cargo
-path+="$HOME/.cargo/bin"
-
-CONFIG="$HOME/.config"
-path+=$CONFIG/scripts
-
 # zsh
-ZSH="$CONFIG/zsh"
-source $ZSH/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-bindkey '^[l' autosuggest-accept
-source $ZSH/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
-
-# completions
-fpath+=$ZSH/completions
+autoload -z edit-command-line
+zle -N edit-command-line
+bindkey '^X^X' edit-command-line
 autoload -Uz compinit && compinit
+source $PLUGINS/zsh-autosuggestions/zsh-autosuggestions.zsh
+bindkey '^[l' autosuggest-accept
+source $PLUGINS/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+# aliases
+alias h='cd ~'
+alias desk='cd ~/Desktop'
+alias g='cd ~/git'
+alias ppwd='pwd -P'
+alias ..='cd ..'
+alias drop='cd ~/Library/CloudStorage/Dropbox/ && ls'
+alias path='echo -e ${PATH//:/\\n} | sort'
+alias env="env | sort | awk -F= '{printf \"%-30s %s\n\", \$1, \$2}'"
+alias clear='printf "\033c"'
+alias v=vim
+# source $CONFIG/work_aliases.zsh
 
 # eza https://github.com/eza-community/eza?tab=readme-ov-file
 if command -v eza >/dev/null 2>&1; then
-	EZA_OPTIONS="--color=auto --icons=auto --all"
-	EZA_LONG_OPTIONS="$EZA_OPTIONS --long --sort=modified --reverse --header --time-style='+%Y %b %e %R ' --octal-permissions --no-permissions"
-	alias l=/bin/ls
-	alias ls="eza $EZA_OPTIONS"
-	alias ll="eza $EZA_LONG_OPTIONS"
-	alias llt="eza $EZA_LONG_OPTIONS --tree --level=2"
-	alias lls="eza $EZA_LONG_OPTIONS --total-size"
+    EZA_OPTIONS="--color=auto --icons=auto --all"
+    EZA_LONG_OPTIONS="$EZA_OPTIONS --long --sort=modified --header --time-style='+%Y %b %e %R' --octal-permissions"
+    alias ll="eza $EZA_LONG_OPTIONS"
+    alias llt="eza $EZA_LONG_OPTIONS --tree --level=2"
+    alias lls="eza $EZA_LONG_OPTIONS --total-size"
 fi
-
-# aliases after eza since eza overrides ls
-source $ZSH/aliases.zsh
-[ -f $ZSH/work_aliases.zsh ] && source $ZSH/work_aliases.zsh
 
 # fzf
 if command -v fzf >/dev/null 2>&1; then
-	[ -f $CONFIG/fzf/.fzf.zsh ] && source "$CONFIG/fzf/.fzf.zsh"
+    source <(fzf --zsh)
+    # https://www.mankier.com/1/fzf#Options-Interface
+    export FZF_DEFAULT_OPTS="--no-multi --border=sharp"
+    # fd https://github.com/sharkdp/fd?tab=readme-ov-file#using-fd-with-fzf
+    export FZF_DEFAULT_COMMAND="fd --type file --type l --follow --hidden --exclude .git"
+    # history
+    export FZF_CTRL_R_OPTS="--info=hidden"
+    bindkey "^[[A" fzf-history-widget
+    # fzf-tab-completion
+    source $PLUGINS/fzf-tab-completion/zsh/fzf-zsh-completion.sh
 fi
 
 # tmux
 if command -v tmux >/dev/null 2>&1; then
-	function zd() {
-		tmux kill-server
-	}
+    function zd() {
+        tmux kill-server
+    }
 fi
 if command -v tmuxp >/dev/null 2>&1; then
-	function zz() {
-		tmuxp load -y "$CONFIG/tmux/layouts/dev.yaml"
-	}
+    function zz() {
+        tmuxp load -y "$CONFIG/tmux/layouts/dev.yaml"
+    }
 fi
 
 # bat
 if command -v bat >/dev/null 2>&1; then
-	alias cat=bat
-	export BAT_THEME="Nord"
+    alias cat=bat
 fi
 
 # starship
 if command -v starship >/dev/null 2>&1; then
-	eval "$(starship init zsh)"
-fi
-
-# bob
-if command -v bob >/dev/null 2>&1; then
-	path+=$HOME/.local/share/bob/nvim-bin
-fi
-# neovim
-if command -v nvim >/dev/null 2>&1; then
-	function v() {
-		# yadm
-		if [[ "$PWD" == $CONFIG* ]]; then
-			if command -v yadm >/dev/null 2>&1; then
-				yadm enter nvim $@
-			fi
-		else
-			nvim $@
-		fi
-	}
-	export EDITOR=nvim
-fi
-
-# lazygit
-if command -v lazygit >/dev/null 2>&1; then
-	function gg() {
-		# yadm
-		if [[ "$PWD" == $CONFIG* ]]; then
-			if command -v yadm >/dev/null 2>&1; then
-				cd
-				yadm enter lazygit
-				cd -
-			fi
-		else
-			lazygit
-		fi
-	}
-fi
-
-# ripgrep
-if command -v rg >/dev/null 2>&1; then
-	export RIPGREP_CONFIG_PATH="$CONFIG/.ripgreprc"
+    eval "$(starship init zsh)"
 fi
 
 # zoxide
 if command -v zoxide >/dev/null 2>&1; then
-	eval "$(zoxide init zsh)"
-
-	# https://github.com/ajeetdsouza/zoxide/discussions/1007
-	function zoxide_fzf() {
-		local orig_buffer=$LBUFFER
-		local selection
-		selection=$(zoxide query --list | fzf --height 40% --reverse) || {
-			LBUFFER=$orig_buffer
-			zle redisplay
-			return 0
-		}
-		if [[ -n "$selection" ]]; then
-			LBUFFER+="$selection"
-			zle redisplay
-		fi
-	}
-	zle -N zoxide_fzf
-	bindkey '^o' zoxide_fzf
-fi
-
-# go
-if command -v go >/dev/null 2>&1; then
-	path+=$HOME/go/bin
+    eval "$(zoxide init zsh)"
+    # https://github.com/ajeetdsouza/zoxide/discussions/1007
+    function zoxide_fzf() {
+        local orig_buffer=$LBUFFER
+        local selection
+        selection=$(zoxide query --list | fzf --height 40% --reverse) || {
+            LBUFFER=$orig_buffer
+            zle redisplay
+            return 0
+        }
+        if [[ -n "$selection" ]]; then
+            LBUFFER+="$selection"
+            zle redisplay
+        fi
+    }
+    zle -N zoxide_fzf
+    bindkey '^o' zoxide_fzf
 fi
