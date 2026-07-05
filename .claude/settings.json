@@ -13,8 +13,16 @@
       "mcp__icuvisor"
     ]
   },
-  "effortLevel": "xhigh",
+  "model": "opus[1m]",
+  "statusLine": {
+    "type": "command",
+    "command": "python3 /Users/jshu/.claude/statusline.py",
+    "padding": 0
+  },
+  "spinnerTipsEnabled": false,
+  "effortLevel": "high",
   "autoCompactEnabled": true,
   "autoCompactWindow": 200000,
-  "model": "claude-fable-5[1m]"
+  "promptSuggestionEnabled": false,
+  "awaySummaryEnabled": false
 }
