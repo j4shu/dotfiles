@@ -12,6 +12,13 @@ import json
 import os
 import sys
 
+# On Windows the console defaults to cp1252, which can't encode the │ separator.
+# Force UTF-8 so the line renders instead of crashing with UnicodeEncodeError.
+try:
+    sys.stdout.reconfigure(encoding="utf-8")
+except Exception:
+    pass
+
 # ---- config -----------------------------------------------------------------
 CONTEXT_LIMIT = 200_000   # token count is shown as a % of this (auto-compact window)
 CWD_SEGMENTS = 2          # trailing path segments to show for cwd
