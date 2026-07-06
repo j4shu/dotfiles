@@ -1,0 +1,10 @@
+- https://github.com/zsh-users/zsh-autosuggestions
+- https://github.com/zdharma-continuum/fast-syntax-highlighting
+- https://github.com/eza-community/eza/releases
+- https://github.com/junegunn/fzf/releases
+- https://github.com/sharkdp/fd/releases
+- https://github.com/lincheney/fzf-tab-completion
+- https://github.com/sharkdp/bat/releases
+- https://github.com/starship/starship/releases
+- https://github.com/ajeetdsouza/zoxide/releases
+- https://github.com/zellij-org/zellij/releases
