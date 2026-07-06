@@ -1,0 +1,102 @@
+// https://zellij.dev/documentation/keybindings
+// https://github.com/zellij-org/zellij/blob/main/zellij-utils/assets/config/default.kdl
+// https://github.com/ndavd/dotfiles/blob/main/.config/zellij/config.kdl
+// zellij setup --dump-config | nvim -
+
+keybinds clear-defaults=true {
+    locked {
+        bind "Ctrl a" { SwitchToMode "Normal"; }
+        bind "Ctrl f" { ToggleFloatingPanes; }
+        bind "Ctrl Tab"       { GoToNextTab; SwitchToMode "Locked"; }
+        bind "Ctrl Shift Tab" { GoToPreviousTab; SwitchToMode "Locked"; }
+    }
+    normal {
+        bind "Ctrl a" { Write 1;  SwitchToMode "Locked"; }
+        bind "Ctrl f" { Write 6;  SwitchToMode "Locked"; }
+        // lock
+        bind "Esc" "Enter" { SwitchToMode "Locked"; }
+
+        // // add floating pane
+        bind "f" {
+            Run "zellij" "action" "new-pane" "--floating" {
+                close_on_exit true
+            }
+            SwitchToMode "Locked"
+        }
+
+        // lazygit
+        bind "a" {
+            // https://github.com/zellij-org/zellij/discussions/2518
+            Run "zellij" "run" "--close-on-exit" "--floating" "--" "zellij-lazygit" {
+                close_on_exit true
+            }
+            SwitchToMode "Locked"
+        }
+
+        // pane
+        bind "s" { NewPane "Down";  SwitchToMode "Locked"; }
+        bind "v" { NewPane "Right"; SwitchToMode "Locked"; }
+        bind "H" { MovePane "Left"; }
+        bind "J" { MovePane "Down"; }
+        bind "K" { MovePane "Up"; }
+        bind "L" { MovePane "Right"; }
+        bind "m" { ToggleFocusFullscreen; SwitchToMode "Locked"; }
+        bind "X" { CloseFocus; SwitchToMode "Locked"; }
+        // bind "E" { TogglePaneEmbedOrFloating; SwitchToMode "Locked"; }
+
+        // tab
+        bind "t" { NewTab; SwitchToMode "Locked"; }
+        bind "r" { SwitchToMode "RenameTab"; TabNameInput 0; }
+        bind "Right" { MoveTab "Right"; }
+        bind "Left"  { MoveTab "Left"; }
+        // bind "S" { ToggleActiveSyncTab; SwitchToMode "Locked"; }
+        // bind "X" { CloseTab; SwitchToMode "Locked"; }
+
+        // // resize
+        // bind "=" { Resize "Increase"; }
+        // bind "-" { Resize "Decrease"; }
+
+        // // scroll
+        // bind "Ctrl u" { PageScrollUp; }
+        // bind "Ctrl d" { PageScrollDown; }
+        // bind "G" { ScrollToBottom; }
+        // bind "g" { ScrollToTop; }
+
+        // session
+        bind "q" { Detach; }
+        bind "M" {
+            LaunchOrFocusPlugin "zellij:session-manager" {
+                floating true
+                move_to_focused_tab true
+            };
+            SwitchToMode "Locked"
+        }
+
+        // scrollback
+        bind "e" { EditScrollback; SwitchToMode "Locked"; }
+    }
+    renametab {
+        bind "Esc" { UndoRenameTab; SwitchToMode "Locked"; }
+        bind "Enter" { SwitchToMode "Locked"; }
+    }
+}
+
+load_plugins {
+    "file:~/.config/zellij/plugins/zjstatus.wasm"
+}
+
+
+// layout
+default_layout "custom"
+layout_dir ".config/zellij/layouts/"
+// default_layout "compact"
+
+pane_frames false
+theme "catppuccin-mocha"
+default_mode "locked"
+pane_viewport_serialization true
+scrollback_lines_to_serialize 10000
+show_startup_tips false
+show_release_notes false
+attach_to_session true
+visual_bell false

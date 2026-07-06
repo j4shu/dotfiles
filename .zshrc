@@ -42,8 +42,10 @@ autoload -z edit-command-line
 zle -N edit-command-line
 bindkey '^X^X' edit-command-line
 autoload -Uz compinit && compinit
+# https://github.com/zsh-users/zsh-autosuggestions
 source $PLUGINS/zsh-autosuggestions/zsh-autosuggestions.zsh
 bindkey '^[l' autosuggest-accept
+# https://github.com/zdharma-continuum/fast-syntax-highlighting
 source $PLUGINS/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 
 # aliases
@@ -59,52 +61,53 @@ alias clear='printf "\033c"'
 alias v=vim
 # source $CONFIG/work_aliases.zsh
 
-# eza https://github.com/eza-community/eza?tab=readme-ov-file
+# eza https://github.com/eza-community/eza
 if command -v eza >/dev/null 2>&1; then
     EZA_OPTIONS="--color=auto --icons=auto --all"
     EZA_LONG_OPTIONS="$EZA_OPTIONS --long --sort=modified --header --time-style='+%Y %b %e %R' --octal-permissions"
+    alias l="eza $EZA_OPTIONS"
     alias ll="eza $EZA_LONG_OPTIONS"
     alias llt="eza $EZA_LONG_OPTIONS --tree --level=2"
     alias lls="eza $EZA_LONG_OPTIONS --total-size"
 fi
 
-# fzf
+# fzf https://github.com/junegunn/fzf
 if command -v fzf >/dev/null 2>&1; then
     source <(fzf --zsh)
     # https://www.mankier.com/1/fzf#Options-Interface
     export FZF_DEFAULT_OPTS="--no-multi --border=sharp"
-    # fd https://github.com/sharkdp/fd?tab=readme-ov-file#using-fd-with-fzf
+    # fd https://github.com/sharkdp/fd https://github.com/sharkdp/fd?tab=readme-ov-file#using-fd-with-fzf
     export FZF_DEFAULT_COMMAND="fd --type file --type l --follow --hidden --exclude .git"
     # history
     export FZF_CTRL_R_OPTS="--info=hidden"
     bindkey "^[[A" fzf-history-widget
-    # fzf-tab-completion
+    # fzf-tab-completion https://github.com/lincheney/fzf-tab-completion
     source $PLUGINS/fzf-tab-completion/zsh/fzf-zsh-completion.sh
 fi
 
 # tmux
-if command -v tmux >/dev/null 2>&1; then
-    function zd() {
-        tmux kill-server
-    }
-fi
-if command -v tmuxp >/dev/null 2>&1; then
-    function zz() {
-        tmuxp load -y "$CONFIG/tmux/layouts/dev.yaml"
-    }
-fi
+# if command -v tmux >/dev/null 2>&1; then
+#     function zd() {
+#         tmux kill-server
+#     }
+# fi
+# if command -v tmuxp >/dev/null 2>&1; then
+#     function zz() {
+#         tmuxp load -y "$CONFIG/tmux/layouts/dev.yaml"
+#     }
+# fi
 
-# bat
+# bat https://github.com/sharkdp/bat
 if command -v bat >/dev/null 2>&1; then
     alias cat=bat
 fi
 
-# starship
+# starship https://github.com/starship/starship
 if command -v starship >/dev/null 2>&1; then
     eval "$(starship init zsh)"
 fi
 
-# zoxide
+# zoxide https://github.com/ajeetdsouza/zoxide
 if command -v zoxide >/dev/null 2>&1; then
     eval "$(zoxide init zsh)"
     # https://github.com/ajeetdsouza/zoxide/discussions/1007
@@ -134,4 +137,14 @@ fi
 # vscode
 if command -v code >/dev/null 2>&1; then
     export EDITOR="code --wait"
+fi
+
+# zellij https://github.com/zellij-org/zellij
+if command -v zellij >/dev/null 2>&1; then
+    alias zz="zellij attach --create dev"
+    function zd() {
+        zellij kill-all-sessions
+        zellij delete-all-sessions
+    }
+    alias zl="zellij list-sessions"
 fi
