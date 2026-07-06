@@ -1,6 +1,7 @@
 {
   "env": {
-    "ENABLE_TOOL_SEARCH": "true"
+    "ENABLE_TOOL_SEARCH": "true",
+    "CLAUDE_CODE_SCROLL_SPEED": "0.25"
   },
   "permissions": {
     "allow": [
@@ -22,8 +23,11 @@
   },
   "spinnerTipsEnabled": false,
   "effortLevel": "high",
-  "autoCompactEnabled": true,
-  "autoCompactWindow": 200000,
   "promptSuggestionEnabled": false,
-  "prefersReducedMotion": true
+  "prefersReducedMotion": true,
+  "autoCompactEnabled": false,
+  "attribution": {
+    "commits": false,
+    "pullRequests": false
+  }
 }
