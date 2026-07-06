@@ -45,6 +45,7 @@ autoload -Uz compinit && compinit
 source $PLUGINS/zsh-autosuggestions/zsh-autosuggestions.zsh
 bindkey '^[l' autosuggest-accept
 source $PLUGINS/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+
 # aliases
 alias h='cd ~'
 alias desk='cd ~/Desktop'
@@ -56,9 +57,6 @@ alias path='echo -e ${PATH//:/\\n} | sort'
 alias env="env | sort | awk -F= '{printf \"%-30s %s\n\", \$1, \$2}'"
 alias clear='printf "\033c"'
 alias v=vim
-alias cc="claude agents --cwd ."
-alias ccc="claude --continue"
-export EDITOR="code --wait"
 # source $CONFIG/work_aliases.zsh
 
 # eza https://github.com/eza-community/eza?tab=readme-ov-file
@@ -125,4 +123,15 @@ if command -v zoxide >/dev/null 2>&1; then
     }
     zle -N zoxide_fzf
     bindkey '^o' zoxide_fzf
+fi
+
+# claude
+if command -v claude >/dev/null 2>&1; then
+    alias cc="claude agents --cwd ."
+    alias ccc="claude --continue"
+fi
+
+# vscode
+if command -v code >/dev/null 2>&1; then
+    export EDITOR="code --wait"
 fi
