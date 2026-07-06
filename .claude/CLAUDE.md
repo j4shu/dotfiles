@@ -1,4 +1,4 @@
-# Global preferences
+# Global Preferences
 
 ## No Claude/AI attribution
 

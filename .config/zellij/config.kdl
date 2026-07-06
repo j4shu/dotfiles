@@ -85,7 +85,6 @@ load_plugins {
     "file:~/.config/zellij/plugins/zjstatus.wasm"
 }
 
-
 // layout
 default_layout "custom"
 layout_dir ".config/zellij/layouts/"
