@@ -24,6 +24,5 @@
   "effortLevel": "high",
   "autoCompactEnabled": true,
   "autoCompactWindow": 200000,
-  "promptSuggestionEnabled": false,
-  "awaySummaryEnabled": false
+  "promptSuggestionEnabled": false
 }
