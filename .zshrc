@@ -76,8 +76,11 @@ if command -v fzf >/dev/null 2>&1; then
     source <(fzf --zsh)
     # https://www.mankier.com/1/fzf#Options-Interface
     export FZF_DEFAULT_OPTS="--no-multi --border=sharp"
-    # fd https://github.com/sharkdp/fd https://github.com/sharkdp/fd?tab=readme-ov-file#using-fd-with-fzf
-    export FZF_DEFAULT_COMMAND="fd --type file --type l --follow --hidden --exclude .git"
+    # fd
+    if command -v fd >/dev/null 2>&1; then
+        # fd https://github.com/sharkdp/fd https://github.com/sharkdp/fd?tab=readme-ov-file#using-fd-with-fzf
+        export FZF_DEFAULT_COMMAND="fd --type file --type l --follow --hidden --exclude .git"
+    fi
     # history
     export FZF_CTRL_R_OPTS="--info=hidden"
     bindkey "^[[A" fzf-history-widget
