@@ -16,7 +16,7 @@ keybinds clear-defaults=true {
         // lock
         bind "Esc" "Enter" { SwitchToMode "Locked"; }
 
-        // // add floating pane
+        // add floating pane
         bind "f" {
             Run "zellij" "action" "new-pane" "--floating" {
                 close_on_exit true
