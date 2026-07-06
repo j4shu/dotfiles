@@ -4,15 +4,16 @@
 Reads the session JSON piped to stdin by Claude Code, pulls the live context-token
 count from the session transcript, and prints one line:
 
-    <cwd> │ <model> │ <tokens>/<limit> (<pct>) │ $<cost> │ <duration>
+    <cwd> · <model> · <tokens>/<limit> (<pct>) · $<cost> · <duration>
 
 Plain text, no colors.
 """
+
 import json
 import os
 import sys
 
-# On Windows the console defaults to cp1252, which can't encode the │ separator.
+# On Windows the console defaults to cp1252, which can't encode the · separator.
 # Force UTF-8 so the line renders instead of crashing with UnicodeEncodeError.
 try:
     sys.stdout.reconfigure(encoding="utf-8")
@@ -20,9 +21,9 @@ except Exception:
     pass
 
 # ---- config -----------------------------------------------------------------
-CONTEXT_LIMIT = 200_000   # token count is shown as a % of this (auto-compact window)
-CWD_SEGMENTS = 2          # trailing path segments to show for cwd
-SEP = " │ "               # separator between segments
+CONTEXT_LIMIT = 200_000  # token count is shown as a % of this (auto-compact window)
+CWD_SEGMENTS = 2  # trailing path segments to show for cwd
+SEP = " · "  # separator between segments
 
 
 def human_tokens(n):
@@ -46,7 +47,7 @@ def shorten_cwd(path):
     if path == home:
         return "~"
     if path.startswith(home + os.sep):
-        parts = path[len(home) + 1:].split(os.sep)
+        parts = path[len(home) + 1 :].split(os.sep)
         tail = os.sep.join(parts[-CWD_SEGMENTS:])
         return "~/" + tail if len(parts) <= CWD_SEGMENTS else "~/…/" + tail
     parts = [p for p in path.split(os.sep) if p]
@@ -89,7 +90,9 @@ def main():
     workspace = data.get("workspace") or {}
     cost = data.get("cost") or {}
     cwd = workspace.get("current_dir") or data.get("cwd") or os.getcwd()
-    tokens = context_tokens(data["transcript_path"]) if data.get("transcript_path") else 0
+    tokens = (
+        context_tokens(data["transcript_path"]) if data.get("transcript_path") else 0
+    )
 
     seg = [shorten_cwd(cwd)]
     if model.get("display_name"):
