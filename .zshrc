@@ -56,7 +56,7 @@ alias path='echo -e ${PATH//:/\\n} | sort'
 alias env="env | sort | awk -F= '{printf \"%-30s %s\n\", \$1, \$2}'"
 alias clear='printf "\033c"'
 alias v=vim
-alias cc=claude
+alias cc="claude agents --cwd ."
 alias ccc="claude --continue"
 export EDITOR="code --wait"
 # source $CONFIG/work_aliases.zsh
