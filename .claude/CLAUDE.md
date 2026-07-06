@@ -1,13 +1,15 @@
-# Global Preferences
+# Git & worktrees
 
-## No Claude/AI attribution
+- Never include Claude/AI attribution.
+- Branch names: `<type>/<desc>`.
+- Commits: use Conventional Commits (e.g. `<type>[optional scope]: <desc>`).
+- When work is isolated in a worktree, ship it: commit, push, open a draft PR.
+  Never leave a worktree with uncommitted work.
 
-Never include Claude/AI attribution in commit messages, PR descriptions, or any
-other output.
+# Agents
 
-## Conventional Commits
+- Launch independent agents in parallel, not sequentially.
 
-Use the Conventional Commits standard for all git related tasks. Prefix every
-commit subject and PR title with a type — `feat`, `fix`, `ci`, `docs`,
-`refactor`, `chore`, etc. — optionally a scope in parens, then a colon and an
-imperative summary.
+# Style
+
+- No decorative banners.
