@@ -1,5 +1,0 @@
-#!/usr/bin/env zsh
-
-TMP_FILE="/tmp/tmux_grep_scrollback.txt"
-tmux capture-pane -p -S - -E - -t "$2" | grep -i "$1" > "$TMP_FILE"
-tmux display-popup -E -w 90% -h 90% "nvim $TMP_FILE"
