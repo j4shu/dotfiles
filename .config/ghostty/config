@@ -1,5 +1,5 @@
 # updates
-auto-update         = check
+auto-update = check
 auto-update-channel = tip
 
 # background
@@ -7,18 +7,19 @@ background-opacity = 0.85
 background-blur = true
 
 # font
-font-family          = MesloLGM Nerd Font
-font-size            = 18
+# font-family          = MesloLGM Nerd Font
+font-family = ZedMono Nerd Font
+font-size = 18
 
 # cursor
-cursor-style            = bar
+cursor-style = bar
 mouse-hide-while-typing = true
 
 # window
-maximize                  = true
-title                     = "👻 Ghostty"
+maximize = true
+title = "👻 Ghostty"
 macos-titlebar-proxy-icon = hidden
-confirm-close-surface     = false
+confirm-close-surface = false
 
 # clipboard
 clipboard-read = allow
@@ -30,9 +31,9 @@ keybind = ctrl+shift+tab=esc:[27;6;9~
 keybind = cmd+r=reload_config
 
 # theme
-theme        = Catppuccin Mocha
+theme = Catppuccin Mocha
 cursor-color = white
-cursor-text  = black
+cursor-text = black
 
 # shaders
 custom-shader = shaders/cursor_smear_fade.glsl
