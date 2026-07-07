@@ -25,6 +25,7 @@ layout {
 
     tab name=".config" cwd="~/.config/" focus=true
     tab name="icuvisor" cwd="~/git/icuvisor-chat"
+    tab name="copy-as-mention" cwd="~/git/copy-as-mention"
 
     // floating
     swap_floating_layout name="enlarged" {
