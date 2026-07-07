@@ -1,4 +1,4 @@
-# onboarding = true
+onboarding = false
 
 [theme]
 name = "terminal"
@@ -58,7 +58,7 @@ focus_pane_right = "prefix+l"
 # cycle_pane_previous = "prefix+shift+tab"
 # last_pane = ""          # optional, unset by default; bind e.g. "prefix+tab" for global back-and-forth
 split_vertical = "prefix+v"
-split_horizontal = "prefix+s"
+split_horizontal = "prefix+ctrl+s"
 close_pane = "prefix+x"
 # zoom = "prefix+z"       # legacy alias: fullscreen
 resize_mode = ""
@@ -142,7 +142,7 @@ prompt_new_tab_name = false
 # pane_borders = true
 
 # Keep split panes visually separated instead of sharing divider borders.
-# pane_gaps = true
+pane_gaps = false
 
 # Show detected/reported agent labels in split pane borders when no manual pane name is set.
 # show_agent_labels_on_pane_borders = false
