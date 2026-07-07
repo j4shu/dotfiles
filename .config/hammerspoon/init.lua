@@ -4,8 +4,8 @@
 -- application switcher
 for key, name in pairs({
 	["1"] = "Google Chrome",
-	["2"] = "Visual Studio Code",
-	["3"] = "Ghostty",
+	["2"] = "Ghostty",
+	["3"] = "Visual Studio Code",
 	-- ["3"] = "Notes",
 	-- ["e"] = "Claude"
 }) do
