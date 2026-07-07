@@ -36,6 +36,10 @@ keybinds clear-defaults=true {
         // pane
         bind "s" { NewPane "Down";  SwitchToMode "Locked"; }
         bind "v" { NewPane "Right"; SwitchToMode "Locked"; }
+        bind "j" { MoveFocus "Down"; SwitchToMode "Locked"; }
+        bind "k" { MoveFocus "Up"; SwitchToMode "Locked"; }
+        bind "h" { MoveFocus "Left"; SwitchToMode "Locked"; }
+        bind "l" { MoveFocus "Right"; SwitchToMode "Locked"; }
         bind "H" { MovePane "Left"; }
         bind "J" { MovePane "Down"; }
         bind "K" { MovePane "Up"; }
