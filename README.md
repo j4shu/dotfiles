@@ -9,3 +9,4 @@
 - https://github.com/ajeetdsouza/zoxide/releases
 - https://github.com/zellij-org/zellij/releases
 - https://github.com/jesseduffield/lazygit/releases
+- https://github.com/dandavison/delta/releases
