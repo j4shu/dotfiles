@@ -58,7 +58,6 @@ alias drop='cd ~/Library/CloudStorage/Dropbox/ && ls'
 alias path='echo -e ${PATH//:/\\n} | sort'
 alias env="env | sort | awk -F= '{printf \"%-30s %s\n\", \$1, \$2}'"
 alias clear='printf "\033c"'
-alias v=vim
 # source $CONFIG/work_aliases.zsh
 
 # eza https://github.com/eza-community/eza
@@ -138,11 +137,14 @@ if command -v claude >/dev/null 2>&1; then
     alias ccc="claude --continue"
 fi
 
-# vscode
-if command -v code >/dev/null 2>&1; then
-    export EDITOR="code --wait"
-fi
-
+# herdr
 if command -v herdr >/dev/null 2>&1; then
     alias zz="herdr"
+fi
+
+# bob
+if command -v bob >/dev/null 2>&1; then
+    path+=$HOME/.local/share/bob/nvim-bin
+    export EDITOR="nvim"
+    alias v=nvim
 fi
