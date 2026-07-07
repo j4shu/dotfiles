@@ -8,3 +8,4 @@
 - https://github.com/starship/starship/releases
 - https://github.com/ajeetdsouza/zoxide/releases
 - https://github.com/zellij-org/zellij/releases
+- https://github.com/jesseduffield/lazygit/releases
