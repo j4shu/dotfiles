@@ -10,3 +10,4 @@
 - https://github.com/zellij-org/zellij/releases
 - https://github.com/jesseduffield/lazygit/releases
 - https://github.com/dandavison/delta/releases
+- https://github.com/j4shu/copy-as-mention/releases
