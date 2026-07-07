@@ -133,6 +133,7 @@ fi
 
 # claude
 if command -v claude >/dev/null 2>&1; then
+    alias c="claude"
     alias cc="claude agents --cwd ."
     alias ccc="claude --continue"
 fi
@@ -142,12 +143,6 @@ if command -v code >/dev/null 2>&1; then
     export EDITOR="code --wait"
 fi
 
-# zellij https://github.com/zellij-org/zellij
-if command -v zellij >/dev/null 2>&1; then
-    alias zz="zellij attach --create dev"
-    function zd() {
-        zellij kill-all-sessions
-        zellij delete-all-sessions
-    }
-    alias zl="zellij list-sessions"
+if command -v herdr >/dev/null 2>&1; then
+    alias zz="herdr"
 fi
