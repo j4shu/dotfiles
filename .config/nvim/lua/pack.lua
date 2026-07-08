@@ -4,9 +4,9 @@ vim.pack.add({
   { src = 'https://github.com/nvim-mini/mini.nvim' },
 
   -- misc
-  { src = 'https://github.com/neovim/nvim-lspconfig' },
-  { src = 'https://github.com/nvim-treesitter/nvim-treesitter', version = 'master' },
-  { src = 'https://github.com/nvim-treesitter/nvim-treesitter-context' },
+  -- { src = 'https://github.com/neovim/nvim-lspconfig' },
+  -- { src = 'https://github.com/nvim-treesitter/nvim-treesitter', version = 'master' },
+  -- { src = 'https://github.com/nvim-treesitter/nvim-treesitter-context' },
 
   -- ui
   { src = 'https://github.com/utilyre/sentiment.nvim' },
@@ -19,7 +19,7 @@ vim.pack.add({
 })
 
 -- vim.pack
-vim.keymap.set('n', '<leader>mm', '<cmd>Pack<CR>', { desc = 'vim.pack' })
+vim.keymap.set('n', '<leader>mu', '<cmd>Pack<CR>', { desc = 'vim.pack' })
 vim.keymap.set('n', '<leader>me', function()
   vim.cmd('edit' .. vim.fn.stdpath('config') .. '/nvim-pack-lock.json')
 end, { desc = 'Lockfile' })
