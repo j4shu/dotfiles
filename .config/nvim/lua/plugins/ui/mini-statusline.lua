@@ -5,15 +5,6 @@ statusline.setup({
       local mode, mode_hl = statusline.section_mode({ trunc_width = 120 })
       mode = string.upper(mode)
 
-      -- local diff = function()
-      --   -- only show if present
-      --   local summary = vim.b.minidiff_summary_string
-      --   if summary == nil or summary == '' then
-      --     return ''
-      --   end
-      --   return ' ' .. summary
-      -- end
-
       local fileinfo = function()
         -- type
         local type = vim.bo.filetype
@@ -52,25 +43,6 @@ statusline.setup({
       end
 
       local lines = string.format('%dL', vim.fn.line('$'))
-
-      -- return statusline.combine_groups({
-      --   { hl = mode_hl, strings = { mode } },
-      --   {
-      --     hl = 'MiniStatuslineDevinfo',
-      --     strings = {
-      --       statusline.section_git({ trunc_width = 40 }),
-      --       -- diff(),
-      --       statusline.section_diagnostics({ trunc_width = 75 }),
-      --     },
-      --   },
-      --   '%<', -- Mark general truncate point
-      --   { hl = 'MiniStatuslineFilename', strings = { statusline.section_filename({ trunc_width = 140 }) } },
-      --   '%=', -- End left alignment
-      --   { hl = 'MiniStatuslineFilename', strings = { file_size() } },
-      --   { hl = 'MiniStatuslineFileinfo', strings = { filetype() } },
-      --   { hl = 'MiniStatuslineModeNormal', strings = { progress() .. ' / ' .. lines } },
-      --   { strings = { filetype(), file_size(), progress(), lines } },
-      -- })
 
       return statusline.combine_groups({
         { hl = mode_hl, strings = { mode } },
