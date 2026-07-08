@@ -6,6 +6,7 @@ cmp.setup({
   },
   cmdline = {
     keymap = {
+      ['<CR>'] = { 'accept', 'fallback' },
       ['<Right>'] = {},
       ['<Left>'] = {},
     },
