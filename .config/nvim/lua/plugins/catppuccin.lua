@@ -31,57 +31,21 @@
 --   crust = '#11111b',
 -- }
 
--- for transparent background to work with cmp pmenu
--- vim.o.pumblend = 1
-
 require('catppuccin').setup({
   flavour = 'mocha',
-  -- transparent_background = true,
-  -- float = { transparent = true },
   show_end_of_buffer = true,
-  no_bold = true,
   styles = { conditionals = {} },
-  lsp_styles = {
-    underlines = {
-      errors = { 'undercurl' },
-      hints = { 'undercurl' },
-      warnings = { 'undercurl' },
-      information = { 'undercurl' },
-      ok = { 'undercurl' },
-    },
-  },
   custom_highlights = function(c)
     return {
       VertSplit = { link = 'NonText' },
       WinSeparator = { link = 'VertSplit' },
       FloatBorder = { link = 'NonText' },
 
-      -- blink
-      -- BlinkCmpLabel = { fg = c.overlay1 },
-      BlinkCmpMenu = { bg = c.surface0 },
-      BlinkCmpMenuSelection = { bg = c.surface2 },
-      BlinkIndent = { fg = c.surface0 },
-      BlinkIndentScope = { fg = c.overlay0 },
-
       -- mini
-      MiniJump = { link = 'SpellRare' },
       MiniFilesTitleFocused = { link = 'Visual' },
-
-      -- snacks
-      SnacksPickerDir = { fg = c.overlay1 },
-      SnacksPickerFile = { link = 'SnacksPickerDir' },
-      SnacksPickerMatch = { bg = c.overlay0, fg = c.text },
-      -- SnacksPickerMatch = { link = 'Search' },
-      SnacksPickerListCursorLine = { link = 'CursorLine' },
-      SnacksPickerPreviewCursorLine = { link = 'SnacksPickerListCursorLine' },
-      SnacksPickerSearch = { link = 'SnacksPickerMatch' },
 
       -- sentiment
       MatchParen = { link = 'Underlined' },
-
-      -- treesitter
-      TreesitterContext = { link = 'CursorLine' },
-      TreesitterContextLineNumber = { link = 'CursorLineNr' },
 
       -- copilot
       -- CopilotSuggestion = { fg = c.overlay0 },
@@ -90,7 +54,6 @@ require('catppuccin').setup({
   end,
   default_integrations = false,
   integrations = {
-    blink_cmp = { enabled = true },
     mini = { enabled = true },
   },
 })
