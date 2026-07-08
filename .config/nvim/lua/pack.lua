@@ -1,39 +1,30 @@
-vim.keymap.set('n', '<leader>mu', vim.pack.update, { desc = 'Update' })
-vim.keymap.set('n', '<leader>mU', function()
-  vim.pack.update(nil, { offline = true })
-end, { desc = 'Update (Offline)' })
-vim.keymap.set('n', '<leader>ml', function()
-  vim.pack.update(nil, { target = 'lockfile' })
-end, { desc = 'Update (To Lockfile)' })
-vim.keymap.set('n', '<leader>mx', function()
-  local name = vim.fn.input('Plugin name: ')
-  if name ~= '' then
-    vim.pack.del({ name })
-  end
-end, { desc = 'Delete' })
-
-vim.keymap.set('n', '<leader>me', function()
-  vim.cmd('edit' .. vim.fn.stdpath('config') .. '/nvim-pack-lock.json')
-end, { desc = 'Lockfile' })
-
 vim.pack.add({
+  { src = 'https://codeberg.org/cryptomilk/nvim-pack-ui.git' },
   { src = 'https://github.com/catppuccin/nvim', name = 'catppuccin' },
   { src = 'https://github.com/nvim-mini/mini.nvim' },
 
-  -- lsp
+  -- misc
   { src = 'https://github.com/neovim/nvim-lspconfig' },
+  { src = 'https://github.com/nvim-treesitter/nvim-treesitter', version = 'master' },
+  { src = 'https://github.com/nvim-treesitter/nvim-treesitter-context' },
+
+  -- lsp
   { src = 'https://github.com/rachartier/tiny-inline-diagnostic.nvim' },
   -- ui
   { src = 'https://github.com/utilyre/sentiment.nvim' },
   { src = 'https://github.com/rachartier/tiny-cmdline.nvim' },
   -- editing
-  { src = 'https://github.com/folke/snacks.nvim' },
-  { src = 'https://github.com/nvim-treesitter/nvim-treesitter', version = 'master' },
-  { src = 'https://github.com/nvim-treesitter/nvim-treesitter-context' },
   { src = 'https://github.com/numToStr/Comment.nvim' },
   { src = 'https://github.com/nmac427/guess-indent.nvim' },
   { src = 'https://github.com/windwp/nvim-autopairs' },
 })
+
+-- vim.pack
+vim.keymap.set('n', '<leader>mm', '<cmd>Pack<CR>', { desc = 'vim.pack' })
+vim.keymap.set('n', '<leader>me', function()
+  vim.cmd('edit' .. vim.fn.stdpath('config') .. '/nvim-pack-lock.json')
+end, { desc = 'Lockfile' })
+
 
 require('plugins.catppuccin')
 vim.cmd.colorscheme('catppuccin')
