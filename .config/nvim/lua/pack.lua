@@ -18,6 +18,7 @@ vim.pack.add({
   -- editing
   { src = 'https://github.com/numToStr/Comment.nvim' },
   { src = 'https://github.com/nmac427/guess-indent.nvim' },
+  { src = 'https://github.com/zbirenbaum/copilot.lua' },
 })
 
 -- vim.pack
