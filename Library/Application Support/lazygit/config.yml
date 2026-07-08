@@ -2,7 +2,7 @@ gui:
   sidePanelWidth: 0.2
   showBottomLine: false
   showPanelJumps: false
-  nerdFontsVersion: "3"
+  nerdFontsVersion: 3
   border: single
   theme:
     inactiveBorderColor:
@@ -14,9 +14,7 @@ git:
     pager: delta --dark --paging=never --side-by-side --line-numbers-left-format="" --line-numbers-right-format="│ "
 keybinding:
   universal:
-    copyToClipboard: "y"
-    undo: u
-    redo: U
+    copyToClipboard: y
 quitOnTopLevelReturn: true
 notARepository: quit
 promptToReturnFromSubprocess: false
