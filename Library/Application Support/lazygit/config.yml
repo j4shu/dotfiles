@@ -11,7 +11,8 @@ gui:
       - "#2a2b3c"
 git:
   paging:
-    pager: delta --dark --paging=never --side-by-side --line-numbers-left-format="" --line-numbers-right-format="│ "
+    pager: delta --dark --paging=never
+    #pager: delta --dark --paging=never --side-by-side --line-numbers-left-format="" --line-numbers-right-format="│ "
 keybinding:
   universal:
     copyToClipboard: y
