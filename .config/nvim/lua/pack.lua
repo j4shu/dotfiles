@@ -4,10 +4,11 @@ vim.pack.add({
   { src = 'https://github.com/nvim-mini/mini.nvim' },
 
   -- misc
-  -- { src = 'https://github.com/neovim/nvim-lspconfig' },
+  { src = 'https://github.com/neovim/nvim-lspconfig' },
+  { src = 'https://github.com/rachartier/tiny-inline-diagnostic.nvim' },
+  { src = 'https://github.com/stevearc/conform.nvim' },
   -- { src = 'https://github.com/nvim-treesitter/nvim-treesitter', version = 'master' },
   -- { src = 'https://github.com/nvim-treesitter/nvim-treesitter-context' },
-  -- { src = 'https://github.com/rachartier/tiny-inline-diagnostic.nvim' },
 
   -- ui
   { src = 'https://github.com/utilyre/sentiment.nvim' },
@@ -26,5 +27,6 @@ end, { desc = 'Lockfile' })
 require('plugins.catppuccin')
 vim.cmd.colorscheme('catppuccin')
 vim.cmd('runtime! lua/plugins/editing/*')
+vim.cmd('runtime! lua/plugins/lsp/*')
 vim.cmd('runtime! lua/plugins/operators/*')
 vim.cmd('runtime! lua/plugins/ui/*')
