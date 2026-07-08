@@ -2,7 +2,7 @@ local conform = require('conform')
 conform.setup({
   formatters_by_ft = {
     sh = { 'shfmt' },
-    toml = { 'taplo' },
+    toml = { 'tombi' },
     lua = { 'stylua' },
     json = { 'prettier' },
     markdown = { 'prettier' },

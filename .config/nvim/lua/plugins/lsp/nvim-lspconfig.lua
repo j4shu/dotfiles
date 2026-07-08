@@ -1,4 +1,5 @@
 local servers = {
+  tombi = {},
   lua_ls = {
     settings = {
       Lua = {
@@ -10,16 +11,16 @@ local servers = {
       },
     },
   },
-  -- basedpyright = {
-  --   settings = {
-  --     basedpyright = {
-  --       analysis = {
-  --         typeCheckingMode = 'basic',
-  --         diagnosticMode = 'openFilesOnly',
-  --       },
-  --     },
-  --   },
-  -- },
+  basedpyright = {
+    settings = {
+      basedpyright = {
+        analysis = {
+          typeCheckingMode = 'basic',
+          diagnosticMode = 'openFilesOnly',
+        },
+      },
+    },
+  },
 }
 
 -- work
