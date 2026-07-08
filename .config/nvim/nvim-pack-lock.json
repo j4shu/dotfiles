@@ -20,22 +20,9 @@
       "rev": "7b9923abad60b903ece7c52940e1321d39eccc79",
       "src": "https://github.com/windwp/nvim-autopairs"
     },
-    "nvim-lspconfig": {
-      "rev": "d224a1920728ba129880efc700d4a0180ac4ecbb",
-      "src": "https://github.com/neovim/nvim-lspconfig"
-    },
     "nvim-pack-ui": {
       "rev": "f36e3cfd4859052b5751c681edb80feed0b87966",
       "src": "https://codeberg.org/cryptomilk/nvim-pack-ui.git"
-    },
-    "nvim-treesitter": {
-      "rev": "cf12346a3414fa1b06af75c79faebe7f76df080a",
-      "src": "https://github.com/nvim-treesitter/nvim-treesitter",
-      "version": "'master'"
-    },
-    "nvim-treesitter-context": {
-      "rev": "b311b30818951d01f7b4bf650521b868b3fece16",
-      "src": "https://github.com/nvim-treesitter/nvim-treesitter-context"
     },
     "sentiment.nvim": {
       "rev": "ecde8d877881bb78fdb90060c0991e76770dbdbc",
