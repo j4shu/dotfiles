@@ -16,10 +16,6 @@
       "rev": "928971c3cfe99ddf29659acc31214cfa836fabe4",
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
-    "nvim-autopairs": {
-      "rev": "7b9923abad60b903ece7c52940e1321d39eccc79",
-      "src": "https://github.com/windwp/nvim-autopairs"
-    },
     "nvim-pack-ui": {
       "rev": "f36e3cfd4859052b5751c681edb80feed0b87966",
       "src": "https://codeberg.org/cryptomilk/nvim-pack-ui.git"
@@ -31,10 +27,6 @@
     "tiny-cmdline.nvim": {
       "rev": "e247d9ee4c980734f8f8bf616d31e0ab7c27485d",
       "src": "https://github.com/rachartier/tiny-cmdline.nvim"
-    },
-    "tiny-inline-diagnostic.nvim": {
-      "rev": "6264451f14119d63a52580e5198d6baf8518b0b2",
-      "src": "https://github.com/rachartier/tiny-inline-diagnostic.nvim"
     }
   }
 }
