@@ -25,7 +25,12 @@ map('n', '<leader>,', 'mzA,<Esc>`z', { desc = 'Append Comma' })
 map('n', '<leader>;', 'mzA;<Esc>`z', { desc = 'Append Semicolon' })
 
 -- toggles
-map('n', '<leader>tw', '<cmd>setlocal wrap!<CR>', { desc = 'Toggle Word Wrap' })
+vim.g.enable_wordwrap = false
+map('n', '<leader>tw', function()
+  vim.cmd('setlocal wrap!')
+  vim.g.enable_wordwrap = not vim.g.enable_wordwrap
+  vim.notify('Toggled: Word Wrap ' .. (vim.g.enable_wordwrap and 'On' or 'Off'))
+end, { desc = 'Toggle Word Wrap' })
 
 -- movement
 map({ 'n', 'x' }, 'j', function()

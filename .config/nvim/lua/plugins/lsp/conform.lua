@@ -24,7 +24,7 @@ conform.setup({
 vim.g.enable_autoformat = true
 vim.keymap.set('n', '<leader>tf', function()
   vim.g.enable_autoformat = not vim.g.enable_autoformat
-  vim.notify('[conform.nvim] Toggled Autoformatting ' .. (vim.g.enable_autoformat and 'Off' or 'On'))
+  vim.notify('Toggled: Autoformatting ' .. (vim.g.enable_autoformat and 'Off' or 'On'))
 end, { desc = 'Toggle Autoformatting' })
 
 -- save without formatting
