@@ -104,7 +104,7 @@ fi
 if command -v zoxide >/dev/null 2>&1; then
     eval "$(zoxide init zsh)"
     # https://github.com/ajeetdsouza/zoxide/discussions/1007
-    function zoxide_fzf() {
+    zoxide_fzf() {
         local orig_buffer=$LBUFFER
         local selection
         selection=$(zoxide query --list | fzf --height 40% --reverse) || {
@@ -138,7 +138,13 @@ fi
 if command -v bob >/dev/null 2>&1; then
     path+=$HOME/.local/share/bob/nvim-bin
     export EDITOR=nvim
-    alias v=nvim
+    v() {
+        if [[ $PWD == $HOME/.config || $PWD == $HOME/.config/* ]]; then
+            yadm enter nvim "$@"
+        else
+            nvim "$@"
+        fi
+    }
 fi
 
 # lazygit
