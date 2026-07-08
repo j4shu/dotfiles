@@ -16,8 +16,6 @@ require('copilot').setup({
 })
 
 local suggestion = require('copilot.suggestion')
-
--- toggle copilot
 vim.g.enable_copilot = true
 vim.keymap.set('n', '<leader>tc', function()
   suggestion.toggle_auto_trigger()

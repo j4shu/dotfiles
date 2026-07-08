@@ -3,5 +3,4 @@ require('mini.jump').setup({
     repeat_jump = '', -- defaults to ;
   },
   delay = { highlight = 0 },
-  silent = true,
 })
