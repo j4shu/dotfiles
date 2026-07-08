@@ -6,11 +6,16 @@ cmp.setup({
   },
   cmdline = {
     keymap = {
-      ['<CR>'] = { 'accept', 'fallback' },
       ['<Right>'] = {},
       ['<Left>'] = {},
     },
     completion = {
+      list = {
+        selection = {
+          preselect = false,
+          auto_insert = false,
+        },
+      },
       menu = { auto_show = true },
     },
   },
@@ -33,6 +38,9 @@ cmp.setup({
     },
     documentation = { auto_show = false },
     ghost_text = { enabled = false },
+  },
+  sources = {
+    default = { 'lsp', 'path', 'buffer' },
   },
   signature = { enabled = false },
 })
