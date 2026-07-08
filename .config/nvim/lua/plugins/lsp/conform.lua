@@ -6,12 +6,13 @@ conform.setup({
     lua = { 'stylua' },
     json = { 'prettier' },
     markdown = { 'prettier' },
+    python = { 'black' },
   },
   -- https://github.com/stevearc/conform.nvim/blob/master/doc/recipes.md#command-to-toggle-format-on-save
   format_on_save = function()
     if vim.g.enable_autoformat then
       return {
-        timeout_ms = 500,
+        timeout_ms = 3000,
         lsp_format = 'fallback',
         quiet = true,
       }
