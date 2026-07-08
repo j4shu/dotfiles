@@ -130,7 +130,8 @@ fi
 
 # herdr
 if command -v herdr >/dev/null 2>&1; then
-    alias zz="herdr"
+    alias zz=herdr
+    alias zd="herdr server stop"
 fi
 
 # bob
