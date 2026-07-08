@@ -14,3 +14,9 @@ require('copilot').setup({
     ['*'] = true,
   },
 })
+
+local suggestion = require('copilot.suggestion')
+vim.keymap.set('n', '<leader>tc', function()
+  suggestion.toggle_auto_trigger()
+  vim.notify('Toggled: Copilot')
+end, { desc = 'Toggle Copilot' })
