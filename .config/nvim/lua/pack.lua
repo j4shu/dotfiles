@@ -7,15 +7,14 @@ vim.pack.add({
   -- { src = 'https://github.com/neovim/nvim-lspconfig' },
   -- { src = 'https://github.com/nvim-treesitter/nvim-treesitter', version = 'master' },
   -- { src = 'https://github.com/nvim-treesitter/nvim-treesitter-context' },
+  -- { src = 'https://github.com/rachartier/tiny-inline-diagnostic.nvim' },
 
   -- ui
   { src = 'https://github.com/utilyre/sentiment.nvim' },
   { src = 'https://github.com/rachartier/tiny-cmdline.nvim' },
-  { src = 'https://github.com/rachartier/tiny-inline-diagnostic.nvim' },
   -- editing
   { src = 'https://github.com/numToStr/Comment.nvim' },
   { src = 'https://github.com/nmac427/guess-indent.nvim' },
-  { src = 'https://github.com/windwp/nvim-autopairs' },
 })
 
 -- vim.pack
