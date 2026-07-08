@@ -41,13 +41,10 @@ require('catppuccin').setup({
       WinSeparator = { link = 'VertSplit' },
       FloatBorder = { link = 'NonText' },
 
-      -- mini
+      -- plugins
       MiniFilesTitleFocused = { link = 'Visual' },
-
-      -- sentiment
       MatchParen = { link = 'Underlined' },
-
-      -- copilot
+      BlinkCmpLabelMatch = { link = 'Underlined' },
       -- CopilotSuggestion = { fg = c.overlay0 },
       -- CopilotAnnotation = { link = 'Search' },
     }

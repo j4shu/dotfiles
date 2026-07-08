@@ -1,6 +1,9 @@
 local cmp = require('blink.cmp')
 cmp.build():pwait()
 cmp.setup({
+  keymap = {
+    preset = 'enter',
+  },
   cmdline = {
     keymap = {
       ['<CR>'] = { 'accept', 'fallback' },
@@ -12,6 +15,12 @@ cmp.setup({
     },
   },
   completion = {
+    list = {
+      selection = {
+        preselect = false,
+        auto_insert = false,
+      },
+    },
     menu = {
       max_height = 5,
       border = 'none',
