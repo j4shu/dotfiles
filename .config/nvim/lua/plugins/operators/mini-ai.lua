@@ -5,7 +5,6 @@ ai.setup({
   custom_textobjects = {
     g = extra_ai.buffer(),
     l = extra_ai.line(),
-    -- LazyVim
     e = { -- Word with case
       {
         '%u[%l%d]+%f[^%l%d]',
@@ -19,4 +18,3 @@ ai.setup({
 })
 
 vim.keymap.set('n', '<S-CR>', 'ciq', { remap = true })
--- vim.keymap.set('x', 'v', 'ilo', { remap = true })
