@@ -54,6 +54,7 @@ map('n', 'X', 'mzA<BS><Esc>`z')
 map('n', 'gX', function()
   os.execute('open -R ' .. vim.api.nvim_buf_get_name(0))
 end, { desc = 'Reveal in Finder' })
+map('n', '<leader><C-c>', 'gcgc', { remap = true, desc = 'Uncomment' })
 
 -- visual
 map('x', 'p', 'P', { remap = true })
