@@ -36,8 +36,6 @@ for server, config in pairs(servers) do
 end
 
 -- maps
-vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { desc = 'LSP: Definition' })
-vim.keymap.set('n', 'gr', vim.lsp.buf.references, { desc = 'LSP: References' })
 vim.keymap.set('n', 'gs', vim.lsp.buf.hover, { desc = 'LSP: Hover' })
 vim.keymap.set('n', 'gR', vim.lsp.buf.rename, { desc = 'LSP: Rename Variable' })
 
