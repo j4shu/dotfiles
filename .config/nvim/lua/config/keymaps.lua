@@ -6,7 +6,8 @@ map('n', '<esc>', function()
   vim.cmd('nohlsearch')
   vim.cmd('echon')
 end)
--- https://undelete.pullpush.io/r/neovim/comments/vguomm/how_can_i_map_tab_but_keep_the_default_action_for/
+
+-- for C-o and C-i to work
 map('n', '<C-i>', '<C-i>')
 
 -- leader
@@ -18,7 +19,7 @@ map('n', '<leader>s', function()
   vim.cmd('source %')
   vim.notify('Sourced: ' .. vim.fn.expand('%:t'))
 end, { desc = 'Source File' })
-map('n', '<leader>nn', '<cmd>messages<CR>', { desc = 'Messages' })
+map('n', '<leader>m', '<cmd>messages<CR>', { desc = 'Messages' })
 
 -- append
 map('n', '<leader>,', 'mzA,<Esc>`z', { desc = 'Append Comma' })
@@ -48,6 +49,7 @@ map({ 'n', 'x', 'o' }, '0', function()
 end, { expr = true })
 
 -- editing
+map({ 'n', 'x' }, ';', ':')
 map('n', 'O', 'o<Esc>')
 map('n', '<CR>', '"_ciw')
 map('n', 'U', '<C-r>')
@@ -94,15 +96,8 @@ map('x', 'sw', 'y' .. '/<C-r>0<CR>``' .. '_cgn', { desc = 'Substitute (Instance)
 
 -- yanking
 map('n', 'yp', function()
-  -- absolute path
+  -- absolute
   local path = vim.fn.expand('%:p')
-
-  -- work
-  if vim.env.SSH_CLIENT ~= nil then
-    -- truncate BUILDROOT
-    path = path:match('.*(test/.+)') or path
-  end
-
   vim.fn.setreg(vim.v.register, path)
   vim.notify('Yanked: ' .. path)
 end)
@@ -115,6 +110,12 @@ end)
 map('n', 'yt', function()
   -- tail
   local path = vim.fn.expand('%:t')
+  vim.fn.setreg(vim.v.register, path)
+  vim.notify('Yanked: ' .. path)
+end)
+map('n', 'yT', function()
+  -- tail without extension
+  local path = vim.fn.expand('%:t:r')
   vim.fn.setreg(vim.v.register, path)
   vim.notify('Yanked: ' .. path)
 end)
@@ -133,17 +134,11 @@ map({ 'i', 'c' }, '<C-h>', '<Left>')
 map({ 'i', 'c' }, '<C-l>', '<Right>')
 map({ 'i', 'c' }, '<C-k>', '<Up>')
 map({ 'i', 'c' }, '<C-j>', '<Down>')
--- emacs
 map({ 'i', 'c' }, '<C-a>', '<Home>')
 map({ 'i', 'c' }, '<C-e>', '<End>')
 map({ 'i', 'c' }, '<C-d>', '<Del>')
-map({ 'i', 'c' }, '<C-b>', '<Left>')
-map({ 'i', 'c' }, '<C-f>', '<Right>')
 
 -- undo points
 for _, key in ipairs({ ',', '.', '!', '?', ':', ';' }) do
   map('i', key, key .. '<C-g>u')
 end
-
--- command
-map({ 'n', 'x' }, ';', ':')
