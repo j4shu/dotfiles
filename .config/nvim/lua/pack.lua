@@ -10,7 +10,6 @@ vim.pack.add({
   { src = 'https://github.com/saghen/blink.lib' },
   -- ui
   { src = 'https://github.com/utilyre/sentiment.nvim' },
-  { src = 'https://github.com/rachartier/tiny-cmdline.nvim' },
   -- editing
   { src = 'https://github.com/numToStr/Comment.nvim' },
   { src = 'https://github.com/nmac427/guess-indent.nvim' },

@@ -44,10 +44,6 @@
       "rev": "ecde8d877881bb78fdb90060c0991e76770dbdbc",
       "src": "https://github.com/utilyre/sentiment.nvim"
     },
-    "tiny-cmdline.nvim": {
-      "rev": "e247d9ee4c980734f8f8bf616d31e0ab7c27485d",
-      "src": "https://github.com/rachartier/tiny-cmdline.nvim"
-    },
     "tiny-inline-diagnostic.nvim": {
       "rev": "6264451f14119d63a52580e5198d6baf8518b0b2",
       "src": "https://github.com/rachartier/tiny-inline-diagnostic.nvim"
