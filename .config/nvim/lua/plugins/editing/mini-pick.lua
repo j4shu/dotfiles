@@ -1,46 +1,46 @@
-local pick = require("mini.pick")
-local extras = require("mini.extra").pickers
+local pick = require('mini.pick')
+local extras = require('mini.extra').pickers
 
 pick.setup({
-	mappings = {
-		delete_left = "", -- defaults to <C-u>
-		move_start = "", -- defaults to <C-g>
+  mappings = {
+    delete_left = '', -- defaults to <C-u>
+    move_start = '', -- defaults to <C-g>
 
-		choose_marked = "<C-q>",
-		refine = "<C-g>",
-		refine_marked = "<C-S-g>",
-		scroll_down = "<C-d>",
-		scroll_up = "<C-u>",
-	},
-	window = {
-		config = {
-			row = vim.o.lines - 1,
-			height = math.floor(0.5 * vim.o.lines),
-			width = math.floor(0.75 * vim.o.columns),
-		},
-	},
+    choose_marked = '<C-q>',
+    refine = '<C-g>',
+    refine_marked = '<C-S-g>',
+    scroll_down = '<C-d>',
+    scroll_up = '<C-u>',
+  },
+  window = {
+    config = {
+      row = vim.o.lines - 1,
+      height = math.floor(0.5 * vim.o.lines),
+      width = math.floor(0.75 * vim.o.columns),
+    },
+  },
 })
 
 -- files
 -- vim.keymap.set('n', '<Tab>', pick.builtin.buffers, { desc = 'Buffers' })
-vim.keymap.set("n", "<Tab>", function()
-	pick.builtin.files({ tool = "fd" })
-end, { desc = "Files" })
-vim.keymap.set("n", "<leader>ff", function()
-	pick.builtin.files({ tool = "fd" })
-end, { desc = "Files" })
-vim.keymap.set("n", "<leader>fF", function()
-	pick.builtin.files({ tool = "fd" }, { source = { cwd = vim.fn.expand("%:p:h") } })
-end, { desc = "Files (Relative)" })
-vim.keymap.set("n", "<leader>fr", function()
-	extras.oldfiles({ tool = "fd" })
-end, { desc = "Files (Recent)" })
+vim.keymap.set('n', '<Tab>', function()
+  pick.builtin.files({ tool = 'fd' })
+end, { desc = 'Files' })
+vim.keymap.set('n', '<leader>ff', function()
+  pick.builtin.files({ tool = 'fd' })
+end, { desc = 'Files' })
+vim.keymap.set('n', '<leader>fF', function()
+  pick.builtin.files({ tool = 'fd' }, { source = { cwd = vim.fn.expand('%:p:h') } })
+end, { desc = 'Files (Relative)' })
+vim.keymap.set('n', '<leader>fr', function()
+  extras.oldfiles({ tool = 'fd' })
+end, { desc = 'Files (Recent)' })
 
 -- grep (live)
-vim.keymap.set("n", "<leader>fw", pick.builtin.grep_live, { desc = "Grep Live" })
-vim.keymap.set("n", "<leader>fW", function()
-	pick.builtin.grep_live(nil, { source = { cwd = vim.fn.expand("%:p:h") } })
-end, { desc = "Grep Live (Relative)" })
+vim.keymap.set('n', '<leader>fw', pick.builtin.grep_live, { desc = 'Grep Live' })
+vim.keymap.set('n', '<leader>fW', function()
+  pick.builtin.grep_live(nil, { source = { cwd = vim.fn.expand('%:p:h') } })
+end, { desc = 'Grep Live (Relative)' })
 
 -- grep
 -- vim.keymap.set("n", "<leader>*", function()
@@ -81,24 +81,24 @@ end, { desc = "Grep Live (Relative)" })
 -- end, { desc = "LSP: Diagnostics" })
 
 -- misc
-vim.keymap.set("n", ",", function()
-	extras.buf_lines({ scope = "current" }, {
-		source = {
-			choose = function(item)
-				---@diagnostic disable:param-type-mismatch
-				local query = table.concat(pick.get_picker_query())
-				if query ~= "" then
-					vim.fn.setreg("/", query)
-				end
-				pick.default_choose(item)
-			end,
-		},
-	})
+vim.keymap.set('n', ',', function()
+  extras.buf_lines({ scope = 'current' }, {
+    source = {
+      choose = function(item)
+        ---@diagnostic disable:param-type-mismatch
+        local query = table.concat(pick.get_picker_query())
+        if query ~= '' then
+          vim.fn.setreg('/', query)
+        end
+        pick.default_choose(item)
+      end,
+    },
+  })
 end)
-vim.keymap.set("n", "'", function()
-	if not pcall(pick.builtin.resume) then
-		vim.notify("[mini.pick] No picker to resume", vim.log.levels.WARN)
-	end
+vim.keymap.set('n', "'", function()
+  if not pcall(pick.builtin.resume) then
+    vim.notify('[mini.pick] No picker to resume', vim.log.levels.WARN)
+  end
 end)
 
 -- git
@@ -109,8 +109,8 @@ end)
 -- vim.keymap.set("n", "<leader>gh", extras.git_hunks, { desc = "Hunks" })
 
 -- vim
-vim.keymap.set("n", "<leader>fl", extras.hl_groups, { desc = "Highlights" })
-vim.keymap.set("n", "<leader>fk", extras.keymaps, { desc = "Keymaps" })
+vim.keymap.set('n', '<leader>fl', extras.hl_groups, { desc = 'Highlights' })
+vim.keymap.set('n', '<leader>fk', extras.keymaps, { desc = 'Keymaps' })
 -- vim.keymap.set("n", "<leader>fh", pick.builtin.help, { desc = "Help" })
 -- vim.keymap.set("n", "<leader>fo", extras.options, { desc = "Options" })
 -- vim.keymap.set("n", "<leader>ft", extras.colorschemes, { desc = "Themes" })

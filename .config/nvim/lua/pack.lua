@@ -23,7 +23,6 @@ vim.keymap.set('n', '<leader>me', function()
   vim.cmd('edit' .. vim.fn.stdpath('config') .. '/nvim-pack-lock.json')
 end, { desc = 'Lockfile' })
 
-
 require('plugins.catppuccin')
 vim.cmd.colorscheme('catppuccin')
 vim.cmd('runtime! lua/plugins/editing/*')
