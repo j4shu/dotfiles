@@ -16,6 +16,9 @@ vim.pack.add({
   { src = 'https://github.com/zbirenbaum/copilot.lua' },
 })
 vim.keymap.set('n', '<leader>mu', '<cmd>Pack<CR>', { desc = 'vim.pack' })
+vim.keymap.set('n', '<leader>mU', function()
+  vim.pack.update(nil, { target = 'Update (To Lockfile)' })
+end, { desc = 'Lockfile' })
 vim.keymap.set('n', '<leader>me', function()
   vim.cmd('edit' .. vim.fn.stdpath('config') .. '/nvim-pack-lock.json')
 end, { desc = 'Lockfile' })
