@@ -1,3 +1,6 @@
+# work
+export PATH="$HOME/.local/bin:$PATH"
+
 # history
 HISTFILE=$HOME/.zsh_history
 HISTSIZE=10000
@@ -135,4 +138,9 @@ if command -v bob >/dev/null 2>&1; then
     path+=$HOME/.local/share/bob/nvim-bin
     export EDITOR="nvim"
     alias v=nvim
+fi
+
+# lazygit
+if command -v lazygit >/dev/null 2>&1; then
+    alias gg=lazygit
 fi
