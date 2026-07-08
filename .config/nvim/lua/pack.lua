@@ -8,11 +8,10 @@ vim.pack.add({
   { src = 'https://github.com/nvim-treesitter/nvim-treesitter', version = 'master' },
   { src = 'https://github.com/nvim-treesitter/nvim-treesitter-context' },
 
-  -- lsp
-  { src = 'https://github.com/rachartier/tiny-inline-diagnostic.nvim' },
   -- ui
   { src = 'https://github.com/utilyre/sentiment.nvim' },
   { src = 'https://github.com/rachartier/tiny-cmdline.nvim' },
+  { src = 'https://github.com/rachartier/tiny-inline-diagnostic.nvim' },
   -- editing
   { src = 'https://github.com/numToStr/Comment.nvim' },
   { src = 'https://github.com/nmac427/guess-indent.nvim' },
