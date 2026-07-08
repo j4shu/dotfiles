@@ -1,4 +1,0 @@
-session_name: dev
-windows:
-  - window_name: "󰒓 .config"
-    start_directory: "~/.config/"
