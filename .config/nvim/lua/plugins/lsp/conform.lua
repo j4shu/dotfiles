@@ -1,12 +1,12 @@
 local conform = require('conform')
 conform.setup({
   formatters_by_ft = {
+    python = { 'black' },
     sh = { 'shfmt' },
     toml = { 'tombi' },
     lua = { 'stylua' },
     json = { 'prettier' },
     markdown = { 'prettier' },
-    python = { 'black' },
   },
   -- https://github.com/stevearc/conform.nvim/blob/master/doc/recipes.md#command-to-toggle-format-on-save
   format_on_save = function()
