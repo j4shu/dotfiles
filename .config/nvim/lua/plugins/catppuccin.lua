@@ -45,8 +45,7 @@ require('catppuccin').setup({
       MiniFilesTitleFocused = { link = 'Visual' },
       MatchParen = { link = 'Underlined' },
       BlinkCmpLabelMatch = { link = 'Underlined' },
-      -- CopilotSuggestion = { fg = c.overlay0 },
-      -- CopilotAnnotation = { link = 'Search' },
+      CopilotSuggestion = { link = 'NonText' },
     }
   end,
   default_integrations = false,
