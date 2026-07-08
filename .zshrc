@@ -58,6 +58,7 @@ alias drop='cd ~/Library/CloudStorage/Dropbox/ && ls'
 alias path='echo -e ${PATH//:/\\n} | sort'
 alias env="env | sort | awk -F= '{printf \"%-30s %s\n\", \$1, \$2}'"
 alias clear='printf "\033c"'
+alias act="source .venv/bin/activate"
 # source $CONFIG/work_aliases.zsh
 
 # eza https://github.com/eza-community/eza
