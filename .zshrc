@@ -136,7 +136,7 @@ fi
 # bob
 if command -v bob >/dev/null 2>&1; then
     path+=$HOME/.local/share/bob/nvim-bin
-    export EDITOR="nvim"
+    export EDITOR=nvim
     alias v=nvim
 fi
 
