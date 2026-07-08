@@ -23,7 +23,6 @@ map('n', '<leader>nn', '<cmd>messages<CR>', { desc = 'Messages' })
 -- append
 map('n', '<leader>,', 'mzA,<Esc>`z', { desc = 'Append Comma' })
 map('n', '<leader>;', 'mzA;<Esc>`z', { desc = 'Append Semicolon' })
-map('n', '<leader>p', 'mzA<Esc>p`z', { desc = 'Append Paste' })
 
 -- toggles
 map('n', '<leader>tw', '<cmd>setlocal wrap!<CR>', { desc = 'Toggle Word Wrap' })
@@ -45,7 +44,6 @@ end, { expr = true })
 
 -- editing
 map('n', 'O', 'o<Esc>')
-map('n', 'P', '<cmd>put<CR>')
 map('n', '<CR>', '"_ciw')
 map('n', 'U', '<C-r>')
 map('n', '<BS>', '<C-^>')
@@ -53,25 +51,19 @@ map('n', 'i', function()
   return vim.fn.getline('.') == '' and '"_cc' or 'i'
 end, { expr = true })
 map('n', 'X', 'mzA<BS><Esc>`z')
-map('n', '<C-S-c>', '"zyygcc"zp', { remap = true })
 map('n', 'gX', function()
   os.execute('open -R ' .. vim.api.nvim_buf_get_name(0))
 end, { desc = 'Reveal in Finder' })
-map('n', 'gp', '`[v`]', { desc = 'Select Recent Paste' })
 
 -- visual
 map('x', 'p', 'P', { remap = true })
 map('x', '<CR>', '"_c')
-map('n', '<C-q>', '<C-v>j')
-map('x', '<C-q>', 'j')
 map('x', 'I', function()
   return vim.fn.mode() == 'V' and '0<C-v>I' or 'I'
 end, { expr = true })
 map('x', 'A', function()
   return vim.fn.mode() == 'V' and '$<C-v>A' or 'A'
 end, { expr = true })
--- map('x', '/', '<esc>/\\%V')
--- map('x', 'v', 'iw')
 
 -- preserve clipboard
 map({ 'n', 'x' }, 'x', '"_x')
@@ -84,7 +76,6 @@ end, { expr = true })
 -- search
 map('n', '*', '*``')
 map('x', '*', '"zy' .. '/<C-r>z<CR>``')
-map('x', 'g/', 'o<Esc>/\\%V', { desc = 'Search (Selection)' })
 
 -- custom operators
 -- https://old.reddit.com/r/neovim/comments/1dfvluw/share_your_favorite_settingsfeaturesexcerpts_from/l8qlbs8/
@@ -127,11 +118,6 @@ map('n', '<C-h>', '<C-w>h')
 map('n', '<C-j>', '<C-w>j')
 map('n', '<C-k>', '<C-w>k')
 map('n', '<C-l>', '<C-w>l')
--- size
-map('n', '<C-Left>', '<cmd>vertical resize +2<CR>')
-map('n', '<C-Right>', '<cmd>vertical resize -2<CR>')
-map('n', '<C-Up>', '<cmd>resize +2<CR>')
-map('n', '<C-Down>', '<cmd>resize -2<CR>')
 -- split
 map('n', '<C-v>', '<C-w>v')
 map('n', '<C-s>', '<C-w>s')
@@ -155,7 +141,3 @@ end
 
 -- command
 map({ 'n', 'x' }, ';', ':')
--- https://old.reddit.com/r/neovim/comments/1f9rdgl/help_me_convert_that_line_from_vimscript_to_lua/
-map('c', ';;', function()
-  return vim.fn.getcmdtype() == ':' and vim.fn.expand('%:p:h') .. '/' or ';;'
-end, { expr = true })
