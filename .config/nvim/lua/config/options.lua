@@ -1,10 +1,27 @@
+-- clipboard
+if vim.env.SSH_CLIENT ~= nil then
+  vim.g.clipboard = {
+    name = 'OSC 52',
+    copy = {
+      ['+'] = require('vim.ui.clipboard.osc52').copy('+'),
+      ['*'] = require('vim.ui.clipboard.osc52').copy('*'),
+    },
+    paste = {
+      ['+'] = function()
+        return nil
+      end,
+      ['*'] = function()
+        return nil
+      end,
+    },
+  }
+end
+vim.o.clipboard = 'unnamedplus'
+
 -- misc
 vim.o.undofile = true
 vim.o.swapfile = false
 vim.o.confirm = true
-vim.schedule(function()
-  vim.o.clipboard = 'unnamedplus'
-end)
 vim.o.virtualedit = 'block'
 vim.o.scrolloff = 12
 
