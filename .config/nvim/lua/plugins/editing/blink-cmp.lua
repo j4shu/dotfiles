@@ -27,6 +27,7 @@ cmp.setup({
       },
     },
     menu = {
+      -- auto_show = false,
       max_height = 5,
       border = 'none',
       draw = {
