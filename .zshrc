@@ -87,18 +87,6 @@ if command -v fzf >/dev/null 2>&1; then
     source $PLUGINS/fzf-tab-completion/zsh/fzf-zsh-completion.sh
 fi
 
-# tmux
-# if command -v tmux >/dev/null 2>&1; then
-#     function zd() {
-#         tmux kill-server
-#     }
-# fi
-# if command -v tmuxp >/dev/null 2>&1; then
-#     function zz() {
-#         tmuxp load -y "$CONFIG/tmux/layouts/dev.yaml"
-#     }
-# fi
-
 # bat https://github.com/sharkdp/bat
 if command -v bat >/dev/null 2>&1; then
     alias cat=bat
