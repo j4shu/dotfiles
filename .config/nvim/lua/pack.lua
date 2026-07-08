@@ -3,10 +3,12 @@ vim.pack.add({
   { src = 'https://github.com/catppuccin/nvim', name = 'catppuccin' },
   { src = 'https://github.com/nvim-mini/mini.nvim' },
 
-  -- misc
+  -- lsp
   { src = 'https://github.com/neovim/nvim-lspconfig' },
   { src = 'https://github.com/rachartier/tiny-inline-diagnostic.nvim' },
   { src = 'https://github.com/stevearc/conform.nvim' },
+  { src = 'https://github.com/saghen/blink.cmp' },
+  { src = 'https://github.com/saghen/blink.lib' },
   -- { src = 'https://github.com/nvim-treesitter/nvim-treesitter', version = 'master' },
   -- { src = 'https://github.com/nvim-treesitter/nvim-treesitter-context' },
 
