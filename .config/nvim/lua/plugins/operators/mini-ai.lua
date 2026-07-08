@@ -1,7 +1,6 @@
 local ai = require('mini.ai')
 local extra_ai = require('mini.extra').gen_ai_spec
 ai.setup({
-  n_lines = 500,
   custom_textobjects = {
     g = extra_ai.buffer(),
     l = extra_ai.line(),
@@ -14,6 +13,7 @@ ai.setup({
       },
       '^().*()$',
     },
+    i = extra_ai.indent(),
   },
 })
 
