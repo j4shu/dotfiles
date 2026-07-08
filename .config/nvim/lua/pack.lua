@@ -28,6 +28,6 @@ end, { desc = 'Lockfile' })
 
 require('plugins.catppuccin')
 vim.cmd.colorscheme('catppuccin')
-vim.cmd('runtime! lua/plugins/ui/*')
 vim.cmd('runtime! lua/plugins/editing/*')
 vim.cmd('runtime! lua/plugins/operators/*')
+vim.cmd('runtime! lua/plugins/ui/*')
