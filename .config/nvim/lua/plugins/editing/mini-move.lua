@@ -1,5 +1,4 @@
 require('mini.move').setup({
-  -- can't use alt because of escape sending alt https://github.com/LunarVim/LunarVim/issues/1857
   mappings = {
     left = 'H',
     right = 'L',
