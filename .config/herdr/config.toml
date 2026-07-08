@@ -58,7 +58,7 @@ focus_pane_right = "prefix+l"
 # cycle_pane_previous = "prefix+shift+tab"
 # last_pane = ""          # optional, unset by default; bind e.g. "prefix+tab" for global back-and-forth
 split_vertical = "prefix+v"
-split_horizontal = "prefix+ctrl+s"
+split_horizontal = "prefix+s"
 close_pane = "prefix+x"
 # zoom = "prefix+z"       # legacy alias: fullscreen
 resize_mode = ""
@@ -161,6 +161,7 @@ pane_gaps = false
 
 # Background notification popup delivery
 show_agent_labels_on_pane_borders = false
+agent_panel_sort = "spaces"
 [ui.toast]
 # off = disable pop-up notifications
 # herdr = show in-app toasts
