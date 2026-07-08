@@ -28,10 +28,10 @@ vim.keymap.set('n', '<leader>e', function()
 end, { desc = 'Explorer' })
 vim.keymap.set('n', '<leader>E', function()
   files.open(nil, false)
-end, { desc = 'Explorer(cwd)' })
+end, { desc = 'Explorer (cwd)' })
 vim.keymap.set('n', "<leader>'", function()
   files.open(files.get_latest_path())
-end, { desc = 'Explorer (Latest)' })
+end, { desc = 'Explorer (Resume)' })
 
 -- toggle preview
 local show_preview = false
@@ -97,16 +97,5 @@ vim.api.nvim_create_autocmd('User', {
     files.set_bookmark('t', vim.fn.stdpath('data') .. '/mini.files/trash', { desc = 'Trash' })
     files.set_bookmark('s', vim.fn.stdpath('data'), { desc = 'Share' })
     files.set_bookmark('h', '~/', { desc = 'Home' })
-  end,
-})
-
--- customize window
-vim.api.nvim_create_autocmd('User', {
-  pattern = 'MiniFilesWindowOpen',
-  callback = function(args)
-    local win_id = args.data.win_id
-    local config = vim.api.nvim_win_get_config(win_id)
-    config.title_pos = 'center'
-    vim.api.nvim_win_set_config(win_id, config)
   end,
 })

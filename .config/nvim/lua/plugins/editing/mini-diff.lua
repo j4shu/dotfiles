@@ -18,9 +18,3 @@ vim.keymap.set('x', '<leader>gr', 'gH', { desc = 'Git: Reset Hunk (Visual)', rem
 vim.keymap.set('n', '<leader>gR', function()
   diff.do_hunks(0, 'reset')
 end, { desc = 'Git: Reset Hunk (Buffer)' })
-
--- hunks to quickfix
--- vim.keymap.set('n', '<leader>gq', function()
---   vim.fn.setqflist(diff.export('qf'))
---   vim.cmd('copen')
--- end, { desc = 'Hunks (Quickfix)' })
