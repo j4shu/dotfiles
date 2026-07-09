@@ -122,7 +122,7 @@ end)
 
 -- copy as mention: @path (plus #line/#start-end in visual mode)
 local function copy_as_mention(style, range)
-  local mod = style == 'absolute' and ':p' or ':.'
+  local mod = style == 'absolute' and ':p:~' or ':~:.'
   local text = '@' .. vim.fn.expand('%' .. mod)
   if range then
     text = text .. '#' .. (range[1] == range[2] and range[1] or range[1] .. '-' .. range[2])
