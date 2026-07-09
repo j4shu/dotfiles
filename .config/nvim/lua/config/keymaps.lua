@@ -98,27 +98,60 @@ map('x', 'sw', 'y' .. '/<C-r>0<CR>``' .. '_cgn', { desc = 'Substitute (Instance)
 map('n', 'yp', function()
   -- absolute
   local path = vim.fn.expand('%:p')
-  vim.fn.setreg(vim.v.register, path)
-  vim.notify('Yanked: ' .. path)
+  vim.fn.setreg('+', path)
+  vim.notify('Copied: ' .. path)
 end)
 map('n', 'yP', function()
   -- relative
   local path = vim.fn.expand('%:.')
-  vim.fn.setreg(vim.v.register, path)
-  vim.notify('Yanked: ' .. path)
+  vim.fn.setreg('+', path)
+  vim.notify('Copied: ' .. path)
 end)
 map('n', 'yt', function()
   -- tail
   local path = vim.fn.expand('%:t')
-  vim.fn.setreg(vim.v.register, path)
-  vim.notify('Yanked: ' .. path)
+  vim.fn.setreg('+', path)
+  vim.notify('Copied: ' .. path)
 end)
 map('n', 'yT', function()
   -- tail without extension
   local path = vim.fn.expand('%:t:r')
-  vim.fn.setreg(vim.v.register, path)
-  vim.notify('Yanked: ' .. path)
+  vim.fn.setreg('+', path)
+  vim.notify('Copied: ' .. path)
 end)
+
+-- copy as mention: @path (plus #line/#start-end in visual mode)
+local function copy_as_mention(style, range)
+  local mod = style == 'absolute' and ':p' or ':.'
+  local text = '@' .. vim.fn.expand('%' .. mod)
+  if range then
+    text = text .. '#' .. (range[1] == range[2] and range[1] or range[1] .. '-' .. range[2])
+  end
+  vim.fn.setreg('+', text)
+  vim.notify('Copied: ' .. text)
+end
+local function visual_range()
+  -- '</'> marks are only valid after leaving visual mode
+  vim.cmd('normal! \27')
+  local from = vim.api.nvim_buf_get_mark(0, '<')[1]
+  local to = vim.api.nvim_buf_get_mark(0, '>')[1]
+  if from > to then
+    from, to = to, from
+  end
+  return { from, to }
+end
+map('n', '<leader>y', function()
+  copy_as_mention('relative')
+end, { desc = 'Copy as Mention' })
+map('x', '<leader>y', function()
+  copy_as_mention('relative', visual_range())
+end, { desc = 'Copy as Mention' })
+map('n', '<leader>Y', function()
+  copy_as_mention('absolute')
+end, { desc = 'Copy as Mention (Absolute)' })
+map('x', '<leader>Y', function()
+  copy_as_mention('absolute', visual_range())
+end, { desc = 'Copy as Mention (Absolute)' })
 
 -- windows
 map('n', '<C-h>', '<C-w>h')
