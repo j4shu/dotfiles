@@ -15,6 +15,7 @@ vim.pack.add({
   -- editing
   { src = 'https://github.com/numToStr/Comment.nvim' },
   { src = 'https://github.com/nmac427/guess-indent.nvim' },
+  { src = 'https://github.com/windwp/nvim-autopairs' },
   { src = 'https://github.com/zbirenbaum/copilot.lua' },
 })
 vim.keymap.set('n', '<leader>p', '<cmd>Pack<CR>', { desc = 'vim.pack' })
