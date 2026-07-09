@@ -9,7 +9,7 @@ require('mini.surround').setup({
     f = { output = { left = 'function() ', right = ' end' } },
   },
   mappings = {
-    add = '', -- disable 'sa'
+    add = '', -- 'sa' is for substitute operators
   },
   n_lines = 200,
   respect_selection_type = true,

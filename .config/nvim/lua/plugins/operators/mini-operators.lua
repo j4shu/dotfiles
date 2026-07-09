@@ -3,7 +3,7 @@ operators.setup({
   evaluate = { prefix = 'se' },
   exchange = { prefix = 'sx' },
   multiply = { prefix = 'sm' },
-  replace = { prefix = '' },
+  replace = { prefix = '' }, -- 'sr' is for surround
   sort = { prefix = 'so' },
 })
 
