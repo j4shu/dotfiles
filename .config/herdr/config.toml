@@ -167,10 +167,10 @@ show_agent_labels_on_pane_borders = true
 # terminal = ask the outer terminal to show a desktop notification
 # system = ask the OS notification service directly
 # delivery = "off"
-# delay_seconds = 1
+delay_seconds = 0
 
 [ui.toast.herdr]
-# position = "bottom-right"
+position = "top-right"
 
 [ui.toast.clipboard]
 enabled = false
@@ -181,8 +181,8 @@ enabled = false
 # enabled = true
 # Optional custom mp3 sound files. Relative paths are resolved from this config file's directory.
 # path = "sounds/notification.mp3"   # one mp3 file for all sound notifications
-# done_path = "sounds/done.mp3"      # overrides only finished notifications
-# request_path = "sounds/request.mp3" # overrides only needs-attention notifications
+done_path = "sounds/done.mp3"  # overrides only finished notifications
+request_path = "sounds/request.mp3"  # overrides only needs-attention notifications
 
 # Per-agent overrides: default | on | off
 # By default, droid is muted.
