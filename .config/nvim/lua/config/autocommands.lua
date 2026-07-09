@@ -24,6 +24,7 @@ vim.api.nvim_create_autocmd('FileType', {
   callback = function()
     vim.wo.wrap = true
     vim.wo.linebreak = true
+    vim.wo.spell = true
   end,
 })
 
