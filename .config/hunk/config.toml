@@ -1,0 +1,4 @@
+mode = "split"
+theme = "catppuccin-mocha"
+line_numbers = false
+agent_notes = true
