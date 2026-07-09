@@ -3,6 +3,7 @@ vim.pack.add({
   { src = 'https://github.com/catppuccin/nvim', name = 'catppuccin' },
   -- { src = 'https://github.com/nvim-mini/mini.nvim' },
   { src = 'https://github.com/j4shu/mini.nvim' },
+  -- { src = 'https://github.com/j4shu/mini.nvim', version = 'feat/pick-smart-picker' },
   -- lsp
   { src = 'https://github.com/neovim/nvim-lspconfig' },
   { src = 'https://github.com/rachartier/tiny-inline-diagnostic.nvim' },
