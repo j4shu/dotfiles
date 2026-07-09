@@ -29,8 +29,8 @@
       "src": "https://github.com/nmac427/guess-indent.nvim"
     },
     "mini.nvim": {
-      "rev": "928971c3cfe99ddf29659acc31214cfa836fabe4",
-      "src": "https://github.com/nvim-mini/mini.nvim"
+      "rev": "fca1f7bbe1b8636d3accafe22c5db5d1215e4297",
+      "src": "https://github.com/j4shu/mini.nvim"
     },
     "nvim-lspconfig": {
       "rev": "d224a1920728ba129880efc700d4a0180ac4ecbb",
