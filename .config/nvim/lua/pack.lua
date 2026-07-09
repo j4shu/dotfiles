@@ -13,7 +13,6 @@ vim.pack.add({
   -- ui
   { src = 'https://github.com/utilyre/sentiment.nvim' },
   -- editing
-  { src = 'https://github.com/numToStr/Comment.nvim' },
   { src = 'https://github.com/nmac427/guess-indent.nvim' },
   { src = 'https://github.com/windwp/nvim-autopairs' },
   { src = 'https://github.com/zbirenbaum/copilot.lua' },
