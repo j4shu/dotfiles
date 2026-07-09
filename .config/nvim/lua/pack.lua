@@ -15,8 +15,8 @@ vim.pack.add({
   { src = 'https://github.com/nmac427/guess-indent.nvim' },
   { src = 'https://github.com/zbirenbaum/copilot.lua' },
 })
-vim.keymap.set('n', '<leader>pu', '<cmd>Pack<CR>', { desc = 'vim.pack' })
-vim.keymap.set('n', '<leader>pU', function()
+vim.keymap.set('n', '<leader>p', '<cmd>Pack<CR>', { desc = 'vim.pack' })
+vim.keymap.set('n', '<leader>U', function()
   vim.pack.update(nil, { target = 'Update (To Lockfile)' })
 end, { desc = 'Lockfile' })
 vim.keymap.set('n', '<leader>pe', function()
