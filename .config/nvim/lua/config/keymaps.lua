@@ -182,7 +182,6 @@ map('n', '<C-h>', '<C-w>h')
 map('n', '<C-j>', '<C-w>j')
 map('n', '<C-k>', '<C-w>k')
 map('n', '<C-l>', '<C-w>l')
--- split
 map('n', '<C-v>', '<C-w>v')
 map('n', '<C-s>', '<C-w>s')
 
@@ -199,3 +198,26 @@ map({ 'i', 'c' }, '<C-d>', '<Del>')
 for _, key in ipairs({ ',', '.', '!', '?', ':', ';' }) do
   map('i', key, key .. '<C-g>u')
 end
+
+-- undotree
+vim.keymap.set('n', '<leader>u', function()
+  vim.cmd('packadd nvim.undotree')
+  require('undotree').open()
+end, { desc = 'Undotree' })
+
+-- incremental selection treesitter/lsp
+-- vim.keymap.set({ 'n', 'x', 'o' }, 'm', function()
+--   if vim.treesitter.get_parser(nil, nil, { error = false }) then
+--     vim.treesitter.select('parent', vim.v.count1)
+--   else
+--     vim.lsp.buf.selection_range(vim.v.count1)
+--   end
+-- end, { desc = 'Select parent treesitter node or outer incremental lsp selections' })
+--
+-- vim.keymap.set({ 'n', 'x', 'o' }, 'M', function()
+--   if vim.treesitter.get_parser(nil, nil, { error = false }) then
+--     vim.treesitter.select('child', vim.v.count1)
+--   else
+--     vim.lsp.buf.selection_range(-vim.v.count1)
+--   end
+-- end, { desc = 'Select child treesitter node or inner incremental lsp selections' })
