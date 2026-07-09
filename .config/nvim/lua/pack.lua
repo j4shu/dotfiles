@@ -2,8 +2,8 @@ vim.pack.add({
   { src = 'https://codeberg.org/cryptomilk/nvim-pack-ui.git' },
   { src = 'https://github.com/catppuccin/nvim', name = 'catppuccin' },
   -- { src = 'https://github.com/nvim-mini/mini.nvim' },
-  -- { src = 'https://github.com/j4shu/mini.nvim' },
-  { src = 'https://github.com/j4shu/mini.nvim', version = 'feat/extra-smart-picker' },
+  { src = 'https://github.com/j4shu/mini.nvim' },
+  -- { src = 'https://github.com/j4shu/mini.nvim', version = 'feat/extra-smart-picker' },
   -- lsp
   { src = 'https://github.com/neovim/nvim-lspconfig' },
   { src = 'https://github.com/rachartier/tiny-inline-diagnostic.nvim' },
