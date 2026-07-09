@@ -2,7 +2,7 @@
     name = jshu
     email = jasonshu@terpmail.umd.edu
 [core]
-    editor = vim
+    editor = nvim
 [pull]
     rebase = true
     autoStash = true
