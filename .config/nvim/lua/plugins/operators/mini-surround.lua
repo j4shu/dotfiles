@@ -8,6 +8,9 @@ require('mini.surround').setup({
     -- lua function
     f = { output = { left = 'function() ', right = ' end' } },
   },
+  mappings = {
+    add = '', -- disable 'sa'
+  },
   n_lines = 200,
   respect_selection_type = true,
 })
