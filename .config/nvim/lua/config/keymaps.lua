@@ -94,7 +94,31 @@ map('n', 'sw', 'yiw' .. '*``' .. '"_cgn', { desc = 'Substitute cword (Instance)'
 map('x', 'sw', 'y' .. '/<C-r>0<CR>``' .. '_cgn', { desc = 'Substitute (Instance)' })
 -- map('x', 'sx', '*' .. '"_dgn', { desc = 'Delete (Instance)', remap = true })
 
--- yanking
+-- comments
+-- Sticky toggle on top of built-in gc/gcc: keep the cursor where it was
+-- (normal: raw row/col; visual: the selection's active end), instead of
+-- built-in's jump to column 0 / top of the range.
+local function restore_cursor(pos)
+  local last = vim.api.nvim_buf_line_count(0)
+  local row = math.max(1, math.min(pos[1], last))
+  local col = math.max(0, math.min(pos[2], #vim.fn.getline(row)))
+  pcall(vim.api.nvim_win_set_cursor, 0, { row, col })
+end
+map('n', '<C-c>', function()
+  local pos = vim.api.nvim_win_get_cursor(0)
+  vim.cmd('normal ' .. vim.v.count1 .. 'gcc')
+  restore_cursor(pos)
+end)
+map('x', '<C-c>', function()
+  local pos = vim.api.nvim_win_get_cursor(0) -- active end of selection
+  vim.cmd('normal! \27') -- leave visual so '<,'> are set
+  local from = vim.api.nvim_buf_get_mark(0, '<')[1]
+  local to = vim.api.nvim_buf_get_mark(0, '>')[1]
+  vim.cmd(('normal %dGV%dGgc'):format(from, to)) -- reselect the lines, toggle
+  restore_cursor(pos)
+end)
+
+-- copy paths
 map('n', 'yp', function()
   -- absolute
   local path = vim.fn.expand('%:p')
@@ -118,30 +142,6 @@ map('n', 'yT', function()
   local path = vim.fn.expand('%:t:r')
   vim.fn.setreg('+', path)
   vim.notify('Copied: ' .. path)
-end)
-
--- comments
--- Sticky toggle on top of built-in gc/gcc: keep the cursor where it was
--- (normal: raw row/col; visual: the selection's active end), instead of
--- built-in's jump to column 0 / top of the range.
-local function restore_cursor(pos)
-  local last = vim.api.nvim_buf_line_count(0)
-  local row = math.max(1, math.min(pos[1], last))
-  local col = math.max(0, math.min(pos[2], #vim.fn.getline(row)))
-  pcall(vim.api.nvim_win_set_cursor, 0, { row, col })
-end
-map('n', '<C-c>', function()
-  local pos = vim.api.nvim_win_get_cursor(0)
-  vim.cmd('normal ' .. vim.v.count1 .. 'gcc')
-  restore_cursor(pos)
-end)
-map('x', '<C-c>', function()
-  local pos = vim.api.nvim_win_get_cursor(0) -- active end of selection
-  vim.cmd('normal! \27') -- leave visual so '<,'> are set
-  local from = vim.api.nvim_buf_get_mark(0, '<')[1]
-  local to = vim.api.nvim_buf_get_mark(0, '>')[1]
-  vim.cmd(('normal %dGV%dGgc'):format(from, to)) -- reselect the lines, toggle
-  restore_cursor(pos)
 end)
 
 -- copy as mention: @path (plus #line/#start-end in visual mode)
