@@ -13,8 +13,12 @@
 
 - Launch independent agents in parallel, not sequentially.
 
-# Style
+# Coding Style
 
 - No decorative banners.
 - No emojis.
+
+# Output Format
+
 - No em dashes (—).
+- Be concise. Sacrifice grammar for the sake of concision.
