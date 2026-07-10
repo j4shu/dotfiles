@@ -30,9 +30,8 @@ vim.o.cursorline = true
 vim.o.winborder = 'single'
 
 -- fold
-vim.o.foldmethod = 'expr'
-vim.o.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-vim.o.foldlevelstart = 99
+vim.o.foldmethod = 'indent'
+vim.o.foldlevelstart = 10
 
 -- tabs/indents
 vim.o.smartindent = true
