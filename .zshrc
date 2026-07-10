@@ -150,3 +150,9 @@ fi
 if command -v lazygit >/dev/null 2>&1; then
     alias gg=lazygit
 fi
+
+# hunk
+if command -v hunk >/dev/null 2>&1; then
+    alias d="hunk diff"
+    alias dd="hunk show"
+fi
