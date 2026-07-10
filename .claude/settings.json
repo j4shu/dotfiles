@@ -1,7 +1,7 @@
 {
   "env": {
-    "ENABLE_TOOL_SEARCH": "true",
-    "CLAUDE_CODE_SCROLL_SPEED": "0.25"
+    "CLAUDE_CODE_SCROLL_SPEED": "0.25",
+    "ENABLE_TOOL_SEARCH": "true"
   },
   "permissions": {
     "allow": [
@@ -15,19 +15,15 @@
       "mcp__icuvisor"
     ]
   },
-  "model": "opus[1m]",
-  "statusLine": {
-    "type": "command",
-    "command": "python3 /Users/jshu/.claude/statusline.py",
-    "padding": 0
-  },
-  "spinnerTipsEnabled": false,
   "effortLevel": "high",
-  "promptSuggestionEnabled": false,
-  "prefersReducedMotion": true,
   "autoCompactEnabled": false,
-  "attribution": {
-    "commits": false,
-    "pullRequests": false
+  "prefersReducedMotion": true,
+  "promptSuggestionEnabled": false,
+  "skipDangerousModePermissionPrompt": true,
+  "spinnerTipsEnabled": false,
+  "statusLine": {
+    "command": "python3 /Users/jshu/.claude/statusline.py",
+    "padding": 0,
+    "type": "command"
   }
 }
