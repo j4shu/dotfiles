@@ -139,7 +139,6 @@ fi
 if command -v bob >/dev/null 2>&1; then
     path+=$HOME/.local/share/bob/nvim-bin
     export EDITOR=nvim
-    alias v=nvim
     # yadm
     if command -v yadm >/dev/null 2>&1; then
         v() {
@@ -149,6 +148,8 @@ if command -v bob >/dev/null 2>&1; then
                 nvim "$@"
             fi
         }
+    else
+        alias v=nvim
     fi
 fi
 
