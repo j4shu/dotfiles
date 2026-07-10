@@ -2,7 +2,7 @@
 
 - When making technical decisions, do not give much weight to development cost. Instead, prefer quality, simplicity, robustness, scalability, and long term maintainability.
 
-# Git & worktrees
+# Git
 
 - Never include Claude/AI attribution.
 - Commits: use Conventional Commits (e.g. `<type>[optional scope]: <desc>`).
