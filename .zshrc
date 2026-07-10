@@ -123,9 +123,8 @@ fi
 
 # claude
 if command -v claude >/dev/null 2>&1; then
-    alias c="claude"
+    alias c="claude --dangerously-skip-permissions"
     alias cc="claude agents --cwd ."
-    alias ccc="claude --continue"
 fi
 
 # herdr
