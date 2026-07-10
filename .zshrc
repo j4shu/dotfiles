@@ -1,5 +1,6 @@
 # work
-export PATH="$HOME/.local/bin:$PATH"
+# export PATH="$HOME/.local/bin:$PATH"
+# export TMPDIR=$HOME/.local/tmp
 
 # history
 HISTFILE=$HOME/.zsh_history
@@ -123,8 +124,9 @@ fi
 
 # claude
 if command -v claude >/dev/null 2>&1; then
-    alias c="claude --dangerously-skip-permissions"
+    alias c="claude"
     alias cc="claude agents --cwd ."
+    alias ccc="claude --continue"
 fi
 
 # herdr
@@ -137,13 +139,17 @@ fi
 if command -v bob >/dev/null 2>&1; then
     path+=$HOME/.local/share/bob/nvim-bin
     export EDITOR=nvim
-    v() {
-        if [[ $PWD == $HOME/.config || $PWD == $HOME/.claude ]]; then
-            yadm enter nvim "$@"
-        else
-            nvim "$@"
-        fi
-    }
+    alias v=nvim
+    # yadm
+    if command -v yadm >/dev/null 2>&1; then
+        v() {
+            if [[ $PWD == $HOME/.config || $PWD == $HOME/.claude ]]; then
+                yadm enter nvim "$@"
+            else
+                nvim "$@"
+            fi
+        }
+    fi
 fi
 
 # lazygit
