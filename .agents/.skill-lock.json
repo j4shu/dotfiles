@@ -257,24 +257,6 @@
       "pluginName": "claude-api",
       "installedAt": "2026-07-10T01:24:25.930Z",
       "updatedAt": "2026-07-10T01:24:25.930Z"
-    },
-    "axi": {
-      "source": "kunchenguid/axi",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/kunchenguid/axi.git",
-      "skillPath": ".agents/skills/axi/SKILL.md",
-      "skillFolderHash": "9a238ca5757ff4d7931adafb8d3747c93d0f8eb6",
-      "installedAt": "2026-07-10T01:29:57.129Z",
-      "updatedAt": "2026-07-10T01:29:57.129Z"
-    },
-    "gh-axi": {
-      "source": "kunchenguid/gh-axi",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/kunchenguid/gh-axi.git",
-      "skillPath": "skills/gh-axi/SKILL.md",
-      "skillFolderHash": "2105186c93ec44c4b2b409a1176ed570d56bd99b",
-      "installedAt": "2026-07-10T01:32:24.276Z",
-      "updatedAt": "2026-07-10T01:32:24.276Z"
     }
   },
   "dismissed": {
