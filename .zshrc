@@ -138,7 +138,7 @@ if command -v bob >/dev/null 2>&1; then
     path+=$HOME/.local/share/bob/nvim-bin
     export EDITOR=nvim
     v() {
-        if [[ $PWD == $HOME/.config || $PWD == $HOME/.claude || $PWD == $HOME/.agents ]]; then
+        if [[ $PWD == $HOME/.config || $PWD == $HOME/.claude ]]; then
             yadm enter nvim "$@"
         else
             nvim "$@"

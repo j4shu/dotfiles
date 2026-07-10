@@ -1,10 +1,13 @@
+# General
+
+- When making technical decisions, do not give much weight to development cost. Instead, prefer quality, simplicity, robustness, scalability, and long term maintainability.
+
 # Git & worktrees
 
 - Never include Claude/AI attribution.
-- Branch names: `<type>/<desc>`.
 - Commits: use Conventional Commits (e.g. `<type>[optional scope]: <desc>`).
-- When work is isolated in a worktree, ship it: commit, push, open a draft PR.
-  Never leave a worktree with uncommitted work.
+- Branch names: `<type>/<desc>`.
+- Do not commit or push unless asked.
 
 # Agents
 
@@ -13,3 +16,5 @@
 # Style
 
 - No decorative banners.
+- No emojis.
+- No em dashes (—).
