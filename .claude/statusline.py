@@ -11,6 +11,7 @@ Plain text, no colors.
 
 import json
 import os
+import subprocess
 import sys
 
 # On Windows the console defaults to cp1252, which can't encode the · separator.
@@ -56,6 +57,22 @@ def shorten_cwd(path):
     return "…/" + os.sep.join(parts[-CWD_SEGMENTS:])
 
 
+def git_branch(cwd):
+    """Current branch name, or None if cwd isn't a git repo / is detached."""
+    try:
+        out = subprocess.run(
+            ["git", "symbolic-ref", "--short", "HEAD"],
+            cwd=cwd,
+            capture_output=True,
+            text=True,
+            timeout=1,
+        )
+    except Exception:
+        return None
+    branch = out.stdout.strip()
+    return branch if out.returncode == 0 and branch else None
+
+
 def context_tokens(path):
     """Sum of the last assistant message's usage; 0 if unreadable."""
     total = 0
@@ -95,6 +112,9 @@ def main():
     )
 
     seg = [shorten_cwd(cwd)]
+    branch = git_branch(cwd)
+    if branch:
+        seg.append(f" {branch}")
     if model.get("display_name"):
         seg.append(model["display_name"])
 
