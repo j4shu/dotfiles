@@ -1,7 +1,6 @@
 #!/usr/bin/env zsh
 
-CONFIG="$HOME/.config"
-if [[ "$PWD" == $CONFIG* ]]; then
+if [[ $PWD == $HOME/.config || $PWD == $HOME/.claude ]]; then
 	if command -v yadm >/dev/null 2>&1; then
 		cd
 		yadm enter lazygit
