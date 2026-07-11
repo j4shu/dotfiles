@@ -42,9 +42,9 @@ require('catppuccin').setup({
       FloatBorder = { link = 'NonText' },
 
       -- plugins
-      MiniFilesTitleFocused = { link = 'Visual' },
       MatchParen = { link = 'Underlined' },
-      BlinkCmpLabelMatch = { link = 'Underlined' },
+      BlinkCmpLabelMatch = { fg = c.sky, style = { 'underline' } },
+      MiniPickMatchRanges = { bg = c.surface2 },
       CopilotSuggestion = { link = 'NonText' },
     }
   end,
