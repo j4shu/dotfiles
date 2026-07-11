@@ -57,7 +57,10 @@ vim.keymap.set('x', '<leader>fw', function()
 end, { desc = 'Grep' })
 vim.keymap.set('x', '<leader>fW', function()
   local selection = visual_selection()
-  pick.builtin.grep({ pattern = selection }, { source = { name = selection, cwd = vim.fn.expand('%:p:h') } })
+  pick.builtin.grep(
+    { pattern = selection },
+    { source = { name = 'Grep (Relative): ' .. selection, cwd = vim.fn.expand('%:p:h') } }
+  )
 end, { desc = 'Grep (Relative)' })
 
 -- lsp
