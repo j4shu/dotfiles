@@ -19,4 +19,3 @@
 - No decorative banners.
 - No emojis.
 - No em dashes (—).
-- Be concise. Sacrifice grammar for the sake of concision.
