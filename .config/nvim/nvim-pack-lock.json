@@ -24,6 +24,10 @@
       "rev": "84a4987ff36798c2fc1169cbaff67960aed9776f",
       "src": "https://github.com/nmac427/guess-indent.nvim"
     },
+    "lazydev.nvim": {
+      "rev": "ff2cbcba459b637ec3fd165a2be59b7bbaeedf0d",
+      "src": "https://github.com/folke/lazydev.nvim"
+    },
     "mini.nvim": {
       "rev": "2ed9b05c6c2087cee85d7ee3b5641bbaec49f1de",
       "src": "https://github.com/j4shu/mini.nvim"
@@ -39,6 +43,10 @@
     "nvim-pack-ui": {
       "rev": "f36e3cfd4859052b5751c681edb80feed0b87966",
       "src": "https://codeberg.org/cryptomilk/nvim-pack-ui.git"
+    },
+    "render-markdown.nvim": {
+      "rev": "f422cb5c6855f150e2ddcfaf44e7157b98b34f6a",
+      "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
     },
     "sentiment.nvim": {
       "rev": "ecde8d877881bb78fdb90060c0991e76770dbdbc",
