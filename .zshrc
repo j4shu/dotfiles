@@ -1,5 +1,4 @@
 # work
-# export PATH="$HOME/.local/bin:$PATH"
 # export TMPDIR=$HOME/.local/tmp
 
 # history
@@ -28,23 +27,24 @@ bindkey "^[[1;3D" backward-word     # alt-left
 bindkey "^[[1;9D" beginning-of-line # cmd-left
 bindkey "^[[1;9C" end-of-line       # cmd-right
 
-CONFIG="$HOME/.config"
-PLUGINS="$CONFIG/plugins"
+CONFIG=$HOME/.config
+PLUGINS=$CONFIG/plugins
 
 # paths
-path+="$HOME/.local/bin"
-path+="$HOME/.cargo/bin"
-path+=$CONFIG/scripts
+typeset -U path
+path=($HOME/.local/bin $path)
+path=($HOME/.cargo/bin $path)
+path=($CONFIG/scripts $path)
 
 # brew
-if [[ -f "/opt/homebrew/bin/brew" ]]; then
+if [[ -f /opt/homebrew/bin/brew ]]; then
     eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
 # zsh
 autoload -z edit-command-line
 zle -N edit-command-line
-bindkey '^X^X' edit-command-line
+bindkey '^X^E' edit-command-line
 autoload -Uz compinit && compinit
 # https://github.com/zsh-users/zsh-autosuggestions
 source $PLUGINS/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -54,8 +54,8 @@ source $PLUGINS/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 
 # aliases
 alias h='cd ~'
-alias desk='cd ~/Desktop'
-alias g='cd ~/git'
+alias desk='cd ~/Desktop && ls'
+alias g='cd ~/git && ls'
 alias ppwd='pwd -P'
 alias ..='cd ..'
 alias drop='cd ~/Library/CloudStorage/Dropbox/ && ls'
@@ -85,7 +85,7 @@ if command -v fzf >/dev/null 2>&1; then
         export FZF_DEFAULT_COMMAND="fd --type file --type l --follow --hidden --exclude .git"
     fi
     # history
-    export FZF_CTRL_R_OPTS="--info=hidden"
+    export FZF_CTRL_R_OPTS=--info=hidden
     bindkey "^[[A" fzf-history-widget
     # fzf-tab-completion https://github.com/lincheney/fzf-tab-completion
     source $PLUGINS/fzf-tab-completion/zsh/fzf-zsh-completion.sh
@@ -113,8 +113,8 @@ if command -v zoxide >/dev/null 2>&1; then
             zle redisplay
             return 0
         }
-        if [[ -n "$selection" ]]; then
-            LBUFFER+="$selection"
+        if [[ -n $selection ]]; then
+            LBUFFER+=$selection
             zle redisplay
         fi
     }
@@ -139,6 +139,7 @@ fi
 if command -v bob >/dev/null 2>&1; then
     path+=$HOME/.local/share/bob/nvim-bin
     export EDITOR=nvim
+    export VISUAL=nvim
     # yadm
     if command -v yadm >/dev/null 2>&1; then
         v() {
