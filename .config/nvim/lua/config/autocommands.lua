@@ -20,7 +20,7 @@ vim.api.nvim_create_autocmd('FileType', {
 
 -- word wrap for prose-like filetypes
 vim.api.nvim_create_autocmd('FileType', {
-  pattern = { 'markdown', 'text', 'gitcommit' },
+  pattern = { 'markdown', 'text' },
   callback = function()
     vim.wo.wrap = true
     vim.wo.linebreak = true
