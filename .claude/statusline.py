@@ -23,7 +23,6 @@ except Exception:
 
 # ---- config -----------------------------------------------------------------
 CONTEXT_LIMIT = 200_000  # token count is shown as a % of this (auto-compact window)
-CWD_SEGMENTS = 2  # trailing path segments to show for cwd
 SEP = " · "  # separator between segments
 
 
@@ -45,16 +44,9 @@ def human_duration(ms):
 
 def shorten_cwd(path):
     home = os.path.expanduser("~")
-    if path == home:
-        return "~"
-    if path.startswith(home + os.sep):
-        parts = path[len(home) + 1 :].split(os.sep)
-        tail = os.sep.join(parts[-CWD_SEGMENTS:])
-        return "~/" + tail if len(parts) <= CWD_SEGMENTS else "~/…/" + tail
-    parts = [p for p in path.split(os.sep) if p]
-    if len(parts) <= CWD_SEGMENTS:
-        return path
-    return "…/" + os.sep.join(parts[-CWD_SEGMENTS:])
+    if path == home or path.startswith(home + os.sep):
+        return "~" + path[len(home):]
+    return path
 
 
 def git_branch(cwd):
@@ -114,7 +106,7 @@ def main():
     seg = [shorten_cwd(cwd)]
     branch = git_branch(cwd)
     if branch:
-        seg.append(f" {branch}")
+        seg.append(f"\033[32m {branch}\033[0m")
     if model.get("display_name"):
         effort = (data.get("effort") or {}).get("level")
         seg.append(
