@@ -116,7 +116,10 @@ def main():
     if branch:
         seg.append(f" {branch}")
     if model.get("display_name"):
-        seg.append(model["display_name"])
+        effort = (data.get("effort") or {}).get("level")
+        seg.append(
+            f"{model['display_name']} ({effort})" if effort else model["display_name"]
+        )
 
     pct = (tokens / CONTEXT_LIMIT * 100) if CONTEXT_LIMIT else 0
     seg.append(f"{human_tokens(tokens)}/{human_tokens(CONTEXT_LIMIT)} ({pct:.0f}%)")
