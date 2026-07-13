@@ -9,6 +9,8 @@
 - Never include Claude/AI attribution.
 - Commits: use Conventional Commits (e.g. `<type>[optional scope]: <desc>`).
 - Branch names: `<type>/<desc>`.
+- After merging a PR, update the local main branch.
+- Ensure that the local main branch is up to date before creating a new branch or worktree.
 
 # Agents
 
