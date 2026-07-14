@@ -132,8 +132,8 @@ fi
 # bob
 if command -v bob >/dev/null 2>&1; then
     path+=$HOME/.local/share/bob/nvim-bin
-    export EDITOR=nvim
-    export VISUAL=nvim
+    # export EDITOR=nvim
+    # export VISUAL=nvim
     # yadm
     if command -v yadm >/dev/null 2>&1; then
         v() {
@@ -153,8 +153,8 @@ if command -v lazygit >/dev/null 2>&1; then
     alias gg=lazygit
 fi
 
-# hunk
-if command -v hunk >/dev/null 2>&1; then
-    alias d="hunk diff"
-    alias dd="hunk show"
+# vscode
+if command -v code >/dev/null 2>&1; then
+    export EDITOR="code --wait"
+    export VISUAL="code --wait"
 fi
