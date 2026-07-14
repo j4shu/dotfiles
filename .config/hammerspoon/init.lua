@@ -4,9 +4,9 @@
 -- application switcher
 for key, name in pairs({
 	["1"] = "Google Chrome",
-	["2"] = "Ghostty",
+	["2"] = "Visual Studio Code",
+	-- ["2"] = "Ghostty",
 	["3"] = "Notes",
-	-- ["3"] = "Visual Studio Code",
 	-- ["e"] = "Claude"
 }) do
 	hs.hotkey.bind("alt", key, function()
