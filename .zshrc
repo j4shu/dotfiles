@@ -48,11 +48,11 @@ source $PLUGINS/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 
 # aliases
 alias h='cd ~'
-alias desk='cd ~/Desktop && ls'
-alias g='cd ~/git && ls'
+alias desk='cd ~/Desktop'
+alias g='cd ~/git'
 alias ppwd='pwd -P'
 alias ..='cd ..'
-alias drop='cd ~/Library/CloudStorage/Dropbox/ && ls'
+alias drop='cd ~/Library/CloudStorage/Dropbox/'
 alias path='echo -e ${PATH//:/\\n} | sort'
 alias env="env | sort | awk -F= '{printf \"%-30s %s\n\", \$1, \$2}'"
 alias clear='printf "\033c"'
