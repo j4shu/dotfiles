@@ -4,7 +4,7 @@
 Reads the session JSON piped to stdin by Claude Code, pulls the live context-token
 count from the session transcript, and prints one line:
 
-    <cwd> · <model> · <tokens>/<limit> (<pct>) · $<cost> · <duration>
+    <cwd> · <model> · <tokens>/<limit> (<pct>)
 
 Plain text, no colors.
 """
@@ -34,18 +34,10 @@ def human_tokens(n):
     return str(n)
 
 
-def human_duration(ms):
-    m = int(ms // 60000)
-    if m < 60:
-        return f"{m}m"
-    h, m = divmod(m, 60)
-    return f"{h}h{m:02d}m"
-
-
 def shorten_cwd(path):
     home = os.path.expanduser("~")
     if path == home or path.startswith(home + os.sep):
-        return "~" + path[len(home):]
+        return "~" + path[len(home) :]
     return path
 
 
@@ -97,7 +89,6 @@ def main():
 
     model = data.get("model") or {}
     workspace = data.get("workspace") or {}
-    cost = data.get("cost") or {}
     cwd = workspace.get("current_dir") or data.get("cwd") or os.getcwd()
     tokens = (
         context_tokens(data["transcript_path"]) if data.get("transcript_path") else 0
@@ -115,11 +106,6 @@ def main():
 
     pct = (tokens / CONTEXT_LIMIT * 100) if CONTEXT_LIMIT else 0
     seg.append(f"{human_tokens(tokens)}/{human_tokens(CONTEXT_LIMIT)} ({pct:.0f}%)")
-
-    if cost.get("total_cost_usd") is not None:
-        seg.append(f"${cost['total_cost_usd']:.2f}")
-    if cost.get("total_duration_ms"):
-        seg.append(human_duration(cost["total_duration_ms"]))
 
     sys.stdout.write(SEP.join(seg))
 
