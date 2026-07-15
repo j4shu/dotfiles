@@ -15,15 +15,15 @@
       "mcp__icuvisor"
     ]
   },
-  "effortLevel": "high",
-  "autoCompactEnabled": false,
-  "prefersReducedMotion": true,
-  "promptSuggestionEnabled": false,
-  "skipDangerousModePermissionPrompt": true,
-  "spinnerTipsEnabled": false,
+  "model": "opus[1m]",
   "statusLine": {
+    "type": "command",
     "command": "python3 /Users/jshu/.claude/statusline.py",
-    "padding": 0,
-    "type": "command"
-  }
+    "padding": 0
+  },
+  "spinnerTipsEnabled": false,
+  "effortLevel": "medium",
+  "promptSuggestionEnabled": false,
+  "prefersReducedMotion": true,
+  "autoCompactEnabled": false
 }
