@@ -74,8 +74,8 @@ vim.api.nvim_create_autocmd('User', {
     vim.keymap.set('n', 'yp', function()
       local path = files.get_fs_entry().path
       vim.fn.setreg(vim.v.register, path)
-      vim.notify('Yanked: ' .. path)
-    end, { buffer = buf_id, desc = 'Yank path' })
+      vim.notify('Copied: ' .. path)
+    end, { buffer = buf_id, desc = 'Copy path' })
 
     -- open path
     vim.keymap.set('n', 'gX', function()
