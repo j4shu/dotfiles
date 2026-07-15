@@ -145,9 +145,8 @@ map('n', 'yT', function()
 end)
 
 -- copy as mention: @path (plus #line/#start-end in visual mode)
-local function copy_as_mention(style, range)
-  local mod = style == 'absolute' and ':p:~' or ':~:.'
-  local text = '@' .. vim.fn.expand('%' .. mod)
+local function copy_as_mention(range)
+  local text = '@' .. vim.fn.expand('%:p:~')
   if range then
     text = text .. '#' .. (range[1] == range[2] and range[1] or range[1] .. '-' .. range[2])
   end
@@ -165,17 +164,11 @@ local function visual_range()
   return { from, to }
 end
 map('n', '<leader>y', function()
-  copy_as_mention('relative')
+  copy_as_mention()
 end, { desc = 'Copy as Mention' })
 map('x', '<leader>y', function()
-  copy_as_mention('relative', visual_range())
+  copy_as_mention(visual_range())
 end, { desc = 'Copy as Mention' })
-map('n', '<leader>Y', function()
-  copy_as_mention('absolute')
-end, { desc = 'Copy as Mention (Absolute)' })
-map('x', '<leader>Y', function()
-  copy_as_mention('absolute', visual_range())
-end, { desc = 'Copy as Mention (Absolute)' })
 
 -- windows
 map('n', '<C-h>', '<C-w>h')
