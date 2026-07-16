@@ -38,11 +38,8 @@ vim.keymap.set('n', '<leader>td', function()
   vim.diagnostic.enable(not vim.diagnostic.is_enabled(), { bufnr = 0 })
 end, { desc = 'LSP: Toggle Diagnostics' })
 
--- delete bad defaults
--- if vim.fn.has('nvim-0.11') == 1 then
---   pcall(vim.keymap.del, 'n', 'grr')
---   pcall(vim.keymap.del, 'n', 'gri')
---   pcall(vim.keymap.del, 'n', 'grn')
---   pcall(vim.keymap.del, { 'n', 'x' }, 'grr')
---   pcall(vim.keymap.del, { 'n', 'x' }, 'gra')
--- end
+-- delete default gr-prefix LSP maps
+for _, lhs in ipairs({ 'grn', 'grr', 'gri', 'grt', 'grx' }) do
+  pcall(vim.keymap.del, 'n', lhs)
+end
+pcall(vim.keymap.del, { 'n', 'x' }, 'gra')
