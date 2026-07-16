@@ -148,7 +148,7 @@ end)
 local function copy_as_mention(range)
   local text = '@' .. vim.fn.expand('%:p:~')
   if range then
-    text = text .. '#' .. (range[1] == range[2] and range[1] or range[1] .. '-' .. range[2])
+    text = text .. '#L' .. (range[1] == range[2] and range[1] or range[1] .. '-' .. range[2])
   end
   vim.fn.setreg('+', text)
   vim.notify('Copied: ' .. text)
