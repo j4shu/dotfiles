@@ -37,7 +37,7 @@ fi
 # zsh
 autoload -z edit-command-line
 zle -N edit-command-line
-bindkey '^X^E' edit-command-line
+bindkey '^G' edit-command-line
 autoload -Uz compinit && compinit
 # https://github.com/zsh-users/zsh-autosuggestions
 source $PLUGINS/zsh-autosuggestions/zsh-autosuggestions.zsh
