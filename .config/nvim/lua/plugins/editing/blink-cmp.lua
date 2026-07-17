@@ -23,7 +23,8 @@ cmp.setup({
   completion = {
     list = {
       selection = {
-        preselect = true,
+        -- preselect = true,
+        preselect = false,
         auto_insert = false,
       },
     },

@@ -23,9 +23,9 @@ pick.setup({
 
 -- files
 vim.keymap.set('n', '<Tab>', extras.smart, { desc = 'Files (Smart)' })
-vim.keymap.set('n', '<leader><Tab>', function()
-  pick.builtin.files({ tool = 'fd' }, { source = { cwd = vim.fn.expand('%:p:h') } })
-end, { desc = 'Files (Relative)' })
+-- vim.keymap.set('n', '<leader><Tab>', function()
+--   pick.builtin.files({ tool = 'fd' }, { source = { cwd = vim.fn.expand('%:p:h') } })
+-- end, { desc = 'Files (Relative)' })
 
 -- grep (live)
 vim.keymap.set('n', '<leader>fw', pick.builtin.grep_live, { desc = 'Grep Live' })
