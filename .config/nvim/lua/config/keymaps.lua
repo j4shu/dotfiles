@@ -144,31 +144,31 @@ map('n', 'yT', function()
   vim.notify('Copied: ' .. path)
 end)
 
--- copy as mention: @path (plus #line/#start-end in visual mode)
-local function copy_as_mention(range)
-  local text = '@' .. vim.fn.expand('%:p:~')
-  if range then
-    text = text .. '#L' .. (range[1] == range[2] and range[1] or range[1] .. '-' .. range[2])
-  end
-  vim.fn.setreg('+', text)
-  vim.notify('Copied: ' .. text)
-end
-local function visual_range()
-  -- '</'> marks are only valid after leaving visual mode
-  vim.cmd('normal! \27')
-  local from = vim.api.nvim_buf_get_mark(0, '<')[1]
-  local to = vim.api.nvim_buf_get_mark(0, '>')[1]
-  if from > to then
-    from, to = to, from
-  end
-  return { from, to }
-end
-map('n', '<leader>y', function()
-  copy_as_mention()
-end, { desc = 'Copy as Mention' })
-map('x', '<leader>y', function()
-  copy_as_mention(visual_range())
-end, { desc = 'Copy as Mention' })
+-- -- copy as mention: @path (plus #line/#start-end in visual mode)
+-- local function copy_as_mention(range)
+--   local text = '@' .. vim.fn.expand('%:p:~')
+--   if range then
+--     text = text .. '#L' .. (range[1] == range[2] and range[1] or range[1] .. '-' .. range[2])
+--   end
+--   vim.fn.setreg('+', text)
+--   vim.notify('Copied: ' .. text)
+-- end
+-- local function visual_range()
+--   -- '</'> marks are only valid after leaving visual mode
+--   vim.cmd('normal! \27')
+--   local from = vim.api.nvim_buf_get_mark(0, '<')[1]
+--   local to = vim.api.nvim_buf_get_mark(0, '>')[1]
+--   if from > to then
+--     from, to = to, from
+--   end
+--   return { from, to }
+-- end
+-- map('n', '<leader>y', function()
+--   copy_as_mention()
+-- end, { desc = 'Copy as Mention' })
+-- map('x', '<leader>y', function()
+--   copy_as_mention(visual_range())
+-- end, { desc = 'Copy as Mention' })
 
 -- windows
 map('n', '<C-h>', '<C-w>h')

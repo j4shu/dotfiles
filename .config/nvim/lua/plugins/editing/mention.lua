@@ -2,8 +2,8 @@ require('mention').setup({
   mappings = {
     append = '<leader>a',
     toggle = '<leader><Tab>',
-    -- copy = '',
-    clear = '<leader>X',
+    copy = '<leader>y',
+    -- clear = '',
   },
   window = {
     width = 0.7,
