@@ -95,7 +95,7 @@ if command -v fzf >/dev/null 2>&1; then
         return $ret
     }
     zle -N worktree_fzf
-    bindkey '^[w' worktree_fzf
+    bindkey '^[t' worktree_fzf
     # fzf-tab-completion https://github.com/lincheney/fzf-tab-completion
     source $PLUGINS/fzf-tab-completion/zsh/fzf-zsh-completion.sh
 fi
