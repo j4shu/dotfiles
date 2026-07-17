@@ -80,6 +80,22 @@ if command -v fzf >/dev/null 2>&1; then
     # history
     export FZF_CTRL_R_OPTS=--info=hidden
     bindkey "^[[A" fzf-history-widget
+    # worktrees
+    worktree_fzf() {
+        local selection
+        selection=$(git worktree list 2>/dev/null | awk 'system("test -d \"" $1 "\"")==0' | fzf --height 40% --reverse) || {
+            zle redisplay
+            return 0
+        }
+        zle push-line
+        BUFFER="builtin cd -- ${(q)${selection%% *}}"
+        zle accept-line
+        local ret=$?
+        zle reset-prompt
+        return $ret
+    }
+    zle -N worktree_fzf
+    bindkey '^[w' worktree_fzf
     # fzf-tab-completion https://github.com/lincheney/fzf-tab-completion
     source $PLUGINS/fzf-tab-completion/zsh/fzf-zsh-completion.sh
 fi
