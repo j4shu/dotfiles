@@ -35,5 +35,5 @@ theme = Catppuccin Mocha
 cursor-color = white
 cursor-text = black
 
-# shaders
-custom-shader = shaders/cursor_smear_fade.glsl
+# shaders https://github.com/sahaj-b/ghostty-cursor-shaders
+custom-shader = shaders/cursor_warp.glsl
