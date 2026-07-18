@@ -35,7 +35,7 @@ if [[ -f /opt/homebrew/bin/brew ]]; then
 fi
 
 # zsh
-autoload -z edit-command-line
+autoload -Uz edit-command-line
 zle -N edit-command-line
 bindkey '^G' edit-command-line
 autoload -Uz compinit && compinit
@@ -100,11 +100,6 @@ if command -v fzf >/dev/null 2>&1; then
 
     # fzf-tab-completion https://github.com/lincheney/fzf-tab-completion
     source $PLUGINS/fzf-tab-completion/zsh/fzf-zsh-completion.sh
-fi
-
-# bat https://github.com/sharkdp/bat
-if command -v bat >/dev/null 2>&1; then
-    alias cat=bat
 fi
 
 # starship https://github.com/starship/starship
