@@ -70,12 +70,10 @@ fi
 # fzf https://github.com/junegunn/fzf
 if command -v fzf >/dev/null 2>&1; then
     source <(fzf --zsh)
-    # https://www.mankier.com/1/fzf#Options-Interface
     export FZF_DEFAULT_OPTS="--no-multi --border=sharp --height 40% --preview-window=hidden"
 
     # fd
     if command -v fd >/dev/null 2>&1; then
-        # fd https://github.com/sharkdp/fd https://github.com/sharkdp/fd?tab=readme-ov-file#using-fd-with-fzf
         export FZF_DEFAULT_COMMAND="fd --type file --type l --follow --hidden --exclude .git"
     fi
 
@@ -86,7 +84,7 @@ if command -v fzf >/dev/null 2>&1; then
     # worktrees
     worktree_fzf() {
         local selection
-        selection=$(git worktree list 2>/dev/null | awk 'system("test -d \"" $1 "\"")==0' | fzf --height 40% --reverse) || {
+        selection=$(git worktree list 2>/dev/null | awk 'system("test -d \"" $1 "\"")==0' | fzf --reverse) || {
             zle redisplay
             return 0
         }
@@ -119,6 +117,7 @@ if command -v zoxide >/dev/null 2>&1; then
     eval "$(zoxide init zsh)"
 
     # zoxide_fzf
+    export _ZO_FZF_OPTS="$FZF_DEFAULT_OPTS --reverse"
     zoxide_fzf() {
         zi
         zle reset-prompt
