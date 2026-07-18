@@ -4,7 +4,6 @@
 format = """
 $directory\
 $git_branch\
-$rust\
 $python\
 $character\
 """
