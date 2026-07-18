@@ -22,3 +22,11 @@ vim.keymap.set('n', '<leader>tc', function()
   vim.g.enable_copilot = not vim.g.enable_copilot
   vim.notify('Toggled: Copilot ' .. (vim.g.enable_copilot and 'On' or 'Off'))
 end, { desc = 'Toggle Copilot' })
+
+-- for mention.nvim
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'mention',
+  callback = function(args)
+    require('copilot.client').buf_attach(true, args.buf)
+  end,
+})

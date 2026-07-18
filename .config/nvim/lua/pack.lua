@@ -3,7 +3,6 @@ vim.pack.add({
   { src = 'https://github.com/catppuccin/nvim', name = 'catppuccin' },
   -- { src = 'https://github.com/nvim-mini/mini.nvim' },
   { src = 'https://github.com/j4shu/mini.nvim' },
-  -- { src = 'https://github.com/j4shu/mini.nvim', version = 'feat/extra-smart-picker' },
   -- lsp
   { src = 'https://github.com/neovim/nvim-lspconfig' },
   { src = 'https://github.com/folke/lazydev.nvim' },
@@ -27,7 +26,7 @@ end, { desc = 'Lockfile' })
 
 require('plugins.catppuccin')
 vim.cmd.colorscheme('catppuccin')
-vim.cmd('runtime! lua/plugins/editing/*')
-vim.cmd('runtime! lua/plugins/lsp/*')
-vim.cmd('runtime! lua/plugins/operators/*')
-vim.cmd('runtime! lua/plugins/ui/*')
+vim.cmd('runtime! lua/plugins/editing/*.lua')
+vim.cmd('runtime! lua/plugins/lsp/*.lua')
+vim.cmd('runtime! lua/plugins/operators/*.lua')
+vim.cmd('runtime! lua/plugins/ui/*.lua')

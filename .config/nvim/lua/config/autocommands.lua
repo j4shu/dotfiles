@@ -23,7 +23,6 @@ vim.api.nvim_create_autocmd('FileType', {
   pattern = { 'markdown', 'text' },
   callback = function()
     vim.wo.wrap = true
-    vim.wo.linebreak = true
     vim.wo.spell = true
   end,
 })
