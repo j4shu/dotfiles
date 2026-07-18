@@ -15,7 +15,7 @@
       "mcp__icuvisor"
     ]
   },
-  "model": "opus[1m]",
+  "model": "opus",
   "statusLine": {
     "type": "command",
     "command": "python3 /Users/jshu/.claude/statusline.py",
