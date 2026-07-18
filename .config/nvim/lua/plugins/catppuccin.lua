@@ -46,6 +46,10 @@ require('catppuccin').setup({
       BlinkCmpLabelMatch = { fg = c.sky, style = { 'underline' } },
       MiniPickMatchRanges = { bg = c.surface2 },
       CopilotSuggestion = { link = 'NonText' },
+      MiniJump = { link = 'MiniPickMatchRanges' },
+      MiniJump2dSpot = { link = 'MiniJump' },
+      MiniJump2dSpotAhead = { link = 'MiniJump' },
+      MiniJump2dSpotUnique = { link = 'MiniJump' },
     }
   end,
   default_integrations = false,
