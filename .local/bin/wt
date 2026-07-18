@@ -1,0 +1,12 @@
+#!/bin/sh
+# wt (worktree-tab): open the current git worktree in a new herdr tab in the current workspace.
+#
+# Resolves the workspace live: the injected $HERDR_WORKSPACE_ID reflects where the
+# pane was created, not where it lives now, so prefer the calling pane's live
+# workspace_id, then the focused workspace, and fall back to the env var only last.
+dir=$(git rev-parse --show-toplevel 2>/dev/null) || dir=$PWD
+label=$(git -C "$dir" symbolic-ref --short HEAD 2>/dev/null) || label=$(basename "$dir")
+ws=$(herdr pane current --current 2>/dev/null | jq -r '.result.pane.workspace_id // empty')
+[ -n "$ws" ] || ws=$(herdr workspace list | jq -r '[.result.workspaces[] | select(.focused).workspace_id][0] // empty')
+[ -n "$ws" ] || ws=$HERDR_WORKSPACE_ID
+exec herdr tab create --cwd "$dir" --workspace "$ws" --label "$label" --focus

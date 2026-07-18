@@ -1,0 +1,9 @@
+#!/usr/bin/env zsh
+
+# Real git repo -> plain lazygit. Otherwise (dotfiles: ~/.config, ~/.claude,
+# and anything else not in a work tree) -> lazygit against the yadm repo at $HOME.
+if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+	lazygit
+else
+	cd && yadm enter lazygit
+fi
