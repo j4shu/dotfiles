@@ -98,8 +98,10 @@ resize_mode = ""
 # On Windows, command strings run through cmd.exe /d /c.
 [[keys.command]]
 key = "prefix+a"
-type = "pane"
+type = "popup"
 command = "yadm-lazygit"
+width = "99%"
+height = "99%"
 
 # Legacy indexed shortcut config is still parsed for compatibility.
 # Prefer switch_tab, switch_workspace, and focus_agent for new configs.
