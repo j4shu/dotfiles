@@ -1,5 +1,4 @@
-# https://starship.rs/config/#prompt
-"$schema" = 'https://starship.rs/config-schema.json'
+"$schema" = "https://starship.rs/config-schema.json"
 
 # add_newline = false
 format = """
@@ -16,7 +15,7 @@ $cmd_duration\
 [directory]
 disabled = false
 truncation_length = 8
-truncation_symbol = "…/"
+truncation_symbol = "/"
 truncate_to_repo = false
 format = "[$path ](white)"
 
@@ -24,21 +23,14 @@ format = "[$path ](white)"
 disabled = false
 symbol = ""
 always_show_remote = true
-format = '[$symbol $branch ](green)'
+format = "[$symbol $branch ](green)"
 
 [python]
 disabled = false
-symbol = ""
+symbol = "󰌠"
 format = '[$symbol ($version )(\($virtualenv\) )](blue)'
-
-[character]
-disabled = false
-success_symbol = '[❯](green)'
-error_symbol = "[✗](red)"
-format = '$symbol '
 
 [cmd_duration]
 disabled = false
-min_time = 2_000
 show_milliseconds = true
-format = '[$duration](yellow)'
+format = "[$duration](yellow)"
