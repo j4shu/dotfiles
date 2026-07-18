@@ -21,18 +21,11 @@ bindkey "^[[1;3D" backward-word     # alt-left
 bindkey "^[[1;9D" beginning-of-line # cmd-left
 bindkey "^[[1;9C" end-of-line       # cmd-right
 
-CONFIG=$HOME/.config
-PLUGINS=$CONFIG/plugins
-
 # paths
+PLUGIN_DIR=$HOME/.config/plugins
 typeset -U path
 path=($HOME/.local/bin $path)
 path=($HOME/.cargo/bin $path)
-
-# brew
-if [[ -f /opt/homebrew/bin/brew ]]; then
-    eval "$(/opt/homebrew/bin/brew shellenv)"
-fi
 
 # zsh
 autoload -Uz edit-command-line
@@ -40,10 +33,10 @@ zle -N edit-command-line
 bindkey '^G' edit-command-line
 autoload -Uz compinit && compinit
 # https://github.com/zsh-users/zsh-autosuggestions
-source $PLUGINS/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $PLUGIN_DIR/zsh-autosuggestions/zsh-autosuggestions.zsh
 bindkey '^[l' autosuggest-accept
 # https://github.com/zdharma-continuum/fast-syntax-highlighting
-source $PLUGINS/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+source $PLUGIN_DIR/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 
 # aliases
 alias h='cd ~'
@@ -56,6 +49,11 @@ alias path='echo -e ${PATH//:/\\n} | sort'
 alias env="env | sort | awk -F= '{printf \"%-30s %s\n\", \$1, \$2}'"
 alias clear='printf "\033c"'
 alias act="source .venv/bin/activate"
+
+# brew
+if [[ -f /opt/homebrew/bin/brew ]]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
 
 # eza https://github.com/eza-community/eza
 if command -v eza >/dev/null 2>&1; then
@@ -99,7 +97,7 @@ if command -v fzf >/dev/null 2>&1; then
     bindkey '^[t' worktree_fzf
 
     # fzf-tab-completion https://github.com/lincheney/fzf-tab-completion
-    source $PLUGINS/fzf-tab-completion/zsh/fzf-zsh-completion.sh
+    source $PLUGIN_DIR/fzf-tab-completion/zsh/fzf-zsh-completion.sh
 fi
 
 # starship https://github.com/starship/starship
