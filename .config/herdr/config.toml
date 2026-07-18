@@ -3,8 +3,6 @@ onboarding = false
 [theme]
 name = "terminal"
 
-auto_switch = false
-
 [terminal]
 # Executable used for new interactive panes.
 # Empty means $SHELL, then /bin/sh.
@@ -19,7 +17,27 @@ auto_switch = false
 # "current" for Herdr's process directory, or a fixed path such as "~/Projects".
 # new_cwd = "follow"
 
+[update]
+# Update channel used by background version checks and `herdr update`.
+# Defaults to "stable" on Linux/macOS and "preview" on Windows.
+# Set explicitly to choose stable releases or opt-in preview builds.
+# channel = "stable"
+
+# Check herdr.dev for new Herdr versions in the background.
+# version_check = true
+
+# Check herdr.dev for remote agent-detection manifest updates in the background.
+# manifest_check = true
+
 [keys]
+# Prefix key to enter prefix mode (default: "ctrl+b")
+# Examples: "ctrl+b", "f12", "esc", "-"
+# Action bindings use explicit syntax: "prefix+n" requires the prefix;
+# "ctrl+alt+n" is a direct terminal-mode shortcut.
+# Accepted key syntax: plain keys, ctrl/shift/alt/cmd/super modifiers, and special keys like enter/tab/esc/left/right/up/down.
+# Named punctuation such as minus, comma, ampersand, plus, and backtick is also accepted.
+# Most reliable direct bindings are ctrl+letter, function keys, and explicit modified chords.
+# alt+..., cmd/super, and punctuation-with-modifiers may depend on your terminal/tmux setup.
 prefix = "ctrl+a"
 
 # Prefix-mode actions
@@ -115,6 +133,10 @@ command = "yadm-lazygit"
 # Pane apps like lazygit and btop can still receive mouse when they request it.
 # mouse_capture = true
 
+# Copy text selected by mouse drag or double-click.
+# Set false to disable mouse text selection and copying.
+# copy_on_select = true
+
 # Host cursor policy: "auto", "native", or "drawn".
 # "auto" draws Herdr's own cursor on Windows to avoid ConPTY cursor flicker, and uses the native terminal cursor elsewhere.
 # "native" always uses the outer terminal cursor. "drawn" always draws Herdr's cursor as terminal cell content.
@@ -155,6 +177,25 @@ show_agent_labels_on_pane_borders = true
 # Agent panel ordering: "spaces" (grouped by space) or "priority" (attention queue).
 # "workspaces" is accepted as an alias for "spaces".
 # agent_panel_sort = "spaces"
+
+# Expanded agent rows. Built-ins are state_icon, state_text, workspace, tab, pane, agent,
+# terminal_title, and terminal_title_stripped.
+# Custom values reported through pane metadata use a $name token.
+# [ui.sidebar.agents]
+# Blank rows between agent entries. Set to 1 to restore the previous spacing.
+# row_gap = 0
+# rows = [["state_icon", "workspace", "tab"], ["agent"]]
+# Optional canonical agent IDs replace the default rows for matching agents.
+# [ui.sidebar.agents.rows_by_agent]
+# claude = [["state_icon", "workspace", "tab"], ["terminal_title_stripped"], ["agent"]]
+
+# Expanded space rows. Built-ins are state_icon, state_text, workspace, branch, and git_status.
+# Custom values reported through workspace metadata use a $name token, for example $jj_status.
+[ui.sidebar.spaces]
+# Blank rows between space entries. Set to 1 to restore the previous spacing.
+# row_gap = 0
+# rows = [["state_icon", "workspace"], ["branch", "git_status"]]
+rows = [["state_icon", "workspace"], []]
 
 # Accent color for highlights, borders, and navigation UI.
 # Accepts: hex (#89b4fa), named colors (cyan, blue, magenta), or rgb(r,g,b)
