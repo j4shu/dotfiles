@@ -2,7 +2,7 @@
 # export TMPDIR=$HOME/.local/tmp
 
 # history
-HISTFILE=$HOME/.zsh_history
+HISTFILE="$HOME/.zsh_history"
 HISTSIZE=10000
 SAVEHIST=$HISTSIZE
 # https://github.com/rothgar/mastering-zsh/blob/master/docs/config/history.md
@@ -16,16 +16,16 @@ setopt HIST_NO_STORE        # Don't store history commands
 # emacs
 bindkey -e
 # macos arrow keys https://linux.die.net/man/1/zshzle
-bindkey "^[[1;3C" forward-word      # alt-right
-bindkey "^[[1;3D" backward-word     # alt-left
-bindkey "^[[1;9D" beginning-of-line # cmd-left
-bindkey "^[[1;9C" end-of-line       # cmd-right
+bindkey '^[[1;3C' forward-word      # alt-right
+bindkey '^[[1;3D' backward-word     # alt-left
+bindkey '^[[1;9D' beginning-of-line # cmd-left
+bindkey '^[[1;9C' end-of-line       # cmd-right
 
 # paths
-PLUGIN_DIR=$HOME/.config/plugins
+PLUGIN_DIR="$HOME/.config/plugins"
 typeset -U path
-path=($HOME/.local/bin $path)
-path=($HOME/.cargo/bin $path)
+path=("$HOME/.local/bin" $path)
+path=("$HOME/.cargo/bin" $path)
 
 # zsh
 autoload -Uz edit-command-line
@@ -33,10 +33,10 @@ zle -N edit-command-line
 bindkey '^G' edit-command-line
 autoload -Uz compinit && compinit
 # https://github.com/zsh-users/zsh-autosuggestions
-source $PLUGIN_DIR/zsh-autosuggestions/zsh-autosuggestions.zsh
+source "$PLUGIN_DIR/zsh-autosuggestions/zsh-autosuggestions.zsh"
 bindkey '^[l' autosuggest-accept
 # https://github.com/zdharma-continuum/fast-syntax-highlighting
-source $PLUGIN_DIR/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+source "$PLUGIN_DIR/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"
 
 # aliases
 alias h='cd ~'
@@ -48,7 +48,7 @@ alias drop='cd ~/Library/CloudStorage/Dropbox/'
 alias path='echo -e ${PATH//:/\\n} | sort'
 alias env="env | sort | awk -F= '{printf \"%-30s %s\n\", \$1, \$2}'"
 alias clear='printf "\033c"'
-alias act="source .venv/bin/activate"
+alias act='source .venv/bin/activate'
 
 # brew
 if [[ -f /opt/homebrew/bin/brew ]]; then
@@ -57,7 +57,7 @@ fi
 
 # eza https://github.com/eza-community/eza
 if command -v eza >/dev/null 2>&1; then
-    EZA_OPTIONS="--color=auto --icons=auto --all"
+    EZA_OPTIONS='--color=auto --icons=auto --all'
     EZA_LONG_OPTIONS="$EZA_OPTIONS --long --sort=modified --header --time-style='+%Y %b %e %R' --octal-permissions"
     alias l="eza $EZA_OPTIONS"
     alias ll="eza $EZA_LONG_OPTIONS"
@@ -68,16 +68,16 @@ fi
 # fzf https://github.com/junegunn/fzf
 if command -v fzf >/dev/null 2>&1; then
     source <(fzf --zsh)
-    export FZF_DEFAULT_OPTS="--no-multi --border=sharp --height 40% --preview-window=hidden"
+    export FZF_DEFAULT_OPTS='--no-multi --border=sharp --height 40% --preview-window=hidden'
 
     # fd
     if command -v fd >/dev/null 2>&1; then
-        export FZF_DEFAULT_COMMAND="fd --type file --type l --follow --hidden --exclude .git"
+        export FZF_DEFAULT_COMMAND='fd --type file --type l --follow --hidden --exclude .git'
     fi
 
     # history
-    export FZF_CTRL_R_OPTS="--info=hidden"
-    bindkey "^[[A" fzf-history-widget
+    export FZF_CTRL_R_OPTS='--info=hidden'
+    bindkey '^[[A' fzf-history-widget
 
     # worktrees
     worktree_fzf() {
@@ -97,7 +97,7 @@ if command -v fzf >/dev/null 2>&1; then
     bindkey '^[t' worktree_fzf
 
     # fzf-tab-completion https://github.com/lincheney/fzf-tab-completion
-    source $PLUGIN_DIR/fzf-tab-completion/zsh/fzf-zsh-completion.sh
+    source "$PLUGIN_DIR/fzf-tab-completion/zsh/fzf-zsh-completion.sh"
 fi
 
 # starship https://github.com/starship/starship
@@ -121,15 +121,15 @@ fi
 
 # claude
 if command -v claude >/dev/null 2>&1; then
-    alias c="claude"
-    alias cc="claude agents --cwd ."
-    alias ccc="claude --continue"
+    alias c='claude'
+    alias cc='claude agents --cwd .'
+    alias ccc='claude --continue'
 fi
 
 # herdr
 if command -v herdr >/dev/null 2>&1; then
-    alias zz=herdr
-    alias zd="herdr server stop"
+    alias zz='herdr'
+    alias zd='herdr server stop'
 
     # wt (worktree-tab): open the current git worktree in a new herdr tab in the current workspace.
     # Resolve the workspace live; the injected $HERDR_WORKSPACE_ID reflects where the
@@ -147,9 +147,9 @@ fi
 
 # bob
 if command -v bob >/dev/null 2>&1; then
-    path+=$HOME/.local/share/bob/nvim-bin
-    export EDITOR=nvim
-    export VISUAL=nvim
+    path+="$HOME/.local/share/bob/nvim-bin"
+    export EDITOR='nvim'
+    export VISUAL='nvim'
 
     # yadm
     if command -v yadm >/dev/null 2>&1; then
@@ -161,11 +161,11 @@ if command -v bob >/dev/null 2>&1; then
             fi
         }
     else
-        alias v=nvim
+        alias v='nvim'
     fi
 fi
 
 # lazygit
 if command -v lazygit >/dev/null 2>&1; then
-    alias gg=lazygit
+    alias gg='lazygit'
 fi
