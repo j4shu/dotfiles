@@ -71,15 +71,18 @@ fi
 if command -v fzf >/dev/null 2>&1; then
     source <(fzf --zsh)
     # https://www.mankier.com/1/fzf#Options-Interface
-    export FZF_DEFAULT_OPTS="--no-multi --border=sharp"
+    export FZF_DEFAULT_OPTS="--no-multi --border=sharp --height 40% --preview-window=hidden"
+
     # fd
     if command -v fd >/dev/null 2>&1; then
         # fd https://github.com/sharkdp/fd https://github.com/sharkdp/fd?tab=readme-ov-file#using-fd-with-fzf
         export FZF_DEFAULT_COMMAND="fd --type file --type l --follow --hidden --exclude .git"
     fi
+
     # history
-    export FZF_CTRL_R_OPTS=--info=hidden
+    export FZF_CTRL_R_OPTS="--info=hidden"
     bindkey "^[[A" fzf-history-widget
+
     # worktrees
     worktree_fzf() {
         local selection
@@ -96,6 +99,7 @@ if command -v fzf >/dev/null 2>&1; then
     }
     zle -N worktree_fzf
     bindkey '^[t' worktree_fzf
+
     # fzf-tab-completion https://github.com/lincheney/fzf-tab-completion
     source $PLUGINS/fzf-tab-completion/zsh/fzf-zsh-completion.sh
 fi
@@ -113,19 +117,11 @@ fi
 # zoxide https://github.com/ajeetdsouza/zoxide
 if command -v zoxide >/dev/null 2>&1; then
     eval "$(zoxide init zsh)"
-    # https://github.com/ajeetdsouza/zoxide/discussions/1007
+
+    # zoxide_fzf
     zoxide_fzf() {
-        local orig_buffer=$LBUFFER
-        local selection
-        selection=$(zoxide query --list | fzf --height 40% --reverse) || {
-            LBUFFER=$orig_buffer
-            zle redisplay
-            return 0
-        }
-        if [[ -n $selection ]]; then
-            LBUFFER+=$selection
-            zle redisplay
-        fi
+        zi
+        zle reset-prompt
     }
     zle -N zoxide_fzf
     bindkey '^o' zoxide_fzf
