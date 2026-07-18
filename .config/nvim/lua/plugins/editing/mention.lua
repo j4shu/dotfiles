@@ -9,4 +9,5 @@ require('mention').setup({
     height = 0.5,
     border = 'single',
   },
+  auto_open = true,
 })
