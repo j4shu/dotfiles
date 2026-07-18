@@ -29,7 +29,7 @@
       "src": "https://github.com/folke/lazydev.nvim"
     },
     "mention.nvim": {
-      "rev": "aa62830aa86a62aebab262388de3f9d6119e4e39",
+      "rev": "073e765ad5ea2c7f6ccfc919e2d1a3db67928235",
       "src": "https://github.com/j4shu/mention.nvim"
     },
     "mini.nvim": {
