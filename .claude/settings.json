@@ -18,7 +18,7 @@
   "model": "opus",
   "statusLine": {
     "type": "command",
-    "command": "python3 /Users/jshu/.claude/statusline.py",
+    "command": "python3 \"$HOME/.claude/statusline.py\""
     "padding": 0
   },
   "spinnerTipsEnabled": false,
