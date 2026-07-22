@@ -55,6 +55,10 @@ require('catppuccin').setup({
       MiniJump2dSpot = { link = 'MiniJump' },
       MiniJump2dSpotAhead = { link = 'MiniJump' },
       MiniJump2dSpotUnique = { link = 'MiniJump' },
+      MiniStatuslineModeCommand = { fg = c.base, bg = c.peach },
+      MiniStatuslineModeNormal = { fg = c.base, bg = c.blue },
+      MiniStatuslineModeInsert = { fg = c.base, bg = c.green },
+      MiniStatuslineModeVisual = { fg = c.base, bg = c.yellow },
       MiniTrailspace = { bg = c.red },
     }
   end,
