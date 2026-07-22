@@ -45,13 +45,17 @@ require('catppuccin').setup({
       MatchParen = { link = 'Underlined' },
       CopilotSuggestion = { link = 'NonText' },
       BlinkCmpLabelMatch = { fg = c.sky, style = { 'underline' } },
+
       MiniDiffSignChange = { fg = c.yellow },
       MiniFilesTitleFocused = { link = 'Visual' },
+      MiniPickPrompt = { fg = c.text },
+      MiniPickMatchCurrent = { bg = c.surface2 },
       MiniPickMatchRanges = { bg = c.surface2 },
       MiniJump = { link = 'MiniPickMatchRanges' },
       MiniJump2dSpot = { link = 'MiniJump' },
       MiniJump2dSpotAhead = { link = 'MiniJump' },
       MiniJump2dSpotUnique = { link = 'MiniJump' },
+      MiniTrailspace = { bg = c.red },
     }
   end,
   default_integrations = false,
