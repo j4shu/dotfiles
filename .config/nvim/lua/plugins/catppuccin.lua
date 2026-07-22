@@ -49,7 +49,7 @@ require('catppuccin').setup({
       MiniDiffSignChange = { fg = c.yellow },
       MiniFilesTitleFocused = { link = 'Visual' },
       MiniPickPrompt = { fg = c.text },
-      MiniPickMatchCurrent = { bg = c.surface2 },
+      MiniPickMatchCurrent = { bg = c.surface0 },
       MiniPickMatchRanges = { bg = c.surface2 },
       MiniJump = { link = 'MiniPickMatchRanges' },
       MiniJump2dSpot = { link = 'MiniJump' },
