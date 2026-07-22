@@ -25,6 +25,6 @@
   "effortLevel": "medium",
   "promptSuggestionEnabled": false,
   "prefersReducedMotion": true,
-  "autoCompactEnabled": false,
-  "autoMemoryEnabled": false
+  "autoMemoryEnabled": false,
+  "autoCompactEnabled": false
 }
