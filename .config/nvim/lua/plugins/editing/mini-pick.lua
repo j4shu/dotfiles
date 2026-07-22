@@ -14,7 +14,7 @@ pick.setup({
   },
   window = {
     config = {
-      row = vim.o.lines - 1,
+      row = vim.o.lines - 2,
       height = math.floor(0.5 * vim.o.lines),
       width = math.floor(0.75 * vim.o.columns),
     },
