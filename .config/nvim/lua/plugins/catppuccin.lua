@@ -43,7 +43,7 @@ require('catppuccin').setup({
 
       -- plugins
       MatchParen = { link = 'Underlined' },
-      CopilotSuggestion = { link = 'NonText' },
+      -- CopilotSuggestion = { link = 'NonText' },
       BlinkCmpLabelMatch = { fg = c.sky, style = { 'underline' } },
 
       MiniDiffSignChange = { fg = c.yellow },
