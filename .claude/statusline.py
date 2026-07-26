@@ -1,18 +1,18 @@
 #!/usr/bin/env python3
 """Claude Code status line.
 
-Reads the session JSON piped to stdin by Claude Code, pulls the live context-token
-count from the session transcript, and prints one line:
+Reads the session JSON piped to stdin by Claude Code and prints one line:
 
-    <cwd> · <model> · <tokens>/<limit> (<pct>)
+    <cwd> · <branch> · <model> · <context tokens> · <reset time> (<5h used>%)
 
-Plain text, no colors.
+The quota segment is omitted until the CLI has seen a rate-limit header.
 """
 
 import json
 import os
 import subprocess
 import sys
+from datetime import datetime
 
 # On Windows the console defaults to cp1252, which can't encode the · separator.
 # Force UTF-8 so the line renders instead of crashing with UnicodeEncodeError.
@@ -21,17 +21,7 @@ try:
 except Exception:
     pass
 
-# ---- config -----------------------------------------------------------------
-CONTEXT_LIMIT = 200_000  # token count is shown as a % of this (auto-compact window)
 SEP = " · "  # separator between segments
-
-
-def human_tokens(n):
-    if n >= 1_000_000:
-        return f"{n / 1_000_000:.1f}M"
-    if n >= 1_000:
-        return f"{n / 1_000:.1f}k"
-    return str(n)
 
 
 def shorten_cwd(path):
@@ -57,30 +47,6 @@ def git_branch(cwd):
     return branch if out.returncode == 0 and branch else None
 
 
-def context_tokens(path):
-    """Sum of the last assistant message's usage; 0 if unreadable."""
-    total = 0
-    try:
-        with open(path) as fh:
-            for line in fh:
-                line = line.strip()
-                if not line:
-                    continue
-                try:
-                    usage = json.loads(line).get("message", {}).get("usage")
-                except Exception:
-                    continue
-                if isinstance(usage, dict):
-                    total = (
-                        usage.get("input_tokens", 0)
-                        + usage.get("cache_creation_input_tokens", 0)
-                        + usage.get("cache_read_input_tokens", 0)
-                    )
-    except Exception:
-        pass
-    return total
-
-
 def main():
     try:
         data = json.load(sys.stdin)
@@ -90,22 +56,25 @@ def main():
     model = data.get("model") or {}
     workspace = data.get("workspace") or {}
     cwd = workspace.get("current_dir") or data.get("cwd") or os.getcwd()
-    tokens = (
-        context_tokens(data["transcript_path"]) if data.get("transcript_path") else 0
-    )
 
     seg = [shorten_cwd(cwd)]
     branch = git_branch(cwd)
     if branch:
-        seg.append(f"\033[32m {branch}\033[0m")
+        seg.append(f"\033[32m {branch}\033[0m")
     if model.get("display_name"):
         effort = (data.get("effort") or {}).get("level")
         seg.append(
             f"{model['display_name']} ({effort})" if effort else model["display_name"]
         )
 
-    pct = (tokens / CONTEXT_LIMIT * 100) if CONTEXT_LIMIT else 0
-    seg.append(f"{human_tokens(tokens)}/{human_tokens(CONTEXT_LIMIT)} ({pct:.0f}%)")
+    tokens = (data.get("context_window") or {}).get("total_input_tokens", 0)
+    seg.append(f"{tokens / 1000:.0f}k")
+
+    # resets_at is a Unix epoch in seconds; used_percentage is already 0-100.
+    five_hour = ((data.get("rate_limits") or {}).get("five_hour")) or {}
+    if five_hour.get("resets_at"):
+        reset = datetime.fromtimestamp(five_hour["resets_at"]).strftime("%H:%M")
+        seg.append(f"{reset} ({five_hour.get('used_percentage', 0):.0f}%)")
 
     sys.stdout.write(SEP.join(seg))
 
