@@ -62,7 +62,7 @@ require('catppuccin').setup({
       MiniTrailspace = { bg = c.red },
     }
   end,
-  default_integrations = false,
+  auto_integrations = false,
   -- integrations = {
   --   mini = { enabled = true },
   -- },
