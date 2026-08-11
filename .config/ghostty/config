@@ -10,6 +10,7 @@ auto-update-channel = tip
 # font-family          = MesloLGM Nerd Font
 font-family = ZedMono Nerd Font
 font-size = 18
+adjust-cell-height = 15%
 
 # cursor
 cursor-style = bar
