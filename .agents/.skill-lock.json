@@ -1,15 +1,6 @@
 {
   "version": 3,
   "skills": {
-    "herdr": {
-      "source": "ogulcancelik/herdr",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/ogulcancelik/herdr.git",
-      "skillPath": "SKILL.md",
-      "skillFolderHash": "5d24d0d214d05858e344a9e15a63856dc1328eae",
-      "installedAt": "2026-07-08T23:05:14.665Z",
-      "updatedAt": "2026-07-15T00:12:49.071Z"
-    },
     "find-skills": {
       "source": "vercel-labs/skills",
       "sourceType": "github",
@@ -219,15 +210,6 @@
       "installedAt": "2026-07-09T00:38:57.028Z",
       "updatedAt": "2026-08-11T14:17:28.153Z"
     },
-    "writing-great-skills": {
-      "source": "mattpocock/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/mattpocock/skills.git",
-      "skillPath": "skills/productivity/writing-great-skills/SKILL.md",
-      "skillFolderHash": "81d36946d48842f90358d8af54e3cdcc141f8e01",
-      "installedAt": "2026-07-09T00:38:57.029Z",
-      "updatedAt": "2026-07-15T00:13:11.996Z"
-    },
     "skill-creator": {
       "source": "anthropics/skills",
       "sourceType": "github",
@@ -243,10 +225,9 @@
       "sourceType": "github",
       "sourceUrl": "https://github.com/anthropics/skills.git",
       "skillPath": "skills/claude-api/SKILL.md",
-      "skillFolderHash": "a4c392286cdd8ad4ac28c13c7d2543895c6b94cf",
-      "pluginName": "claude-api",
+      "skillFolderHash": "f5a11c25cbe8b46d0260e9c14f8257a6e1fe5dec",
       "installedAt": "2026-07-10T01:24:25.930Z",
-      "updatedAt": "2026-07-10T01:24:25.930Z"
+      "updatedAt": "2026-08-11T14:19:14.178Z"
     },
     "resolving-merge-conflicts": {
       "source": "mattpocock/skills",
