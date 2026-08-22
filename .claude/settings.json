@@ -11,8 +11,7 @@
       "Glob",
       "WebSearch",
       "WebFetch",
-      "PowerShell",
-      "mcp__icuvisor"
+      "PowerShell"
     ]
   },
   "model": "opus",
