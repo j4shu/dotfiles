@@ -164,8 +164,3 @@ if command -v bob >/dev/null 2>&1; then
         alias v='nvim'
     fi
 fi
-
-# lazygit
-if command -v lazygit >/dev/null 2>&1; then
-    alias gg='lazygit'
-fi
