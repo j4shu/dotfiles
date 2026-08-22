@@ -1,6 +1,6 @@
 # General
 
-- When making technical decisions, do not give much weight to development cost. Instead, prefer quality, simplicity, robustness, scalability, and long term maintainability.
+- When making technical decisions, do not give much weight to development cost. Prefer quality, simplicity, robustness, scalability, and long term maintainability.
 - Be concise. Sacrifice grammar for the sake of concision.
 - Follow YAGNI principles, and one-liner solutions.
 
@@ -11,10 +11,6 @@
 - Branch names: `<type>/<desc>`.
 - After merging a PR, update the local main branch.
 - Ensure that the local main branch is up to date before creating a new branch or worktree.
-
-# Agents
-
-- Launch independent agents in parallel, not sequentially.
 
 # Style
 
