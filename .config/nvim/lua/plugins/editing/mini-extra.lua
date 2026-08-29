@@ -88,7 +88,3 @@ extra.pickers.smart = function(local_opts, opts)
     vim.tbl_deep_extend('force', { source = { name = 'Smart', show = show, items = items } }, opts or {})
   return pick.start(opts_final)
 end
-
-require('mini.pick').registry.smart = function(local_opts)
-  return extra.pickers.smart(local_opts)
-end
