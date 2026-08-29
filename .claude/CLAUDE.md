@@ -1,6 +1,6 @@
 # General
 
-- When making technical decisions, do not give much weight to development cost. Prefer quality, simplicity, robustness, scalability, and long term maintainability.
+- When making technical decisions, do not give weight to development cost. Prefer quality, simplicity, robustness, scalability, and long term maintainability.
 - Be concise. Sacrifice grammar for the sake of concision.
 - Follow YAGNI principles, and one-liner solutions.
 
@@ -17,3 +17,7 @@
 - No decorative banners.
 - No emojis.
 - No em dashes (—).
+
+## Python
+
+- Always use explicit keyword arguments (`key=value`) in my functions. Exclude Python builtins and 3rd-party library imports from this rule.
