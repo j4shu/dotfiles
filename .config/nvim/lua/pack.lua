@@ -14,7 +14,6 @@ vim.pack.add({
   -- editing
   { src = 'https://github.com/nmac427/guess-indent.nvim' },
   { src = 'https://github.com/windwp/nvim-autopairs' },
-  { src = 'https://github.com/zbirenbaum/copilot.lua' },
   { src = 'https://github.com/MeanderingProgrammer/render-markdown.nvim' },
   { src = 'https://github.com/j4shu/mention.nvim' },
 })
