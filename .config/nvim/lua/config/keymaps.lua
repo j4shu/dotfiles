@@ -20,6 +20,7 @@ map('n', '<leader>s', function()
   vim.notify('Sourced: ' .. vim.fn.expand('%:t'))
 end, { desc = 'Source File' })
 map('n', '<leader>M', '<cmd>messages<CR>', { desc = 'Messages' })
+map('n', '<leader>R', '<cmd>restart<CR>', { desc = 'Restart' })
 
 -- append
 map('n', '<leader>,', 'mzA,<Esc>`z', { desc = 'Append Comma' })
