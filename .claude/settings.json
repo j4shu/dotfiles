@@ -3,6 +3,10 @@
     "CLAUDE_CODE_SCROLL_SPEED": "0.25",
     "ENABLE_TOOL_SEARCH": "true"
   },
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  },
   "permissions": {
     "allow": [
       "Bash",
