@@ -122,7 +122,7 @@ end)
 -- copy paths
 map('n', 'yp', function()
   -- absolute
-  local path = vim.fn.expand('%:p')
+  local path = vim.fn.expand('%:p:~')
   vim.fn.setreg('+', path)
   vim.notify('Copied: ' .. path)
 end)

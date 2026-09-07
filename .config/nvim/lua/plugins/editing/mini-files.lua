@@ -72,7 +72,7 @@ vim.api.nvim_create_autocmd('User', {
 
     -- yank path
     vim.keymap.set('n', 'yp', function()
-      local path = files.get_fs_entry().path
+      local path = vim.fn.fnamemodify(files.get_fs_entry().path, ':~')
       vim.fn.setreg(vim.v.register, path)
       vim.notify('Copied: ' .. path)
     end, { buffer = buf_id, desc = 'Copy path' })
