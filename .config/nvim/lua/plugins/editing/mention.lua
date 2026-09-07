@@ -10,4 +10,14 @@ require('mention').setup({
     border = 'single',
   },
   auto_open = true,
+
+  -- Pi reads files when told to,
+  format = function(path, from, to)
+    path = vim.fn.fnamemodify(path, ':~')
+    if not from then
+      return 'read ' .. path
+    end
+    local range = from == to and ('line ' .. from) or ('lines ' .. from .. '-' .. to)
+    return ('read %s, %s'):format(path, range)
+  end,
 })
