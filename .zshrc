@@ -148,4 +148,35 @@ fi
 # pi
 if command -v pi >/dev/null 2>&1; then
     alias c='pi'
+
+    # fork pi session into cwd
+    pi_fork_fzf() {
+        local sessions_root="${PI_CODING_AGENT_SESSION_DIR:-$HOME/.pi/agent/sessions}"
+        local f epoch date name cwd rows=()
+        for f in "$sessions_root"/--*/*.jsonl(N); do
+            epoch=$(stat -f '%m' "$f")
+            date=$(stat -f '%Sm' -t '%b %d %H:%M' "$f")
+            cwd=$(sed -n '1s/.*"cwd":"\([^"]*\)".*/\1/p' "$f")
+            [ -n "$cwd" ] || cwd='?'
+            name=$(grep -m1 '"type":"session_info"' "$f" | sed -n 's/.*"name":"\([^"]*\)".*/\1/p')
+            name=${name//$'\t'/ }
+            rows+=("$epoch"$'\t'"$date  [$cwd]${name:+  $name}"$'\t'"${${${f:t}%.jsonl}#*_}")
+        done
+        local sel
+        sel=$(printf '%s\n' "${rows[@]}" | sort -t $'\t' -k1,1nr | cut -f2- | fzf --reverse --delimiter $'\t' --with-nth=1 --prompt 'fork session> ')
+        [ -n "$sel" ] || {
+            zle redisplay 2>/dev/null
+            return 1
+        }
+        local id=${sel##*$'\t'}
+        if zle; then
+            zle push-line
+            BUFFER="pi --fork ${(q)id}"
+            zle accept-line
+        else
+            command pi --fork "$id"
+        fi
+    }
+    zle -N pi_fork_fzf
+    bindkey '^[f' pi_fork_fzf
 fi
