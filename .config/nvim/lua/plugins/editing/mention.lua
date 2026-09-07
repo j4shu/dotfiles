@@ -11,7 +11,7 @@ require('mention').setup({
   },
   auto_open = true,
 
-  -- Pi reads files when told to,
+  -- Pi reads files when told to
   format = function(path, from, to)
     path = vim.fn.fnamemodify(path, ':~')
     if not from then
