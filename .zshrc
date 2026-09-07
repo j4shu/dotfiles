@@ -119,13 +119,6 @@ if command -v zoxide >/dev/null 2>&1; then
     bindkey '^o' zoxide_fzf
 fi
 
-# claude
-if command -v claude >/dev/null 2>&1; then
-    alias c='claude'
-    alias cc='claude agents --cwd .'
-    alias ccc='claude --continue'
-fi
-
 # herdr
 if command -v herdr >/dev/null 2>&1; then
     alias zz='herdr'
@@ -150,4 +143,9 @@ if command -v bob >/dev/null 2>&1; then
     else
         alias v='nvim'
     fi
+fi
+
+# pi
+if command -v pi >/dev/null 2>&1; then
+    alias c='pi'
 fi
