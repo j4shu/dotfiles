@@ -38,6 +38,10 @@ local show_preview = false
 local toggle_preview = function()
   show_preview = not show_preview
   files.refresh({ windows = { preview = show_preview } })
+  -- Disabling preview leaves its path in the branch until the next cursor move; trim it so the preview window closes immediately
+  if not show_preview then
+    files.trim_right()
+  end
 end
 
 -- open in split
