@@ -163,7 +163,7 @@ if command -v pi >/dev/null 2>&1; then
             rows+=("$epoch"$'\t'"$date  [$cwd]${name:+  $name}"$'\t'"${${${f:t}%.jsonl}#*_}")
         done
         local sel
-        sel=$(printf '%s\n' "${rows[@]}" | sort -t $'\t' -k1,1nr | cut -f2- | fzf --reverse --delimiter $'\t' --with-nth=1 --prompt 'fork session> ')
+        sel=$(printf '%s\n' "${rows[@]}" | sort -t $'\t' -k1,1nr | cut -f2- | fzf --reverse --delimiter $'\t' --with-nth=1)
         [ -n "$sel" ] || {
             zle redisplay 2>/dev/null
             return 1
