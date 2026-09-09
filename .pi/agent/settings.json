@@ -1,11 +1,6 @@
 {
   "defaultProvider": "deepseek",
-  "defaultModel": "deepseek-v4-flash-vision-exp",
-  "modelThinkingLevels": {
-    "deepseek/deepseek-v4-pro": "high",
-    "deepseek/deepseek-v4-flash": "high",
-    "deepseek/deepseek-v4-flash-vision-exp": "high"
-  },
+  "defaultModel": "deepseek-v4.1-flash-expires-on-0910",
   "lastChangelogVersion": "0.85.1",
   "theme": "dark",
   "compaction": {
@@ -16,15 +11,16 @@
     "../../git/pi-extensions/pi-quicksave",
     "../../git/pi-extensions/pi-hud",
     "git:github.com/DietrichGebert/ponytail",
-    "npm:pi-web-access",
     "npm:pi-mcp-adapter",
     "npm:pi-subagents",
     "npm:pi-context-view",
     "npm:pi-blackhole",
     "npm:@capdiem/pi-ask-user",
-    "npm:@tifan/pi-recap"
+    "npm:@tifan/pi-recap",
+    "npm:donsetch"
   ],
   "hideThinkingBlock": true,
   "treeFilterMode": "no-tools",
-  "tuiMode": "fullscreen"
+  "tuiMode": "fullscreen",
+  "quietStartup": true
 }
