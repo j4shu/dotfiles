@@ -2,7 +2,7 @@
   "defaultProvider": "deepseek",
   "defaultModel": "deepseek-v4.1-flash-expires-on-0910",
   "lastChangelogVersion": "0.85.1",
-  "theme": "dark",
+  "theme": "catppuccin-mocha",
   "compaction": {
     "enabled": false
   },
@@ -18,7 +18,8 @@
     "npm:@capdiem/pi-ask-user",
     "npm:@tifan/pi-recap",
     "npm:donsetch",
-    "npm:pi-fast-resume"
+    "npm:pi-fast-resume",
+    "git:github.com/otahontas/pi-coding-agent-catppuccin"
   ],
   "hideThinkingBlock": true,
   "treeFilterMode": "no-tools",
