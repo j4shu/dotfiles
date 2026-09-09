@@ -17,7 +17,8 @@
     "npm:pi-blackhole",
     "npm:@capdiem/pi-ask-user",
     "npm:@tifan/pi-recap",
-    "npm:donsetch"
+    "npm:donsetch",
+    "npm:pi-fast-resume"
   ],
   "hideThinkingBlock": true,
   "treeFilterMode": "no-tools",
