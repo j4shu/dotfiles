@@ -134,7 +134,7 @@ if command -v bob >/dev/null 2>&1; then
     # yadm
     if command -v yadm >/dev/null 2>&1; then
         v() {
-            if [[ $PWD == $HOME/.config || $PWD == $HOME/.claude ]]; then
+            if [[ $PWD == $HOME/.config || $PWD == $HOME/.pi ]]; then
                 yadm enter nvim "$@"
             else
                 nvim "$@"
