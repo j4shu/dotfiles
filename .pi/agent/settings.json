@@ -1,6 +1,6 @@
 {
   "defaultProvider": "deepseek",
-  "defaultModel": "deepseek-v4.1-flash-expires-on-0910",
+  "defaultModel": "deepseek-flash",
   "lastChangelogVersion": "0.85.1",
   "theme": "catppuccin-mocha",
   "compaction": {
