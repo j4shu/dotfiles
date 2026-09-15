@@ -30,7 +30,11 @@
   "telemetry": {
     "system_info": false
   },
-  "favorites": ["scripts:empty-trash.sh", "clipboard:history"],
+  "launcher_window": {
+    "compact_mode": {
+      "enabled": true
+    }
+  },
   "providers": {
     "applications": {
       "entrypoints": {
@@ -46,13 +50,6 @@
       "entrypoints": {
         "history": {
           "shortcut": "control+alt+V"
-        }
-      }
-    },
-    "raycast-compat": {
-      "entrypoints": {
-        "store": {
-          "enabled": true
         }
       }
     }
