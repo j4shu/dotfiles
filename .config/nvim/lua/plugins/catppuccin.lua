@@ -50,7 +50,7 @@ require('catppuccin').setup({
       MiniFilesTitleFocused = { link = 'Visual' },
       MiniPickPrompt = { fg = c.text },
       MiniPickMatchCurrent = { bg = c.surface0 },
-      MiniPickMatchRanges = { bg = c.surface2, fg = c.red },
+      MiniPickMatchRanges = { bg = c.surface2 },
       MiniJump = { link = 'MiniPickMatchRanges' },
       MiniJump2dSpot = { link = 'MiniJump' },
       MiniJump2dSpotAhead = { link = 'MiniJump' },
