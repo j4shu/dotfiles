@@ -1,5 +1,6 @@
 local servers = {
   tombi = {},
+  marksman = {},
   lua_ls = {
     settings = {
       Lua = {
