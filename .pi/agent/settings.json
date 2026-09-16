@@ -18,7 +18,6 @@
     "npm:@capdiem/pi-ask-user",
     "npm:@tifan/pi-recap",
     "npm:donsetch",
-    "npm:pi-fast-resume",
     "git:github.com/otahontas/pi-coding-agent-catppuccin"
   ],
   "hideThinkingBlock": true,
