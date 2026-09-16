@@ -15,10 +15,6 @@ map('n', '<leader>w', '<cmd>update<CR>', { desc = 'Write' })
 map('n', '<leader>q', '<cmd>q<CR>', { desc = 'Quit' })
 map('n', '<leader>d', '<cmd>bd!<CR>', { desc = 'Buffer: Delete' })
 map('n', '<leader>Q', '<cmd>qa!<CR>', { desc = 'Quit (All)' })
-map('n', '<leader>s', function()
-  vim.cmd('source %')
-  vim.notify('Sourced: ' .. vim.fn.expand('%:t'))
-end, { desc = 'Source File' })
 map('n', '<leader>M', '<cmd>messages<CR>', { desc = 'Messages' })
 map('n', '<leader>R', '<cmd>restart<CR>', { desc = 'Restart' })
 
@@ -90,14 +86,10 @@ map('x', '*', '"zy' .. '/<C-r>z<CR>``')
 -- https://github.com/neovim/neovim/issues/21676
 -- https://vim.fandom.com/wiki/Search_and_replace
 map('n', 'sw', 'yiw' .. '*``' .. '"_cgn', { desc = 'Substitute cword (Instance)' })
--- map('n', 'sx', '*``' .. '"_dgn', { desc = 'Delete cword (Instance)' })
 map('x', 'sw', 'y' .. '/<C-r>0<CR>``' .. '_cgn', { desc = 'Substitute (Instance)' })
--- map('x', 'sx', '*' .. '"_dgn', { desc = 'Delete (Instance)', remap = true })
 
 -- comments
--- Sticky toggle on top of built-in gc/gcc: keep the cursor where it was
--- (normal: raw row/col; visual: the selection's active end), instead of
--- built-in's jump to column 0 / top of the range.
+-- Sticky toggle on top of built-in gc/gcc
 local function restore_cursor(pos)
   local last = vim.api.nvim_buf_line_count(0)
   local row = math.max(1, math.min(pos[1], last))
@@ -144,32 +136,6 @@ map('n', 'yT', function()
   vim.notify('Copied: ' .. path)
 end)
 
--- -- copy as mention: @path (plus #line/#start-end in visual mode)
--- local function copy_as_mention(range)
---   local text = '@' .. vim.fn.expand('%:p:~')
---   if range then
---     text = text .. '#L' .. (range[1] == range[2] and range[1] or range[1] .. '-' .. range[2])
---   end
---   vim.fn.setreg('+', text)
---   vim.notify('Copied: ' .. text)
--- end
--- local function visual_range()
---   -- '</'> marks are only valid after leaving visual mode
---   vim.cmd('normal! \27')
---   local from = vim.api.nvim_buf_get_mark(0, '<')[1]
---   local to = vim.api.nvim_buf_get_mark(0, '>')[1]
---   if from > to then
---     from, to = to, from
---   end
---   return { from, to }
--- end
--- map('n', '<leader>y', function()
---   copy_as_mention()
--- end, { desc = 'Copy as Mention' })
--- map('x', '<leader>y', function()
---   copy_as_mention(visual_range())
--- end, { desc = 'Copy as Mention' })
-
 -- windows
 map('n', '<C-h>', '<C-w>h')
 map('n', '<C-j>', '<C-w>j')
@@ -193,8 +159,8 @@ for _, key in ipairs({ ',', '.', '!', '?', ':', ';' }) do
 end
 
 -- undotree
-vim.keymap.set('n', '<leader>u', function()
-  vim.cmd('packadd nvim.undotree')
+vim.cmd('packadd nvim.undotree')
+map('n', '<leader>u', function()
   require('undotree').open()
 end, { desc = 'Undotree' })
 
