@@ -1,7 +1,10 @@
 onboarding = false
 
 [theme]
-name = "terminal"
+name = "catppuccin-mocha"
+
+[theme.custom]
+panel_bg = "reset"
 
 [update]
 version_check = true
