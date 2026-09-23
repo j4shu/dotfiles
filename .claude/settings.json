@@ -1,10 +1,6 @@
 {
   "model": "opus",
-  "modelSettings": {
-    "claude-opus-5-5": {
-      "effortLevel": "medium"
-    }
-  },
+  "effortLevel": "medium",
   "attribution": {
     "commit": "",
     "pr": ""
@@ -24,6 +20,19 @@
     "type": "command",
     "command": "python3 /Users/jshu/.claude/statusline.py"
   },
+  "enabledPlugins": {
+    "ponytail@ponytail": true,
+    "telemetry@builtin": false
+  },
+  "extraKnownMarketplaces": {
+    "ponytail": {
+      "source": {
+        "source": "github",
+        "repo": "DietrichGebert/ponytail"
+      }
+    }
+  },
+  "promptSuggestionEnabled": false,
   "autoMemoryEnabled": false,
   "autoCompactEnabled": false
 }
