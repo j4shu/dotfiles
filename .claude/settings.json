@@ -1,0 +1,29 @@
+{
+  "model": "opus",
+  "modelSettings": {
+    "claude-opus-5-5": {
+      "effortLevel": "medium"
+    }
+  },
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  },
+  "permissions": {
+    "allow": [
+      "Bash",
+      "Read",
+      "Write",
+      "Glob",
+      "WebSearch",
+      "WebFetch",
+      "PowerShell"
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "python3 /Users/jshu/.claude/statusline.py"
+  },
+  "autoMemoryEnabled": false,
+  "autoCompactEnabled": false
+}

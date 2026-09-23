@@ -1,0 +1,4 @@
+- Do not commit or push unless asked.
+- Commits: use Conventional Commits (e.g. `<type>[optional scope]: <desc>`).
+- Branch names: `<type>/<desc>`.
+- No decorative banners, emojis, or em dashes (—).
