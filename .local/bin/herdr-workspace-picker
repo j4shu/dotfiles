@@ -1,0 +1,10 @@
+#!/usr/bin/env zsh
+# fzf picker for herdr workspaces; the attached one is grayed out and Enter ignores it.
+rows=$(herdr api snapshot | jq -r '.result.snapshot.workspaces | sort_by(.number)[]
+  | if .focused then "\(.workspace_id)\t1\t\u001b[90m\(.number) (attached) \(.label)\u001b[0m"
+    else "\(.workspace_id)\t0\t\(.number) \(.label)" end') || exit 1
+
+pos=$(print -r -- $rows | grep -n $'\t1\t' | cut -d: -f1)
+id=$(print -r -- $rows | fzf --ansi --delimiter='\t' --with-nth=3 --no-sort --layout=reverse --no-border --info=hidden --height=100% --no-input \
+  --bind 'j:down,k:up,q:abort' --bind "load:pos(${pos:-1})" --bind 'enter:transform:[[ {2} == 1 ]] || echo accept' | cut -f1)
+[[ -n $id ]] && herdr workspace focus $id
