@@ -21,6 +21,7 @@ maximize = true
 title = "👻 Ghostty"
 macos-titlebar-proxy-icon = hidden
 confirm-close-surface = false
+window-padding-balance = true
 
 # clipboard
 clipboard-read = allow
