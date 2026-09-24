@@ -164,19 +164,19 @@ map('n', '<leader>u', function()
   require('undotree').open()
 end, { desc = 'Undotree' })
 
--- incremental selection treesitter/lsp
--- vim.keymap.set({ 'n', 'x', 'o' }, 'm', function()
---   if vim.treesitter.get_parser(nil, nil, { error = false }) then
---     vim.treesitter.select('parent', vim.v.count1)
---   else
---     vim.lsp.buf.selection_range(vim.v.count1)
---   end
--- end, { desc = 'Select parent treesitter node or outer incremental lsp selections' })
---
--- vim.keymap.set({ 'n', 'x', 'o' }, 'M', function()
---   if vim.treesitter.get_parser(nil, nil, { error = false }) then
---     vim.treesitter.select('child', vim.v.count1)
---   else
---     vim.lsp.buf.selection_range(-vim.v.count1)
---   end
--- end, { desc = 'Select child treesitter node or inner incremental lsp selections' })
+-- incremental selection
+vim.keymap.set({ 'n', 'x', 'o' }, 'm', function()
+  if vim.treesitter.get_parser(nil, nil, { error = false }) then
+    vim.treesitter.select('parent', vim.v.count1)
+  else
+    vim.lsp.buf.selection_range(vim.v.count1)
+  end
+end, { desc = 'Treesitter: Increase Selection' })
+
+vim.keymap.set({ 'n', 'x', 'o' }, 'M', function()
+  if vim.treesitter.get_parser(nil, nil, { error = false }) then
+    vim.treesitter.select('child', vim.v.count1)
+  else
+    vim.lsp.buf.selection_range(-vim.v.count1)
+  end
+end, { desc = 'Treesitter: Decrease Selection' })
