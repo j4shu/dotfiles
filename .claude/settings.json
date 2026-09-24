@@ -16,6 +16,9 @@
       "PowerShell"
     ]
   },
+  "worktree": {
+    "bgIsolation": "none"
+  },
   "statusLine": {
     "type": "command",
     "command": "python3 /Users/jshu/.claude/statusline.py"
