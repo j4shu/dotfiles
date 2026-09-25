@@ -69,7 +69,7 @@ pane_borders = "always"
 pane_gaps = false
 
 [ui.sidebar.spaces]
-rows = [["workspace"], []]
+rows = [["state_icon", "workspace"], []]
 
 [ui.toast]
 delay_seconds = 0
