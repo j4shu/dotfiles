@@ -60,11 +60,6 @@ key = "prefix+a"
 type = "pane"
 command = "yadm-lazygit"
 
-[[keys.command]]
-key = "prefix+w"
-type = "popup"
-command = "herdr-workspace-picker"
-
 [ui]
 sidebar_collapsed_mode = "hidden"
 mouse_scroll_lines = 1
