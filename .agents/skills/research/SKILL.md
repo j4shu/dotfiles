@@ -18,8 +18,8 @@ reads. Its job:
 When the agent finishes, pick a short kebab-case `<slug>` from the topic and
 call `AskUserQuestion` once to ask where to save it, showing full paths:
 
-- `<cwd>/<slug>.md` (Recommended)
-- `<cwd>/research/<slug>.md`
+- `<cwd>/research/<slug>.md` (Recommended)
+- `<cwd>/<slug>.md`
 - `/tmp/<slug>.md`
 
 The automatic "Other" carries a custom path and/or filename. Create the folder
