@@ -2,4 +2,4 @@
 - Commits: use Conventional Commits (e.g. `<type>[optional scope]: <desc>`).
 - Branch names: `<type>/<desc>`.
 - No decorative banners or emojis.
-- Keep code comments to 1-2 lines.
+- Comment only when the code can't explain itself; keep it to 1-2 lines.
