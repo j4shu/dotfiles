@@ -12,15 +12,7 @@ reads. Its job:
 1. Investigate the question against **primary sources** (official docs, source
    code, specs, first-party APIs), not a secondary write-up of them. Follow
    every claim back to the source that owns it.
-2. Return the findings inline as a single Markdown document, citing each claim's
-   source. Do not write any file.
-
-When the agent finishes, pick a short kebab-case `<slug>` from the topic and
-call `AskUserQuestion` once to ask where to save it, showing full paths:
-
-- `<cwd>/research/<slug>.md` (Recommended)
-- `<cwd>/<slug>.md`
-- `/tmp/<slug>.md`
-
-The automatic "Other" carries a custom path and/or filename. Create the folder
-if missing, write the file, and report the path.
+2. Write the findings to `<cwd>/research/<slug>.md`, citing each claim's source.
+   `<slug>` is a short kebab-case name from the topic; create the folder if
+   missing.
+3. Report the path.
