@@ -57,8 +57,10 @@ toggle_sidebar = "cmd+e"
 
 [[keys.command]]
 key = "prefix+a"
-type = "pane"
+type = "popup"
 command = "yadm-lazygit"
+width = "100%"
+height = "100%"
 
 [ui]
 sidebar_collapsed_mode = "hidden"
