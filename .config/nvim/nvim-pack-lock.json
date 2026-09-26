@@ -1,11 +1,11 @@
 {
   "plugins": {
     "blink.cmp": {
-      "rev": "1e4a8fb9708bbaa35addaa198638feed622d56ae",
+      "rev": "8219b58f1c11a2fb1644d3c7116c509fa8348ec0",
       "src": "https://github.com/saghen/blink.cmp"
     },
     "blink.lib": {
-      "rev": "5876dd95deeb70aadbe9f1c0b7117a135061cdac",
+      "rev": "fd9a48ebbe6ec30d5dfcc5b42c243941ccdca1aa",
       "src": "https://github.com/saghen/blink.lib"
     },
     "catppuccin": {
@@ -29,7 +29,7 @@
       "src": "https://github.com/j4shu/mention.nvim"
     },
     "mini.nvim": {
-      "rev": "fb2bbae327f3c306f3c825031345b89dd176ce60",
+      "rev": "561751e839b99a4baca36b9d963166b66d2536a6",
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
     "nvim-autopairs": {
@@ -37,7 +37,7 @@
       "src": "https://github.com/windwp/nvim-autopairs"
     },
     "nvim-lspconfig": {
-      "rev": "7ab79bb1b57160a537f427ac8a6026102f12b701",
+      "rev": "046b1a797af1effe8e0474b9af9657a3761ec58a",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-pack-ui": {
@@ -45,7 +45,7 @@
       "src": "https://codeberg.org/cryptomilk/nvim-pack-ui.git"
     },
     "render-markdown.nvim": {
-      "rev": "f422cb5c6855f150e2ddcfaf44e7157b98b34f6a",
+      "rev": "640a3ec6d538bad17c328be373c7cad0293d9589",
       "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
     },
     "sentiment.nvim": {
