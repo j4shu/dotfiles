@@ -103,3 +103,11 @@ vim.api.nvim_create_autocmd('User', {
     files.set_bookmark('h', '~/', { desc = 'Home' })
   end,
 })
+
+vim.api.nvim_create_autocmd('VimEnter', {
+  callback = function()
+    if vim.fn.argc() == 0 and vim.api.nvim_buf_get_name(0) == '' and vim.fn.line2byte('$') == -1 then
+      files.open(nil, false)
+    end
+  end,
+})
