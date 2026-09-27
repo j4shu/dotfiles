@@ -150,4 +150,32 @@ if command -v claude >/dev/null 2>&1; then
     alias c='claude'
     alias cc='claude agents --cwd .'
     alias ccc='claude --continue'
+
+    # fork any session (all projects) into cwd
+    claude_fork_fzf() {
+        local id
+        id=$(for f in $(ls -t ~/.claude/projects/*/*.jsonl); do
+            jq -rn --arg d "$(date -r "$f" '+%m-%d %H:%M')" 'reduce inputs as $e ({};
+                if $e.type == "custom-title" then .name = $e.customTitle
+                elif $e.type == "ai-title" then .ai = $e.aiTitle
+                elif .msg == null and $e.type == "user" and $e.isMeta != true and ($e.message.content | type) == "string"
+                then .msg = $e.message.content | .cwd = $e.cwd | .id = $e.sessionId
+                else . end)
+                | select(.msg)
+                | [.id, $d, (.cwd | sub(env.HOME; "~")), (.name // .ai // "" | .[:35]), (.msg | gsub("\\s+"; " ") | .[:120])]
+                | @json' "$f" 2>/dev/null
+        done | jq -rs 'def pad($n): . + ([range($n - length)] | map(" ") | join(""));
+            (transpose | map(map(length) | max)) as $w
+            | .[] | "\(.[0])\t\([range(1; 4) as $i | .[$i] | pad($w[$i])] | join("  "))  \(.[4])"' |
+            fzf --reverse --delimiter='\t' --with-nth=2 | cut -f1)
+        if [[ -z $id ]]; then
+            zle redisplay
+            return 0
+        fi
+        zle push-line
+        BUFFER="claude --resume $id --fork-session"
+        zle accept-line
+    }
+    zle -N claude_fork_fzf
+    bindkey '^[f' claude_fork_fzf
 fi
