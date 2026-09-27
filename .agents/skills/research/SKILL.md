@@ -16,7 +16,8 @@ reads. Its job:
    source. Do not write any file.
 
 Right after spawning it, pick a short kebab-case `<slug>` from the topic and
-call `AskUserQuestion` once to ask where to save it, showing full paths:
+call `AskUserQuestion` once to ask where to save it, showing full paths with the
+home directory written as `~`:
 
 - `<cwd>/research/<slug>.md` (Recommended)
 - `~/Desktop/research/<slug>.md`
