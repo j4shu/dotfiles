@@ -179,3 +179,20 @@ if command -v claude >/dev/null 2>&1; then
     zle -N claude_fork_fzf
     bindkey '^[f' claude_fork_fzf
 fi
+
+# gh
+if command -v gh >/dev/null 2>&1; then
+    mkrepo() {
+        [[ -n $1 ]] || {
+            echo "usage: mkrepo <name>" >&2
+            return 1
+        }
+        local url
+        url=$(gh api user/repos -f name="$1" -F private=true \
+            -F allow_squash_merge=true -F allow_merge_commit=false -F allow_rebase_merge=false \
+            -F delete_branch_on_merge=true \
+            -f squash_merge_commit_title=PR_TITLE -f squash_merge_commit_message=PR_BODY \
+            --jq .html_url) || return
+        git clone "$url" && echo "$url"
+    }
+fi
