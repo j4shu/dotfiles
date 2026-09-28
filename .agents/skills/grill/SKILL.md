@@ -39,6 +39,10 @@ through this line. Then call `AskUserQuestion` once:
 Wait for the answers before the next round. If the user dismisses the form, stop
 and let them redirect in chat; ask again only when they say so.
 
+An "Other" answer that asks a question or shows confusion leaves that decision
+open. Answer it in chat text, where the user can read it, before the next call,
+and ask the clarified question again in the next round.
+
 ## Find facts yourself
 
 A fact that lives in the environment is never the user's question. Dispatch a
