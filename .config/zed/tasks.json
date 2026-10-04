@@ -1,0 +1,23 @@
+[
+  {
+    "label": "lazygit",
+    "command": "yadm-lazygit",
+    "reveal_target": "center",
+    "hide": "on_success",
+    "allow_concurrent_runs": true,
+  },
+  {
+    "label": "terminal: new terminal at file dir",
+    "command": "exec $SHELL",
+    "cwd": "$ZED_DIRNAME",
+    "reveal_target": "center",
+    "use_new_terminal": true,
+    "hide": "on_success",
+  },
+  {
+    "label": "copy: copy as mention",
+    "command": "f=$(printenv ZED_FILE | sed \"s|^$HOME/|~/|\"); sel=$(printenv ZED_SELECTED_TEXT); if [ -z \"$sel\" ]; then m=\"@$f\"; else n=$(printf '%s' \"$sel\" | wc -l | tr -d ' '); if [ \"$n\" -gt 0 ]; then m=\"@$f#L$ZED_ROW-$((ZED_ROW + n))\"; else m=\"@$f#L$ZED_ROW\"; fi; fi; printf '%s' \"$m\" | pbcopy",
+    "reveal": "never",
+    "hide": "always",
+  },
+]
