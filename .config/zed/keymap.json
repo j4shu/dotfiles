@@ -13,6 +13,7 @@
       "cmd-1": ["pane::ActivateItem", 0],
       "cmd-\\": "pane::AlternateFile",
       "cmd-t": "workspace::NewCenterTerminal",
+      "cmd-shift-s": "workspace::SaveWithoutFormat",
     },
   },
   {
