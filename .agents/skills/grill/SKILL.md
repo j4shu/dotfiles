@@ -63,8 +63,10 @@ The session is done when the frontier is empty: every branch of the design tree
 visited, nothing left silently assumed. Then:
 
 1. Print every settled decision as a compact numbered list in chat.
-2. Call `AskUserQuestion` once: shared understanding reached, or keep grilling.
-   Put the same numbered list in the "reached" option's `preview`, so the user
-   confirms against decisions they can see.
-3. On "reached", act on the plan. On "keep grilling", ask in chat which decision
-   to reopen, and resume the rounds from there.
+2. Call `AskUserQuestion` once: shared understanding reached, reached and write
+   a spec, or keep grilling. Put the same numbered list in both "reached"
+   options' `preview`, so the user confirms against decisions they can see.
+3. On "reached", act on the plan. On "write spec", follow
+   `~/.claude/skills/to-spec/SKILL.md`. On "keep grilling", list every question
+   and decision as `Q<n>. <question>: <the user's answer>`, ask in chat which
+   decision to reopen, and resume the rounds from there.
