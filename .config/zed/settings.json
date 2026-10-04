@@ -82,4 +82,10 @@
     "show_active_file": true,
   },
   "icon_theme": "Material Icon Theme",
+  "auto_install_extensions": {
+    "catppuccin": true,
+    "git-firefly": true,
+    "material-icon-theme": true,
+    "toml": true,
+  },
 }
