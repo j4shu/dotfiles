@@ -1,0 +1,29 @@
+[
+  {
+    "bindings": {
+      "cmd-t": "workspace::ToggleBottomDock",
+      "cmd-e": "workspace::ToggleRightDock",
+      "cmd-g": "git_panel::Toggle",
+      "cmd-<": "zed::OpenSettingsFile",
+      "cmd-shift-k": "zed::OpenKeymapFile",
+      "ctrl-tab": ["pane::ActivateNextItem", { "wrap_around": false }],
+      "ctrl-shift-tab": ["pane::ActivatePreviousItem", { "wrap_around": false }],
+      "cmd-shift-c": "editor::ToggleComments",
+      "cmd-shift-e": "project_panel::ToggleFocus",
+      "cmd-r": "pane::RevealInProjectPanel",
+    },
+  },
+  {
+    "context": "FileFinder > Picker > Editor",
+    "bindings": {
+      "tab": "picker::TogglePreview",
+    },
+  },
+  {
+    // Closing the project panel with the terminal open: refocus the terminal.
+    "context": "(Workspace && bottom_dock == TerminalPanel) > ProjectPanel",
+    "bindings": {
+      "cmd-e": ["workspace::SendKeystrokes", "cmd-e ctrl-`"],
+    },
+  },
+]
