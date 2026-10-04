@@ -26,7 +26,9 @@
 
       // terminal
       "cmd-t": "workspace::NewCenterTerminal",
-      "alt-t": ["task::Spawn", { "task_name": "terminal: new terminal at file dir" }],
+
+      // tasks
+      "alt-t": "task::Spawn",
     },
   },
   {
