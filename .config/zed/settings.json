@@ -69,6 +69,13 @@
   "prettier": {
     "allowed": true,
   },
+  "languages": {
+    "Markdown": {
+      "prettier": {
+        "proseWrap": "always",
+      },
+    },
+  },
   "git": {
     "inline_blame": {
       "enabled": false,
