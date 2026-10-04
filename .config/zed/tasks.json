@@ -11,8 +11,9 @@
     "command": "exec $SHELL",
     "cwd": "$ZED_DIRNAME",
     "reveal_target": "center",
-    "use_new_terminal": true,
     "hide": "on_success",
+    "allow_concurrent_runs": true,
+    "use_new_terminal": true,
   },
   {
     "label": "copy: copy as mention",
