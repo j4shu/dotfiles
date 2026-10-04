@@ -90,6 +90,6 @@
     "git-firefly": true,
     "material-icon-theme": true,
     "toml": true,
-    "zig": true,
+    "tombi": true,
   },
 }
