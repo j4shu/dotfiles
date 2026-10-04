@@ -6,12 +6,15 @@
       "cmd-shift-k": "zed::OpenKeymapFile",
 
       // panels
-      "cmd-e": "project_panel::Toggle",
+      "cmd-e": "workspace::ToggleRightDock",
       "cmd-g": "git_panel::Toggle",
 
       // pane
       "ctrl-tab": ["pane::ActivateNextItem", { "wrap_around": false }],
-      "ctrl-shift-tab": ["pane::ActivatePreviousItem", { "wrap_around": false }],
+      "ctrl-shift-tab": [
+        "pane::ActivatePreviousItem",
+        { "wrap_around": false },
+      ],
       "cmd-r": "pane::RevealInProjectPanel",
       "cmd-1": ["pane::ActivateItem", 0],
       "cmd-2": ["pane::ActivateItem", 1],

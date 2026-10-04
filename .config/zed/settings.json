@@ -64,7 +64,6 @@
   },
   "ui_font_size": 18,
   "buffer_font_size": 18,
-  "preferred_line_length": 120,
   "languages": {
     "Markdown": {
       "prettier": {
