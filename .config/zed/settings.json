@@ -12,7 +12,6 @@
     "button": false,
   },
   "terminal": {
-    "default_height": 999.0,
     "cursor_shape": "bar",
     "button": false,
     "copy_on_select": true,
@@ -20,6 +19,7 @@
   },
   "disable_ai": true,
   "git_panel": {
+    "default_width": 240.0,
     "show_count_badge": true,
     "file_icons": true,
     "tree_view": true,
@@ -33,7 +33,6 @@
     "diagnostic_badges": true,
     "entry_spacing": "standard",
     "auto_fold_dirs": false,
-    "default_width": 360,
   },
   "tab_bar": {
     "show_pinned_tabs_in_separate_row": true,
@@ -88,7 +87,5 @@
     "catppuccin": true,
     "git-firefly": true,
     "material-icon-theme": true,
-    "toml": true,
-    "tombi": true,
   },
 }
