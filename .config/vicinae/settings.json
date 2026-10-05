@@ -41,7 +41,7 @@
         "com.google.Chrome": {
           "shortcut": "alt+1"
         },
-        "dev.zed.Zed": {
+        "com.microsoft.VSCode": {
           "shortcut": "alt+2"
         }
       }
