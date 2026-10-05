@@ -1,6 +1,3 @@
-# work
-# export TMPDIR=$HOME/.local/tmp
-
 # history
 HISTFILE="$HOME/.zsh_history"
 HISTSIZE=10000
