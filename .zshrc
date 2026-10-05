@@ -54,7 +54,7 @@ fi
 
 # eza https://github.com/eza-community/eza
 if command -v eza >/dev/null 2>&1; then
-    EZA_OPTIONS='--color=auto --icons=auto --all'
+    EZA_OPTIONS='--color=auto --icons=auto --all --reverse'
     EZA_LONG_OPTIONS="$EZA_OPTIONS --long --sort=modified --header --time-style='+%Y %b %e %R' --octal-permissions"
     alias l="eza $EZA_OPTIONS"
     alias ll="eza $EZA_LONG_OPTIONS"
