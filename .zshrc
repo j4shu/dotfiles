@@ -43,7 +43,6 @@ alias ppwd='pwd -P'
 alias ..='cd ..'
 alias drop='cd ~/Library/CloudStorage/Dropbox/'
 alias path='echo -e ${PATH//:/\\n} | sort'
-alias env="env | sort | awk -F= '{printf \"%-30s %s\n\", \$1, \$2}'"
 alias clear='printf "\033c"'
 alias act='source .venv/bin/activate'
 
