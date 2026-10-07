@@ -9,49 +9,49 @@
 // Learn more about configuration at https://docs.vicinae.com/config
 
 {
-  "$schema": "https://vicinae.com/schemas/config.json",
-  "pop_to_root_on_close": true,
-  "pop_on_backspace": true,
-  "escape_key_behavior": "",
-  "global_shortcuts": {
-    "toggle": "control+SPACE"
-  },
-  "font": {
-    "normal": {
-      "family": "ZedMono Nerd Font",
-      "size": 16
-    }
-  },
-  "theme": {
-    "dark": {
-      "name": "catppuccin-mocha"
-    }
-  },
-  "telemetry": {
-    "system_info": false
-  },
-  "launcher_window": {
-    "compact_mode": {
-      "enabled": true
-    }
-  },
-  "providers": {
-    "applications": {
-      "entrypoints": {
-        "com.google.Chrome": {
-          "shortcut": "alt+1"
-        },
-        "com.microsoft.VSCode": {
-          "shortcut": "alt+2"
-        }
+   "$schema": "https://vicinae.com/schemas/config.json",
+   "pop_to_root_on_close": true,
+   "pop_on_backspace": true,
+   "escape_key_behavior": "",
+   "global_shortcuts": {
+      "toggle": "control+SPACE"
+   },
+   "font": {
+      "normal": {
+         "family": "ZedMono Nerd Font",
+         "size": 16
       }
-    },
-    "clipboard": {
-      "entrypoints": {
-        "history": {
-          "shortcut": "control+alt+V"
-        }
+   },
+   "theme": {
+      "dark": {
+         "name": "vicinae-dark"
       }
-    }
-  }
+   },
+   "telemetry": {
+      "system_info": false
+   },
+   "launcher_window": {
+      "compact_mode": {
+         "enabled": true
+      }
+   },
+   "providers": {
+      "applications": {
+         "entrypoints": {
+            "com.google.Chrome": {
+               "shortcut": "alt+1"
+            },
+            "com.microsoft.VSCode": {
+               "shortcut": "alt+2"
+            }
+         }
+      },
+      "clipboard": {
+         "entrypoints": {
+            "history": {
+               "shortcut": "control+alt+V"
+            }
+         }
+      }
+   }
 }
