@@ -28,13 +28,16 @@ through this line. Then call `AskUserQuestion` once:
   downstream questions and hold the rest for a later round.
 - Prefix each question `Q<n>.` and keep counting across rounds, so the user can
   refer back to any question by number.
-- Give every question 2-4 options, open-ended ones included: draft plausible
-  answers and let the automatic "Other" carry anything the user types.
-- Every question has exactly one recommended option, listed first and labeled
-  "(Recommended)". A recommendation that fits no option means the options are
-  wrong.
+- Give every question exactly 3 drafted answers, open-ended ones included, then
+  a fourth option labeled "Compare the above" with the description "Explain the
+  trade-offs between these options in chat, then re-ask this question." The tool
+  appends "Other" automatically for anything the user types; never draft one.
+- Every question has exactly one recommended option among the 3 answers, listed
+  first and labeled "(Recommended)". A recommendation that fits no option means
+  the options are wrong.
 - Use `preview` when the options are concrete artifacts to compare (code,
   layouts, configs, diagrams); plain preferences get label and description only.
+  The "Compare the above" option never gets a `preview`.
 - A question whose answer depends on another question still open in this round
   belongs to a later round.
 
@@ -43,7 +46,9 @@ and let them redirect in chat; ask again only when they say so.
 
 An "Other" answer that asks a question or shows confusion leaves that decision
 open. Answer it in chat text, where the user can read it, before the next call,
-and ask the clarified question again in the next round.
+and ask the clarified question again in the next round. A "Compare the above"
+answer works the same way: compare that question's 3 options in chat, then ask
+the same `Q<n>` again in the next round.
 
 ## Find facts yourself
 
@@ -67,7 +72,8 @@ visited, nothing left silently assumed. Then:
 1. Print every settled decision as a compact numbered list in chat.
 2. Call `AskUserQuestion` once: shared understanding reached, reached and write
    a spec, or keep grilling. Put the same numbered list in both "reached"
-   options' `preview`, so the user confirms against decisions they can see.
+   options' `preview`, so the user confirms against decisions they can see. This
+   call has no "Compare the above" option.
 3. On "reached", act on the plan. On "write spec", follow
    `~/.claude/skills/to-spec/SKILL.md`. On "keep grilling", list every question
    and decision as `Q<n>. <question>: <the user's answer>`, ask in chat which
