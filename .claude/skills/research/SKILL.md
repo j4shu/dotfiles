@@ -19,6 +19,7 @@ file, so you keep working while the agent reads.
    dispatching the agent, call `AskUserQuestion` once to ask where to save, with
    these options:
    - `<cwd>/research-<slug>.md`, listed first and labeled "(Recommended)".
+   - `<cwd>/research/<slug>.md`.
    - The automatic "Other" carries a custom path.
 
    When the agent finishes, write the file there and report the path.

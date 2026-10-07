@@ -17,6 +17,7 @@ exception is the seam and location check below.
    call `AskUserQuestion` once to confirm the seams and ask where to save, with
    these options:
    - `<cwd>/spec-<slug>.md`, listed first and labeled "(Recommended)".
+   - `<cwd>/specs/<slug>.md`.
    - The automatic "Other" carries a custom path.
 
    Write the spec there with the template below and report the path.

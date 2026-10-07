@@ -48,6 +48,7 @@ disable-model-invocation: true
 2. **Save.** Pick a short kebab-case `<slug>` from the <topic>. Before writing,
    call `AskUserQuestion` once to ask where to save, with these options:
    - `<cwd>/<kind>-<slug>.md`, listed first and labeled "(Recommended)".
+   - <other options>
    - The automatic "Other" carries a custom path.
 
    Write the file there and report the path.

@@ -15,6 +15,7 @@ can continue the work.
 2. **Save.** Pick a short kebab-case `<slug>` from the work. Before writing,
    call `AskUserQuestion` once to ask where to save, with these options:
    - `<cwd>/handoff-<slug>.md`, listed first and labeled "(Recommended)".
+   - `<cwd>/handoffs/<slug>.md`.
    - The automatic "Other" carries a custom path.
 
    Write the file there and report the path.
