@@ -116,32 +116,6 @@ if command -v zoxide >/dev/null 2>&1; then
     bindkey '^o' zoxide_fzf
 fi
 
-# herdr
-if command -v herdr >/dev/null 2>&1; then
-    alias zz='herdr'
-    alias zd='herdr server stop'
-fi
-
-# bob
-if command -v bob >/dev/null 2>&1; then
-    path+="$HOME/.local/share/bob/nvim-bin"
-    export EDITOR='nvim'
-    export VISUAL='nvim'
-
-    # yadm
-    if command -v yadm >/dev/null 2>&1; then
-        v() {
-            if [[ $PWD == $HOME/.config || $PWD == $HOME/.claude ]]; then
-                yadm enter nvim "$@"
-            else
-                nvim "$@"
-            fi
-        }
-    else
-        alias v='nvim'
-    fi
-fi
-
 # claude
 if command -v claude >/dev/null 2>&1; then
     alias c='claude'
