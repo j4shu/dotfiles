@@ -1,8 +1,6 @@
 [user]
     name = Jason Shu
     email = shumatt190@gmail.com
-[core]
-    editor = nvim
 [pull]
     rebase = true
     autoStash = true

@@ -167,3 +167,8 @@ if command -v gh >/dev/null 2>&1; then
         git clone "$url" && echo "$url"
     }
 fi
+
+if command -v code >/dev/null 2>&1; then
+    export EDITOR='code --wait'
+    export VISUAL="$EDITOR"
+fi
