@@ -23,6 +23,7 @@ PLUGIN_DIR="$HOME/.config/plugins"
 typeset -U path
 path=("$HOME/.local/bin" $path)
 path=("$HOME/.cargo/bin" $path)
+path=("$HOME/go/bin" $path)
 
 # zsh
 autoload -Uz edit-command-line
