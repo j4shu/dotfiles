@@ -1,6 +1,11 @@
+# brew
+if [[ -f /opt/homebrew/bin/brew ]]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
 # history
 HISTFILE="$HOME/.zsh_history"
-HISTSIZE=10000
+HISTSIZE=1000000
 SAVEHIST=$HISTSIZE
 # https://github.com/rothgar/mastering-zsh/blob/master/docs/config/history.md
 setopt EXTENDED_HISTORY     # Write the history file in the ':start:elapsed;command' format.
@@ -43,14 +48,8 @@ alias g='cd ~/git'
 alias ppwd='pwd -P'
 alias ..='cd ..'
 alias drop='cd ~/Library/CloudStorage/Dropbox/'
-alias path='echo -e ${PATH//:/\\n} | sort'
 alias clear='printf "\033c"'
 alias act='source .venv/bin/activate'
-
-# brew
-if [[ -f /opt/homebrew/bin/brew ]]; then
-    eval "$(/opt/homebrew/bin/brew shellenv)"
-fi
 
 # eza https://github.com/eza-community/eza
 if command -v eza >/dev/null 2>&1; then
@@ -149,23 +148,6 @@ if command -v claude >/dev/null 2>&1; then
     }
     zle -N claude_fork_fzf
     bindkey '^[f' claude_fork_fzf
-fi
-
-# gh
-if command -v gh >/dev/null 2>&1; then
-    mkrepo() {
-        [[ -n $1 ]] || {
-            echo "usage: mkrepo <name>" >&2
-            return 1
-        }
-        local url
-        url=$(gh api user/repos -f name="$1" -F private=true \
-            -F allow_squash_merge=true -F allow_merge_commit=false -F allow_rebase_merge=false \
-            -F delete_branch_on_merge=true \
-            -f squash_merge_commit_title=PR_TITLE -f squash_merge_commit_message=PR_BODY \
-            --jq .html_url) || return
-        git clone "$url" && echo "$url"
-    }
 fi
 
 if command -v code >/dev/null 2>&1; then
