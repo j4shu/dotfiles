@@ -1,6 +1,4 @@
 {
-  "model": "opus",
-  "effortLevel": "medium",
   "attribution": {
     "commit": "",
     "pr": ""
@@ -16,6 +14,7 @@
       "PowerShell"
     ]
   },
+  "model": "opus",
   "worktree": {
     "bgIsolation": "none"
   },
@@ -24,17 +23,9 @@
     "command": "python3 /Users/jshu/.claude/statusline.py"
   },
   "enabledPlugins": {
-    "ponytail@ponytail": true,
-    "telemetry@builtin": false
+    "cc-plugin-you-should-know@builtin": true
   },
-  "extraKnownMarketplaces": {
-    "ponytail": {
-      "source": {
-        "source": "github",
-        "repo": "DietrichGebert/ponytail"
-      }
-    }
-  },
+  "effortLevel": "medium",
   "promptSuggestionEnabled": false,
   "autoMemoryEnabled": false,
   "autoCompactEnabled": false
