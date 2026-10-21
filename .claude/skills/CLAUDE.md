@@ -10,6 +10,8 @@ Follow the standards below when creating or editing a skill.
 | `to-spec`  | Turns the conversation into a spec file.                |
 | `handoff`  | Compacts the conversation into a doc for a fresh agent. |
 | `research` | Researches a question against primary sources.          |
+| `diagnose` | Diagnoses and fixes a bug through a failing loop first. |
+| `what`     | Re-explains the last reply in plain English.            |
 
 Typical chain: `grill` -> `to-spec`. `grill` can hand off to `to-spec` directly;
 the others run independently.
