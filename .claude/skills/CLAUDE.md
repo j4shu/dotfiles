@@ -4,17 +4,15 @@ Follow the standards below when creating or editing a skill.
 
 ## Index
 
-| Skill            | Does                                                    |
-| ---------------- | ------------------------------------------------------- |
-| `grill`          | Interviews you in rounds until a plan is fully decided. |
-| `to-spec`        | Turns the conversation into a spec file.                |
-| `implement-spec` | Implements a spec in the working tree, task by task.    |
-| `handoff`        | Compacts the conversation into a doc for a fresh agent. |
-| `research`       | Researches a question against primary sources.          |
-| `retro`          | Reviews recent cwd sessions and suggests changes.       |
+| Skill      | Does                                                    |
+| ---------- | ------------------------------------------------------- |
+| `grill`    | Interviews you in rounds until a plan is fully decided. |
+| `to-spec`  | Turns the conversation into a spec file.                |
+| `handoff`  | Compacts the conversation into a doc for a fresh agent. |
+| `research` | Researches a question against primary sources.          |
 
-Typical chain: `grill` -> `to-spec` -> `implement-spec`. `grill` can hand off to
-`to-spec` directly; the others run independently.
+Typical chain: `grill` -> `to-spec`. `grill` can hand off to `to-spec` directly;
+the others run independently.
 
 ## Standards
 
