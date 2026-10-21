@@ -1,7 +1,4 @@
 {
-  "env": {
-    "CLAUDE_CODE_PLUGIN_DIRS": "/Users/jshu/git/cc-readable"
-  },
   "attribution": {
     "commit": "",
     "pr": ""
